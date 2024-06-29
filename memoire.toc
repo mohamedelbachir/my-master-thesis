@@ -1,0 +1,54 @@
+\select@language {french}
+\contentsline {chapter}{D\IeC {\'e}dicace}{i}{chapter*.1}
+\contentsline {chapter}{Remerciements}{ii}{chapter*.2}
+\contentsline {chapter}{Table des mati\`eres}{iii}{chapter*.3}
+\contentsline {chapter}{Liste de figures}{v}{chapter*.4}
+\contentsline {chapter}{Liste des tableaux}{vi}{chapter*.5}
+\contentsline {chapter}{Notation et abr\'{e}viations}{vii}{chapter*.6}
+\contentsline {chapter}{Abstract}{viii}{chapter*.7}
+\contentsline {chapter}{R\IeC {\'e}sum\IeC {\'e}}{ix}{chapter*.8}
+\contentsline {chapter}{General Introduction}{1}{chapter*.9}
+\contentsline {chapter}{\numberline {1}\IeC {\'E}pid\IeC {\'e}miologie de la Chikungunya}{2}{chapter.1}
+\contentsline {section}{\numberline {1.1}Origine de la Chikungunya}{2}{section.1.1}
+\contentsline {section}{\numberline {1.2}Agent Pathog\IeC {\`e}ne}{2}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Le virus Chikungunya}{2}{subsection.1.2.1}
+\contentsline {section}{\numberline {1.3}Mode de Transmission}{3}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Vecteurs : Les moustiques Aedes}{3}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}La transmission}{4}{subsection.1.3.2}
+\contentsline {section}{\numberline {1.4}Sympt\IeC {\^o}mes et Diagnostic}{5}{section.1.4}
+\contentsline {subsection}{\numberline {1.4.1}Sympt\IeC {\^o}mes}{5}{subsection.1.4.1}
+\contentsline {subsection}{\numberline {1.4.2}M\IeC {\'e}thodes de diagnostic}{5}{subsection.1.4.2}
+\contentsline {section}{\numberline {1.5}M\IeC {\'e}thodes de Contr\IeC {\^o}le et Traitement}{5}{section.1.5}
+\contentsline {subsection}{\numberline {1.5.1}M\IeC {\'e}thodes de contr\IeC {\^o}le}{5}{subsection.1.5.1}
+\contentsline {subsection}{\numberline {1.5.2}Options de traitement}{6}{subsection.1.5.2}
+\contentsline {section}{\numberline {1.6}Cas du Tchad}{6}{section.1.6}
+\contentsline {subsection}{\numberline {1.6.1}Facteurs climatiques influen\IeC {\c c}ant la propagation}{6}{subsection.1.6.1}
+\contentsline {subsection}{\numberline {1.6.2}\IeC {\'E}tudes de cas et donn\IeC {\'e}es climatiques}{6}{subsection.1.6.2}
+\contentsline {chapter}{\numberline {2}Revue de la litterature et concepts de base}{7}{chapter.2}
+\contentsline {section}{\numberline {2.1}Introduction}{7}{section.2.1}
+\contentsline {section}{\numberline {2.2}Apprentissage Automatique (Machine Learning)}{7}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Concepts de base}{7}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}La r\IeC {\'e}gression lin\IeC {\'e}aire}{7}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}For\IeC {\^e}t al\IeC {\'e}atoire (Random Forest)}{7}{subsection.2.2.3}
+\contentsline {section}{\numberline {2.3}Apprentissage Profond (Deep Learning)}{7}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}R\IeC {\'e}seaux de neurones profonds}{7}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Algorithmes sp\IeC {\'e}cifiques (e.g., LSTM, CNN)}{7}{subsection.2.3.2}
+\contentsline {section}{\numberline {2.4}R\IeC {\'e}gression par Ensemble}{8}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Concepts de r\IeC {\'e}gression par ensemble}{8}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Avantages des m\IeC {\'e}thodes d'ensemble}{8}{subsection.2.4.2}
+\contentsline {subsection}{\numberline {2.4.3}Algorithmes d'ensemble (e.g., Gradient Boosting, XGBoost)}{8}{subsection.2.4.3}
+\contentsline {chapter}{\numberline {3}Impl\IeC {\'e}mentation des Mod\IeC {\`e}les}{9}{chapter.3}
+\contentsline {section}{\numberline {3.1}Introduction}{9}{section.3.1}
+\contentsline {section}{\numberline {3.2}Pr\IeC {\'e}sentation des Outils Utilis\IeC {\'e}s}{9}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Langages et librairies (e.g., Python, Scikit-learn, TensorFlow)}{9}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Infrastructure mat\IeC {\'e}rielle (e.g., GPU, serveurs)}{9}{subsection.3.2.2}
+\contentsline {section}{\numberline {3.3}M\IeC {\'e}thodes de l'Apprentissage Automatique}{9}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Le jeu de donn\IeC {\'e}es}{9}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Pr\IeC {\'e}paration et nettoyage des donn\IeC {\'e}es}{9}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Impl\IeC {\'e}mentation des mod\IeC {\`e}les de machine learning}{9}{subsection.3.3.3}
+\contentsline {section}{\numberline {3.4}M\IeC {\'e}thodes de l'Apprentissage Profond}{9}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Le jeu de donn\IeC {\'e}es}{10}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Pr\IeC {\'e}paration des donn\IeC {\'e}es pour le deep learning}{10}{subsection.3.4.2}
+\contentsline {subsection}{\numberline {3.4.3}Impl\IeC {\'e}mentation des mod\IeC {\`e}les de deep learning}{10}{subsection.3.4.3}
+\contentsline {chapter}{General Conclusion}{12}{chapter*.18}
+\contentsline {chapter}{Bibliographie}{13}{chapter*.19}

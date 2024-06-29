@@ -1,0 +1,646 @@
+\chapter{Experiments, Results and Discussions}
+
+
+\section{Introduction}
+In the previous chapter, we presented our proposed traffic speed prediction model in order to improve the prediction accuracy. Furthermore, we detailed the different design steps of our system to achieve this prediction. In order to realise our system, we have used several development tools, both software and hardware. This chapter is devoted to the presentation of the working environment, the programming language and the tools we used to build this system. Afterwards, we will explain all the experiments carried out on the proposed method as well as the discussion of the results obtained.
+
+
+\section{Development Tools and Languages}
+\subsection{Material Tools}
+We built our system using an Ubuntu 20.04.3 LTS 64-bit workstation, an Intel(R) Core (TM) i5-8250U CPU @1.60GHz x 8, 12 GB RAM, 500 GB HDD and Radeon 500.
+
+\subsection{Software Tools}
+For the development of our model, we used the Python language with some well known libraries working on machine learning. The different environments and tools used are shown in Figure \ref{Tools to Develop our Model}.
+
+\begin{figure}[!h]
+	\begin{center}
+		%taille de l'image en largeur
+		%remplacer "width" par "height" pour régler la hauteur
+		%\includegraphics[width=10cm]{images/Development_tools.png}
+	\end{center}
+	%légende de l'image
+	\caption{Tools to Develop our Model}
+	\label{Tools to Develop our Model}
+\end{figure}
+
+\subsubsection{Platform}
+
+\begin{itemize}
+	
+	\item Anaconda is a free and open-source distribution of programming languages, delivered with the Python interpreter and various packages related to machine learning and data science to allow people interested in these areas to easily install all (or most) of the necessary packages in a single installation and thus simplify package management and deployment.
+	
+	\item Python3 is cross-platform, interpreted programming language. It supports structured, functional and object-oriented imperative programming. It has strong dynamic typing, automatic memory management by garbage collection and an exception handling system~\cite{Python3}.
+	
+\end{itemize}
+
+\subsubsection{IDE (Integrated Development Environment)}
+
+
+\begin{itemize}
+	
+	\item JupyterLab is an open-source web application that, allows users to create and share documents that contain live code, equations, visualizations and narrative text. Use cases include : data cleaning and transformation, numerical simulation, statistical modeling, data visualization, machine learning, and much more~\cite{Jupyter_site}.
+	
+\end{itemize}
+
+\subsubsection{Libraries}
+
+\begin{itemize}
+	
+	\item Numpy it’s the fundamental package for scientific computing with Python. It supports large, multi-dimensional arrays and matrices computation with a large collection of high-level mathematical functions~\cite{Numpy_site}. It mainly help us with the Euclidean distance
+	computation.
+	
+	\item Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations in Python~\cite{Matplotlib_site}. This library provides an easy way to visualize the
+	various membership function, fuzzy rules and defuzzification methods.
+	
+	\item Pandas it’s an open source data analysis and manipulation tool built on top of the Python programming language~\cite{Pandas_site}. This package provides us some tools to clean, manipulate our dish dataset.
+	
+	\item Scikit-Learn is a free python library for machine learning. It has many features including random drills, logistic regressions, classification algorithms and vector machines.
+	
+\end{itemize}
+
+\section{Implementation}
+The following steps present the implementation of our machine learning model KnnLSTM-KF which are mentioned in the previous chapter, mainly with Python3. 
+
+\subsection{Identify the Road Traffic Flow Dataset (Input)}
+The dataset used to build our model is explained in the previous chapter (section 3.2.1). It is in the form of a file (.csv) with the name 'June.csv' size (1130507 rows, 5 columns). Its original form is shown in Figure \ref{Traffic Flow Data} : 
+
+
+\begin{figure}[!h]
+	\begin{center}
+		%taille de l'image en largeur
+		%remplacer "width" par "height" pour régler la hauteur
+		%\includegraphics[width=18cm]{images/Traffic_flow_data.png}
+	\end{center}
+	%légende de l'image
+	\caption{Traffic Flow Data  ~\cite{dataset_for_traffic_speed_prediction}.}
+	\label{Traffic Flow Data}
+\end{figure} 
+
+The description of the data fields is shown in Table 4.1 : \\
+
+
+\begin{table}[!hbt]
+	 \caption{Description of Dataset Fields}
+	\centering
+     \begin{tabular}{|>{\centering}p{0.4\linewidth}|>{\centering\arraybackslash}p{0.4\linewidth}|}
+     	\hline  
+     	\textbf{Field names }
+     	&    \textbf{Descriptions}\\  
+     	\hline
+     	Speed (mph) 'Miles per hour' &  Traffic speed, v, is defined as the speed of travel of a vehicle over a given distance per unit time.\\   
+     	\hline
+     	TravelTime & 
+     	The number of times a vehicle has travelled on a road segment at a given time. It is expressed in minutes.\\       
+     	\hline 
+     	DateAsOf & The time and date on which the sensors collected the data from the moving vehicles.\\        
+     	\hline
+     	LinkId & Contains the identifiers of the road segments.\\
+     	\hline
+     \end{tabular}
+\end{table}
+
+\section{Learning Performance}
+The curves below allow us to judge the relevance of our learning models. On the x-axis, we have the time and on the y-axis, the speeds. The blue curve represents the linear velocities over time and the red curve represents our learning curve. The prediction was made from 6:45:50 second to 8:20:49 second and predicts the speed of traffic at regular five minutes intervals in the future. 
+
+\subsection{KNN}
+
+Figure \ref{Simple KNN} is a representation of the variation of the target and predicted speeds over time. We see that the learning curve follows the normal curve in the time intervals [4;9], [12;14], [16;18] and [20;23]. However, in other intervals, we can deduce a large difference in prediction accuracy between the normal curve and the learning curve.
+\pagebreak
+
+\begin{figure}[!h]
+	\begin{center}
+		%taille de l'image en largeur
+		%remplacer "width" par "height" pour régler la hauteur
+		%\includegraphics[width=18cm]{images/Knn_simple.png}
+	\end{center}
+	%légende de l'image
+	\caption{Simple KNN.}
+	\label{Simple KNN}
+\end{figure} 
+
+
+Figure \ref{MAPE Simple KNN} shows the MAPE of the simple KNN model. During peak hours, i.e. between [9;15] and [23;30], it is difficult to perform the prediction because the MAPE is high due to the high number of requests on this traffic.
+
+
+\begin{figure}[!h]
+	\begin{center}
+		%taille de l'image en largeur
+		%remplacer "width" par "height" pour régler la hauteur
+		%\includegraphics[width=18cm]{images/Mape_knn_simple.png}
+	\end{center}
+	%légende de l'image
+	\caption{MAPE Simple KNN.}
+	\label{MAPE Simple KNN}
+\end{figure} 
+
+Figure \ref{MSE Simple KNN} shows the MSE of the simple KNN model. During peak hours, i.e. between [9;13], it is difficult to make the prediction because the MSE is high due to the high number of requests on this traffic.
+
+\begin{figure}[!h]
+	\begin{center}
+		%taille de l'image en largeur
+		%remplacer "width" par "height" pour régler la hauteur
+		%%\includegraphics[width=18cm]{images/Mse_knn_simple.png}
+	\end{center}
+	%légende de l'image
+	\caption{MSE Simple KNN.}
+	\label{MSE Simple KNN}
+\end{figure}
+
+Table 4.2 shows the MAPE and MSE of each time interval for the single KNN.
+
+\begin{longtable}[c]{|>{\centering}p{0.3\linewidth}|>{\centering}p{0.3\linewidth}|>{\centering\arraybackslash}p{0.3\linewidth}|} 
+	\caption{Results of the Single KNN Metrics} \\
+	\hline
+	\textbf{MAPE} & \textbf{MSE} & \textbf{TIMES}\\
+	\hline \endfirsthead
+	\hline
+	\textbf{MAPE} & \textbf{MSE} & \textbf{TIMES}\\
+	\hline \endhead
+	\hline
+	\multicolumn{3}{r}{continued on the next page\ldots}\\
+	\endfoot
+	\endlastfoot  
+	\hline
+	0.875 & 342.399 & 06:45:50 \\   
+	\hline
+	0.155 & 12.708 & 06:50:49\\       
+	\hline 
+	0.114 & 6.907	& 06:55:49\\        
+	\hline
+	0.772 & 235.938 & 07:00:50\\
+	\hline
+	0.337 & 50.943 & 07:05:50\\   
+	\hline
+	0.034 & 3.705 & 	07:10:50\\       
+	\hline 
+	0.079 & 7.563 & 07:15:49 \\        
+	\hline
+	0.015 & 0.197	& 07:20:50\\
+	\hline
+	0.088 & 26.091 & 07:25:49\\   
+	\hline
+	0.356 & 25.886	& 07:30:49\\       
+	\hline 
+	1.010 & 403.929	 & 07:35:50\\        
+	\hline
+	0.057 & 1.318 & 07:40:49\\
+	\hline
+	1.976 & 1449.083 & 07:45:49\\   
+	\hline
+	0.339 & 1.600 & 07:50:49\\       
+	\hline 
+	0.056 & 1.859 & 07:55:51 \\        
+	\hline
+	0.115 & 5.286 & 08:00:50\\
+	\hline
+	0.146 & 9.553 & 08:05:50\\   
+	\hline
+	0.063 & 10.114 & 08:10:50 \\       
+	\hline 
+	0.197 & 24.036 & 08:15:49\\        
+	\hline
+	0.490 & 404.634 & 08:20:49 \\
+	\hline
+\end{longtable}
+
+
+\subsection{KNN with Pearson Correlation}
+Figure \ref{KNN} is a representation of the variation of the target and predicted speeds over time. We see that the learning curve follows the normal curve in the time intervals [4;9], [12;14], [16;18], [25;27] and [28;30]. We also see the disappearance of the peak in the interval [11;14] and in the interval [26;28] we see a slight flattening of the learning curve. In other intervals, however, there was no change.
+
+\pagebreak
+ 
+
+\begin{figure}[!h]
+	\begin{center}
+		%taille de l'image en largeur
+		%remplacer "width" par "height" pour régler la hauteur
+		%\includegraphics[width=18cm]{images/KNN.png}
+	\end{center}
+	%légende de l'image
+	\caption{KNN.}
+	\label{KNN}
+\end{figure}
+
+Figure \ref{MAPE KNN} shows the MAPE of the KNN model with weights. During peak hours, i.e. between [8;11] and [23;28], it is difficult to perform the prediction because the MAPE is high due to the high number of requests on this traffic.
+
+\begin{figure}[!h]
+	\begin{center}
+		%taille de l'image en largeur
+		%remplacer "width" par "height" pour régler la hauteur
+		%\includegraphics[width=18cm]{images/Mape_knn_avec_poids.png}
+	\end{center}
+	%légende de l'image
+	\caption{MAPE KNN.}
+	\label{MAPE KNN}
+\end{figure} 
+
+\pagebreak
+Figure \ref{MSE KNN} shows the MSE of the KNN model with weights. During peak hours, i.e. between [9;11] and [23;26], it is difficult to perform the prediction because the MSE is high due to the high number of requests on this traffic.
+\begin{figure}[!h]
+	\begin{center}
+		%taille de l'image en largeur
+		%remplacer "width" par "height" pour régler la hauteur
+		%\includegraphics[width=18cm]{images/Mse_knn_avec_poids.png}
+	\end{center}
+	%légende de l'image
+	\caption{MSE KNN.}
+	\label{MSE KNN}
+\end{figure}
+
+Table 4.3 shows the MAPE and MSE of each time interval for the KNN with weights.
+
+\begin{longtable}[c]{|>{\centering}p{0.3\linewidth}|>{\centering}p{0.3\linewidth}|>{\centering\arraybackslash}p{0.3\linewidth}|}
+	\caption{Results of the KNN Metrics} \\
+	\hline
+	\textbf{MAPE} & \textbf{MSE} & \textbf{TIMES}\\
+	\hline \endfirsthead
+	\hline
+	\textbf{MAPE} & \textbf{MSE} & \textbf{TIMES}\\
+	\hline \endhead
+	\hline
+	\multicolumn{3}{r}{continued on the next page\ldots}\\
+	\endfoot
+	\endlastfoot
+	\hline
+	0.286 & 36.529 & 06:45:50 \\   
+	\hline
+	0.020 & 0.220 & 06:50:49\\       
+	\hline 
+	0.065 & 2.258 & 06:55:49\\        
+	\hline
+	0.168 & 11.257 & 07:00:50\\
+	\hline
+	0.087 & 3.385 & 07:05:50\\   
+	\hline
+	0.015 & 0.753 & 	07:10:50\\       
+	\hline 
+	0.081 & 8.110 & 07:15:49 \\        
+	\hline
+	0.050 & 2.198 & 07:20:50\\
+	\hline
+	0.042 & 6.155 & 07:25:49\\   
+	\hline
+	0.344 & 24.245	& 07:30:49\\       
+	\hline 
+	0.872 & 301.038 & 07:35:50\\        
+	\hline
+	0.016 & 0.109 & 07:40:49\\
+	\hline
+	0.114 & 4.821 & 07:45:49\\   
+	\hline
+	0.339 & 1.600 & 07:50:49\\       
+	\hline 
+	0.003 & 0.00743 & 07:55:51 \\        
+	\hline
+	0.113 & 5.068 & 08:00:50\\
+	\hline
+	0.135 & 8.142 & 08:05:50\\   
+	\hline
+	0.055 & 7.537 & 08:10:50 \\       
+	\hline 
+	0.190 & 22.420 & 08:15:49\\        
+	\hline
+	0.162 & 44.261 & 08:20:49 \\
+	\hline
+\end{longtable}
+
+\subsection{KNN-KF}
+Figure \ref{KNN-FK} is a representation of the variation of the target and predicted velocities over time. In this section, we have hybridized the KNN with the KF. From the curve results, we see that the learning curve does not follow the normal curve in the intervals [0;4], [6;7], [25;27], [10;12], [14;16] and [27;28]. In other words, the KNN-KF model to apply an improvement on the above mentioned models. 
+\pagebreak
+
+\begin{figure}[!h]
+	\begin{center}
+		%taille de l'image en largeur
+		%remplacer "width" par "height" pour régler la hauteur
+		%\includegraphics[width=18cm]{images/KNN-KF.png}
+	\end{center}
+	%légende de l'image
+	\caption{KNN-FK.}
+	\label{KNN-FK}
+\end{figure}
+
+
+Figure \ref{MAPE KNN-FK} shows the MAPE of the KNN-KF model. During peak hours, i.e. between [10;15] and [26;29], it is difficult to perform the prediction because the MAPE is high due to the high number of requests on this traffic. 
+\begin{figure}[!h]
+	\begin{center}
+		%taille de l'image en largeur
+		%remplacer "width" par "height" pour régler la hauteur
+		%\includegraphics[width=18cm]{images/Mape_knn_avec_poids_Fk.png}
+	\end{center}
+	%légende de l'image
+	\caption{MAPE KNN-FK.}
+	\label{MAPE KNN-FK}
+\end{figure}
+
+Figure \ref{MSE KNN-FK} shows the MSE of the KNN-KF model. During peak hours, i.e. between [2;18] and [28;29], it is difficult to make the prediction because the MSE is high due to the high number of requests on this traffic.
+
+\begin{figure}[!h]
+	\begin{center}
+		%taille de l'image en largeur
+		%remplacer "width" par "height" pour régler la hauteur
+		%\includegraphics[width=18cm]{images/Mse_knn_avec_poids_FK.png}
+	\end{center}
+	%légende de l'image
+	\caption{MSE KNN-FK.}
+	\label{MSE KNN-FK}
+\end{figure}
+
+Table 4.4 shows the MAPE and MSE of each time interval for the KNN-KF.
+
+
+\begin{longtable}[c]{|>{\centering}p{0.3\linewidth}|>{\centering}p{0.3\linewidth}|>{\centering\arraybackslash}p{0.3\linewidth}|}
+	\caption{Results of the KNN-KF} \\
+	\hline
+	\textbf{MAPE} & \textbf{MSE} & \textbf{TIMES}\\
+	\hline \endfirsthead
+	\hline
+	\textbf{MAPE} & \textbf{MSE} & \textbf{TIMES}\\
+	\hline \endhead
+	\hline
+	\multicolumn{3}{r}{continued on the next page\ldots}\\
+	\endfoot
+	\endlastfoot
+	\hline
+	0.023 & 0.239 & 06:45:50 \\   
+	\hline
+	0.036 & 0.722 & 06:50:49\\       
+	\hline 
+	0.027 & 0.392 & 06:55:49\\        
+	\hline
+	0.009 & 0.037 & 07:00:50\\
+	\hline
+	0.083 & 3.149 & 07:05:50\\   
+	\hline
+	0.011 & 0.435 & 	07:10:50\\       
+	\hline 
+	0.046 & 2.636 & 07:15:49 \\        
+	\hline
+	0.062 & 3.298 & 07:20:50\\
+	\hline
+	0.010 & 0.370 & 07:25:49\\   
+	\hline
+	0.118 & 2.860 & 07:30:49\\       
+	\hline 
+	0.011 & 0.047 & 07:35:50\\        
+	\hline
+	0.081 & 2.620 & 07:40:49\\
+	\hline
+	0.059 & 1.299 & 07:45:49\\   
+	\hline
+	0.414 & 2.384 & 07:50:49\\       
+	\hline 
+	0.002 & 0.004 & 07:55:51 \\        
+	\hline
+	0.012 & 0.060 & 08:00:50\\
+	\hline
+	0.061 & 1.673 & 08:05:50\\   
+	\hline
+	0.037 & 3.401 & 08:10:50 \\       
+	\hline 
+	0.006 & 0.026 & 08:15:49\\        
+	\hline
+	0.045 & 3.526 & 08:20:49 \\
+	\hline
+\end{longtable}
+
+\subsection{KNN-LSTM}
+Figure \ref{KNN-LSTM} is a representation of the variation of the target and predicted velocities over time. In this section, we have hybridized the KNN with the LSTM. From the analyses, we see that the learning curve does not follow the normal curve in the intervals [0;65] and [72;100].
+\pagebreak
+
+\begin{figure}[!h]
+	\begin{center}
+		%taille de l'image en largeur
+		%remplacer "width" par "height" pour régler la hauteur
+		%\includegraphics[width=18cm]{images/KNN-LSTM.png}
+	\end{center}
+	%légende de l'image
+	\caption{KNN-LSTM.}
+	\label{KNN-LSTM}
+\end{figure}
+
+Table 4.5 shows the MAPE and MSE of each time interval for the KNN-LSTM.
+
+\begin{longtable}[c]{|>{\centering}p{0.3\linewidth}|>{\centering}p{0.3\linewidth}|>{\centering\arraybackslash}p{0.3\linewidth}|}
+	\caption{Results of the KNN-LSTM} \\
+	\hline
+	\textbf{MAPE} & \textbf{MSE} & \textbf{TIMES}\\
+	\hline \endfirsthead
+	\hline
+	\textbf{MAPE} & \textbf{MSE} & \textbf{TIMES}\\
+	\hline \endhead
+	\hline
+	\multicolumn{3}{r}{continued on the next page\ldots}\\
+	\endfoot
+	\endlastfoot
+	\hline
+	0.040 & 3.058 & 06:45:50 \\   
+	\hline
+	0.009 & 0.168 & 06:50:49\\       
+	\hline 
+	0.0936 & 16.307 & 06:55:49\\        
+	\hline
+	0.053 & 5.125 & 07:00:50\\
+	\hline
+	0.001 & 0.002 & 07:05:50\\   
+	\hline
+	0.046 & 3.775 & 	07:10:50\\       
+	\hline 
+	0.111 & 20.738 & 07:15:49 \\        
+	\hline
+	0.113 & 20.730 & 07:20:50\\
+	\hline
+	0.109 & 19.676 & 07:25:49\\   
+	\hline
+	0.093 & 14.390 & 07:30:49\\       
+	\hline 
+	0.096 & 15.591 & 07:35:50\\        
+	\hline
+	0.120& 24.390 & 07:40:49\\
+	\hline
+	0.0394 & 2.708 & 07:45:49\\   
+	\hline
+	0.027 & 1.330 & 07:50:49\\       
+	\hline 
+	0.0128& 0.294 & 07:55:51 \\        
+	\hline
+	0.099 & 17.928 & 08:00:50\\
+	\hline
+	0.108 & 22.206 & 08:05:50\\   
+	\hline
+	0.034 & 2.424 & 08:10:50 \\       
+	\hline 
+	0.045 & 4.303 & 08:15:49\\        
+	\hline
+	0.003 & 0.031 & 08:20:49 \\
+	\hline
+	
+\end{longtable}
+
+
+\section{Prediction with KNN-LSTM-KF}
+
+\subsection{Hyperparameters}
+The hyperparameters involved in our model are manually adjusted by different experiments until a good result of MAPE and MSE is achieved. We started with the use of a KNN with weights by setting the parameter K=9 but we obtained a large shift in the prediction. Then, we added LSTM by setting the learning rate to 1e-3, the number of epochs to 10 considering 64 units and setting the batch size to 30. According to its parameters, it provides a satisfactory result. By adding a final KF method, we find that the results are better. The following table shows the different hyperparameters that have been used in our model.
+
+\begin{table}[!hbt]
+	\caption{The Hyperparameters of our proposed KnnLSTM-KF model.} 
+	\centering
+	\begin{tabular}{>{\centering}p{0.4\linewidth}|>{\centering\arraybackslash}p{0.4\linewidth}}
+		\hline  
+		\textbf{ Hyperparameters }
+		&    \textbf{Values}\\  
+		\hline
+		Apprenticeship rates (lr) & 1e-3\\   
+		\hline 
+		Batch size & 30\\       
+		\hline 
+		Epochs & 10\\ 
+		\hline
+		K & 9\\          
+		\hline
+		Timestamps & 20\\
+		\hline
+		
+	\end{tabular}
+\end{table}
+\pagebreak
+
+\subsection{Training}
+The part presented in the figure below expresses the training of our model :
+
+\begin{figure}[!h]
+	\begin{center}
+		%taille de l'image en largeur
+		%remplacer "width" par "height" pour régler la hauteur
+		%\includegraphics[width=14cm]{images/prediction.png}
+	\end{center}
+	%légende de l'image
+	\caption{Training our Model.}
+	\label{Training our Model}
+\end{figure}
+
+In the training of our model, the KNN method with weights was used to select the spatio-temporal characteristics of the closest speeds to the test road link. These nearest speeds are then inserted into the LSTM to predict the traffic speed taking into consideration a parameter w at the output. The Relu (Rectified Linear Unit) was chosen as the activation function for all model layers and the MSE is the most commonly used regression loss function that calculates the sum of squares of the distance between the predicted and actual value. We use Adam as an optimiser, which has demonstrated good generality and fast convergence in deep learning models with a learning rate of lr = 1e-3 to compile the model. We also used the Modelcheckpoint to save the model or its weights if there is a decrease in the error value on the test data set. The patience parameter is set to 5.
+
+\begin{figure}[!h]
+	\begin{center}
+		%taille de l'image en largeur
+		%remplacer "width" par "height" pour régler la hauteur
+		%\includegraphics[width=18cm]{images/Ajustement_FK.png}
+	\end{center}
+	%légende de l'image
+	\caption{Speed Adjustment by the KF.}
+	\label{Speed Adjustment by the KF}
+\end{figure}
+
+The KF method is used to dynamically adjust the speeds predicted by the LSTM. When the vehicle enters the section at time x with speed y, its elements are recorded. During the next section, these elements are taken into consideration and allow to estimate the arrival time of the vehicle. In case of non-compliance, an adjustment is made by the Kalman Filter taking into consideration the time of departure of the vehicle and the speed it had on this section of road to allow the vehicle to arrive at its destination.  
+
+
+\section{Evaluation of our Approach}
+
+In our work, we have performed five speed prediction experiments on the same data set. These experiments are conducted and evaluated separately. In each experiment, we compare our proposed KnnLSTM-KF model with other models using the same dataset namely Simple KNN, KNN, KNN-KF, KNN-LSTM. The comparison is made in terms of efficiency under the same conditions.
+
+In this experiment, we take the time speed data from the previous intervals as a traffic flow feature for prediction. We notice that the prediction results are somewhat similar to the actual traffic speed data, especially with our model.
+
+The results of the implementation of our KnnLSTM-KF approach that we use for multi-step prediction are shown in Figure \ref{KnnLSTM-KF}.
+
+
+\begin{figure}[!h]
+	\begin{center}
+		%taille de l'image en largeur
+		%remplacer "width" par "height" pour régler la hauteur
+		%\includegraphics[width=18cm]{images/KnnLSTM-KF.png}
+	\end{center}
+	%légende de l'image
+	\caption{KnnLSTM-KF.}
+	\label{KnnLSTM-KF}
+\end{figure}
+
+We find that for each error metric (MAPE and MSE) that we have chosen to make the comparison between the different models to predict traffic speeds, our approach namely KnnLSTM-KF has a minimum error value compared to the other models. This means that the accuracy of our model is better than the Simple KNN, KNN, KNN-KF, KNN-LSTM. The Figure \ref{MAPE Results for all Metrics} and \ref{MSE Results for all Metrics} below show the different results for each metric for the five models. 
+
+
+\begin{figure}[!h]
+	\begin{center}
+		%taille de l'image en largeur
+		%remplacer "width" par "height" pour régler la hauteur
+		%\includegraphics[width=18cm]{images/MAPE_KNN_LSTM_FK.png}
+	\end{center}
+	%légende de l'image
+	\caption{MAPE Results for all Metrics.}
+	\label{MAPE Results for all Metrics}
+\end{figure}
+
+\begin{figure}[!h]
+	\begin{center}
+		%taille de l'image en largeur
+		%remplacer "width" par "height" pour régler la hauteur
+		%\includegraphics[width=18cm]{images/MSE_KNN_LSTM_FK.png}
+	\end{center}
+	%légende de l'image
+	\caption{MSE Results for all Metrics.}
+	\label{MSE Results for all Metrics}
+\end{figure}
+
+
+\pagebreak
+
+Figure \ref{Accuracy Models} shows the accuracies of the different models. We see that our proposed model KnnLSTM-KF tends to follow a linear line. We find that it performs well compared to the others.
+
+\begin{figure}[!h]
+	\begin{center}
+		%taille de l'image en largeur
+		%remplacer "width" par "height" pour régler la hauteur
+		%\includegraphics[width=18cm]{images/Accuracy_models.png}
+	\end{center}
+	%légende de l'image
+	\caption{Accuracy Models}
+	\label{Accuracy Models}
+\end{figure}
+\pagebreak
+
+Table 4.7 and 4.8 is a comparison table of the results obtained after learning.
+
+\begin{longtable}[c]{|>{\centering}p{0.20\linewidth}|>{\centering}p{0.15\linewidth}|>{\centering}p{0.20\linewidth}|>{\centering}p{0.20\linewidth}|>{\centering\arraybackslash}p{0.20\linewidth}|}
+	\caption{MAPE Results for all Metrics} \\
+	\hline
+	\textbf{Simple KNN} & \textbf{KNN} & \textbf{KNN-KF} & \textbf{KNN-LSTM} & \textbf{KnnLSTM-KF} \\
+	\hline \endfirsthead
+	\hline
+	\textbf{Simple KNN} & \textbf{KNN} & \textbf{KNN-KF} & \textbf{KNN-LSTM} & \textbf{KnnLSTM-KF} \\
+	\hline \endhead
+	\hline
+	\multicolumn{3}{r}{continued on the next page\ldots}\\
+	\endfoot
+	\endlastfoot
+	\hline
+	0.3285 & 0.1496 & 0.0452 & 0.2277 & 0.0451 \\   
+	\hline
+\end{longtable}
+
+In this experiment, we notice that there is a significant improvement in the MAPE of our model as reduced 0.0451 < 0.0452 < 0.1496 < 0.2277 < 0.3285. Therefore, the KnnLSTM-KF model performs better than the other simple KNN, KNN-KF, KNN-LSTM models.
+
+\begin{longtable}[c]{|>{\centering}p{0.20\linewidth}|>{\centering}p{0.15\linewidth}|>{\centering}p{0.20\linewidth}|>{\centering}p{0.20\linewidth}|>{\centering\arraybackslash}p{0.20\linewidth}|}
+	\caption{MSE Results for all Metrics} \\
+	\hline
+	\textbf{Simple KNN} & \textbf{KNN} & \textbf{KNN-KF} & \textbf{KNN-LSTM} & \textbf{KnnLSTM-KF} \\
+	\hline \endfirsthead
+	\hline
+	\textbf{Simple KNN} & \textbf{KNN} & \textbf{KNN-KF} & \textbf{KNN-LSTM} & \textbf{KnnLSTM-KF} \\
+	\hline \endhead
+	\hline
+	\multicolumn{3}{r}{continued on the next page\ldots}\\
+	\endfoot
+	\endlastfoot
+	\hline
+	127.7718 & 26.1126 & 1.1676  & 7.9805  & 0.3365 \\   
+	\hline
+\end{longtable}
+
+We also notice that an improvement has been made in terms of MSE. The error value in our model as reduced 0.3365 < 1.1676 < 7.9805 < 26.1126 < 127.7718. Therefore, the KnnLSTM-KF model performs better than the other simple KNN, KNN-KF, KNN-LSTM models.
+
+\pagebreak
+
+\section{Conclusion}
+
+In this last chapter, we have presented the different hardware environments or software tools that we have used for the implementation of our research work. Then we have exposed the implementation of our system starting from the step of identifying the dataset, splitting, analyzing and preprocessing the dataset and selecting different features that are included in the model training and then testing and validating our model by different experiments implemented. At the end, we discussed the different results obtained from each experimentation which shows the performance of our model by comparing with other hybrid predictive models.
+
+
