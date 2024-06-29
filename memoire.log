@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2024.6.18)  29 JUN 2024 15:40
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2024.6.18)  29 JUN 2024 17:57
 entering extended mode
 **memoire.tex
 (E:\my+master+thesis\memoire.tex
@@ -703,17 +703,7 @@ Package tocbibind Note: Using chapter style headings, unless overridden.
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\ucs\data\uni-0.def"
 File: uni-0.def 2012/04/20 UCS: Unicode data U+0000..U+00FF
 )
-(E:\my+master+thesis\memoire.aux
-
-LaTeX Warning: Label `Tools to Develop our Model' multiply defined.
-
-
-LaTeX Warning: Label `Tools to Develop our Model' multiply defined.
-
-
-LaTeX Warning: Label `Tools to Develop our Model' multiply defined.
-
-)
+(E:\my+master+thesis\memoire.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
 LaTeX Font Info:    ... okay on input line 58.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 58.
@@ -815,13 +805,13 @@ Package: ltcaption 2011/09/12 v1.3 longtable captions (AR)
 Package caption Info: End \AtBeginDocument code.
 
 (E:\my+master+thesis\chapters\title.tex
-<./LogoUnivNg.png, id=218, 59.47218pt x 57.96657pt>
+<./LogoUnivNg.png, id=214, 59.47218pt x 57.96657pt>
 File: ./LogoUnivNg.png Graphic file (type png)
  <use ./LogoUnivNg.png>
 Package pdftex.def Info: ./LogoUnivNg.png used on input line 7.
 (pdftex.def)             Requested size: 48.37263pt x 47.14989pt.
 
-<./LogoUnivNgFS.png, id=219, 501.875pt x 501.875pt>
+<./LogoUnivNgFS.png, id=215, 501.875pt x 501.875pt>
 File: ./LogoUnivNgFS.png Graphic file (type png)
  <use ./LogoUnivNgFS.png>
 Package pdftex.def Info: ./LogoUnivNgFS.png used on input line 8.
@@ -870,84 +860,69 @@ arge de Cours a l'Uni-ver-site de Ngaoundere,
 
 ]) [9
 
-] [0]
+]
 (E:\my+master+thesis\chapters\intro-generale.tex)
-(E:\my+master+thesis\chapters\chapitre1.texpdfTeX warning (ext4): destination w
-ith the same identifier (name{page.1}) has been already used, duplicate ignored
-
-<to be read again> 
-                   \relax 
-l.1 \chapter
-            {Épidémiologie de la Chikungunya} [1
+(E:\my+master+thesis\chapters\chapitre1.tex [0
 
 ]
 Chapitre 1.
-<images/moustique.png, id=351, 249.18094pt x 142.28156pt>
-File: images/moustique.png Graphic file (type png)
+<images/zjv9990995820001.jpeg, id=344, 308.352pt x 115.8729pt>
+File: images/zjv9990995820001.jpeg Graphic file (type jpg)
 
-<use images/moustique.png>
-Package pdftex.def Info: images/moustique.png used on input line 20.
-(pdftex.def)             Requested size: 284.52756pt x 162.47838pt.
+<use images/zjv9990995820001.jpeg>
+Package pdftex.def Info: images/zjv9990995820001.jpeg used on input line 15.
+(pdftex.def)             Requested size: 284.52756pt x 106.92259pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.21 
+      [1
 
+] ("C:\Program Files\MiKTeX 2.9\tex\latex\ucs\data\uni-34.def"
+File: uni-34.def 2012/04/20 UCS: Unicode data U+2200..U+22FF
+)
 <images/CHIK_17550_TEM.png, id=352, 812.28468pt x 456.95718pt>
 File: images/CHIK_17550_TEM.png Graphic file (type png)
 
 <use images/CHIK_17550_TEM.png>
-Package pdftex.def Info: images/CHIK_17550_TEM.png used on input line 31.
+Package pdftex.def Info: images/CHIK_17550_TEM.png used on input line 28.
 (pdftex.def)             Requested size: 284.52756pt x 160.06291pt.
+ [2 <E:/my+master+thesis/images/zjv9990995820001.jpeg> <E:/my+master+thesis/ima
+ges/CHIK_17550_TEM.png>]
+<images/moustique.png, id=362, 249.18094pt x 142.28156pt>
+File: images/moustique.png Graphic file (type png)
 
+<use images/moustique.png>
+Package pdftex.def Info: images/moustique.png used on input line 43.
+(pdftex.def)             Requested size: 199.16928pt x 113.72769pt.
+ <images/trans.png, id=371, 313.17pt x 161.60374pt>
+File: images/trans.png Graphic file (type png)
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+<use images/trans.png>
+Package pdftex.def Info: images/trans.png used on input line 69.
+(pdftex.def)             Requested size: 275.70512pt x 142.26378pt.
+ [3 <E:/my+master+thesis/images/moustique.png> <E:/my+master+thesis/images/tran
+s.png>] [4]
 
-<images/chadmap.png, id=353, 358.33875pt x 432.11438pt>
+LaTeX Warning: Citation `WHO' on page 5 undefined on input line 121.
+
+[5] <images/chadmap.png, id=393, 358.33875pt x 432.11438pt>
 File: images/chadmap.png Graphic file (type png)
 
 <use images/chadmap.png>
-Package pdftex.def Info: images/chadmap.png used on input line 42.
-(pdftex.def)             Requested size: 284.52756pt x 343.12708pt.
+Package pdftex.def Info: images/chadmap.png used on input line 139.
+(pdftex.def)             Requested size: 188.75946pt x 227.62204pt.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<images/statsCaseChad.png, id=354, 799.48688pt x 429.85594pt>
+<images/statsCaseChad.png, id=394, 799.48688pt x 429.85594pt>
 File: images/statsCaseChad.png Graphic file (type png)
 
 <use images/statsCaseChad.png>
-Package pdftex.def Info: images/statsCaseChad.png used on input line 53.
+Package pdftex.def Info: images/statsCaseChad.png used on input line 152.
 (pdftex.def)             Requested size: 284.52756pt x 152.97707pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<images/trans.png, id=355, 313.17pt x 161.60374pt>
-File: images/trans.png Graphic file (type png)
- <use images/trans.png>
-Package pdftex.def Info: images/trans.png used on input line 64.
-(pdftex.def)             Requested size: 284.52756pt x 146.82784pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<images/zjv9990995820001.jpeg, id=356, 308.352pt x 115.8729pt>
-File: images/zjv9990995820001.jpeg Graphic file (type jpg)
-
-<use images/zjv9990995820001.jpeg>
-Package pdftex.def Info: images/zjv9990995820001.jpeg used on input line 75.
-(pdftex.def)             Requested size: 284.52756pt x 106.92259pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[2
-
- <E:/my+master+thesis/images/moustique.png>] [3 <E:/my+master+thesis/images/CHI
-K_17550_TEM.png> <E:/my+master+thesis/images/chadmap.png>]
-
-LaTeX Warning: Reference `)' on page 4 undefined on input line 95.
-
-[4 <E:/my+master+thesis/images/statsCaseChad.png> <E:/my+master+thesis/images/t
-rans.png> <E:/my+master+thesis/images/zjv9990995820001.jpeg>] [5])
-(E:\my+master+thesis\chapters\chapitre2.tex [6]
+) (E:\my+master+thesis\chapters\chapitre2.tex
+[6 <E:/my+master+thesis/images/chadmap.png> <E:/my+master+thesis/images/statsCa
+seChad.png>]
 Chapitre 2.
 [7
 
@@ -973,30 +948,27 @@ ttps : / / www . who . int / fr / emergencies /$
 ) [13
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 144.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 144.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 143.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 143.
  (E:\my+master+thesis\memoire.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 144.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 144.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 143.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 143.
 Package rerunfilecheck Info: File `memoire.out' has not changed.
-(rerunfilecheck)             Checksum: EF1DE75C41220286FF856805E682D120;4138.
+(rerunfilecheck)             Checksum: 14A711536EF6AEB0A77D25AD43DF7154;3994.
 
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 144.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 143.
  ) 
 Here is how much of TeX's memory you used:
- 18933 strings out of 494045
- 322593 string characters out of 3148381
- 408736 words of memory out of 3000000
- 21737 multiletter control sequences out of 15000+200000
+ 19579 strings out of 494045
+ 329522 string characters out of 3148381
+ 408914 words of memory out of 3000000
+ 22380 multiletter control sequences out of 15000+200000
  10512 words of font info for 37 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 63i,10n,96p,1351b,647s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 63i,10n,96p,2836b,647s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files/Mi
@@ -1005,11 +977,11 @@ KTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Program Files/MiKTeX 2.
 ype1/public/amsfonts/cm/cmss10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
 lic/amsfonts/cm/cmss12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
 onts/cm/cmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10
-.pfb>
-Output written on memoire.pdf (24 pages, 2058173 bytes).
+m/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on memoire.pdf (24 pages, 2077798 bytes).
 PDF statistics:
- 498 PDF objects out of 1000 (max. 8388607)
+ 504 PDF objects out of 1000 (max. 8388607)
  97 named destinations out of 1000 (max. 500000)
- 477 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 469 words of extra memory for PDF output out of 10000 (max. 10000000)
 
