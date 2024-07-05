@@ -22,31 +22,56 @@
 \BOOKMARK [1][-]{section.1.6}{Cas du Tchad}{chapter.1}% 22
 \BOOKMARK [2][-]{subsection.1.6.1}{Point saillants}{section.1.6}% 23
 \BOOKMARK [2][-]{subsection.1.6.2}{Contexte}{section.1.6}% 24
-\BOOKMARK [0][-]{chapter.2}{Revue de la litterature et concepts de base}{}% 25
+\BOOKMARK [0][-]{chapter.2}{Revue de la Litt\351rature et Concepts de Base}{}% 25
 \BOOKMARK [1][-]{section.2.1}{Introduction}{chapter.2}% 26
-\BOOKMARK [1][-]{section.2.2}{Apprentissage Automatique \(Machine Learning\)}{chapter.2}% 27
-\BOOKMARK [2][-]{subsection.2.2.1}{Concepts de base}{section.2.2}% 28
-\BOOKMARK [2][-]{subsection.2.2.2}{La r\351gression lin\351aire}{section.2.2}% 29
-\BOOKMARK [2][-]{subsection.2.2.3}{For\352t al\351atoire \(Random Forest\)}{section.2.2}% 30
-\BOOKMARK [1][-]{section.2.3}{Apprentissage Profond \(Deep Learning\)}{chapter.2}% 31
-\BOOKMARK [2][-]{subsection.2.3.1}{R\351seaux de neurones profonds}{section.2.3}% 32
-\BOOKMARK [2][-]{subsection.2.3.2}{Algorithmes sp\351cifiques \(e.g., LSTM, CNN\)}{section.2.3}% 33
-\BOOKMARK [1][-]{section.2.4}{R\351gression par Ensemble}{chapter.2}% 34
-\BOOKMARK [2][-]{subsection.2.4.1}{Concepts de r\351gression par ensemble}{section.2.4}% 35
-\BOOKMARK [2][-]{subsection.2.4.2}{Avantages des m\351thodes d'ensemble}{section.2.4}% 36
-\BOOKMARK [2][-]{subsection.2.4.3}{Algorithmes d'ensemble \(e.g., Gradient Boosting, XGBoost\)}{section.2.4}% 37
-\BOOKMARK [0][-]{chapter.3}{Impl\351mentation des Mod\350les}{}% 38
-\BOOKMARK [1][-]{section.3.1}{Introduction}{chapter.3}% 39
-\BOOKMARK [1][-]{section.3.2}{Pr\351sentation des Outils Utilis\351s}{chapter.3}% 40
-\BOOKMARK [2][-]{subsection.3.2.1}{Langages et librairies \(e.g., Python, Scikit-learn, TensorFlow\)}{section.3.2}% 41
-\BOOKMARK [2][-]{subsection.3.2.2}{Infrastructure mat\351rielle \(e.g., GPU, serveurs\)}{section.3.2}% 42
-\BOOKMARK [1][-]{section.3.3}{M\351thodes de l'Apprentissage Automatique}{chapter.3}% 43
-\BOOKMARK [2][-]{subsection.3.3.1}{Le jeu de donn\351es}{section.3.3}% 44
-\BOOKMARK [2][-]{subsection.3.3.2}{Pr\351paration et nettoyage des donn\351es}{section.3.3}% 45
-\BOOKMARK [2][-]{subsection.3.3.3}{Impl\351mentation des mod\350les de machine learning}{section.3.3}% 46
-\BOOKMARK [1][-]{section.3.4}{M\351thodes de l'Apprentissage Profond}{chapter.3}% 47
-\BOOKMARK [2][-]{subsection.3.4.1}{Le jeu de donn\351es}{section.3.4}% 48
-\BOOKMARK [2][-]{subsection.3.4.2}{Pr\351paration des donn\351es pour le deep learning}{section.3.4}% 49
-\BOOKMARK [2][-]{subsection.3.4.3}{Impl\351mentation des mod\350les de deep learning}{section.3.4}% 50
-\BOOKMARK [0][-]{chapter*.19}{General Conclusion}{}% 51
-\BOOKMARK [0][-]{chapter*.20}{Bibliographie}{}% 52
+\BOOKMARK [2][-]{subsection.2.1.1}{Objectifs du Chapitre}{section.2.1}% 27
+\BOOKMARK [2][-]{subsection.2.1.2}{M\351thodologie de la Revue}{section.2.1}% 28
+\BOOKMARK [1][-]{section.2.2}{Machine Learning}{chapter.2}% 29
+\BOOKMARK [2][-]{subsection.2.2.1}{D\351finition et Concepts Fondamentaux}{section.2.2}% 30
+\BOOKMARK [2][-]{subsection.2.2.2}{Techniques de Machine Learning}{section.2.2}% 31
+\BOOKMARK [3][-]{subsubsection.2.2.2.1}{R\351gression Lin\351aire}{subsection.2.2.2}% 32
+\BOOKMARK [3][-]{subsubsection.2.2.2.2}{R\351gression Logistique}{subsection.2.2.2}% 33
+\BOOKMARK [3][-]{subsubsection.2.2.2.3}{Arbres de D\351cision}{subsection.2.2.2}% 34
+\BOOKMARK [3][-]{subsubsection.2.2.2.4}{For\352ts Al\351atoires}{subsection.2.2.2}% 35
+\BOOKMARK [2][-]{subsection.2.2.3}{Applications du Machine Learning \340 l'\311pid\351miologie}{section.2.2}% 36
+\BOOKMARK [2][-]{subsection.2.2.4}{Avantages et Limites du Machine Learning}{section.2.2}% 37
+\BOOKMARK [1][-]{section.2.3}{Deep Learning}{chapter.2}% 38
+\BOOKMARK [2][-]{subsection.2.3.1}{D\351finition et Concepts Fondamentaux}{section.2.3}% 39
+\BOOKMARK [2][-]{subsection.2.3.2}{R\351seaux de Neurones Artificiels}{section.2.3}% 40
+\BOOKMARK [3][-]{subsubsection.2.3.2.1}{Perceptron Multicouche \(MLP\)}{subsection.2.3.2}% 41
+\BOOKMARK [3][-]{subsubsection.2.3.2.2}{R\351seaux de Neurones Convolutifs \(CNN\)}{subsection.2.3.2}% 42
+\BOOKMARK [3][-]{subsubsection.2.3.2.3}{R\351seaux de Neurones R\351currents \(RNN\)}{subsection.2.3.2}% 43
+\BOOKMARK [2][-]{subsection.2.3.3}{Applications du Deep Learning \340 l'\311pid\351miologie}{section.2.3}% 44
+\BOOKMARK [2][-]{subsection.2.3.4}{Avantages et Limites du Deep Learning}{section.2.3}% 45
+\BOOKMARK [1][-]{section.2.4}{Ensemble Regression Learning}{chapter.2}% 46
+\BOOKMARK [2][-]{subsection.2.4.1}{D\351finition et Concepts Fondamentaux}{section.2.4}% 47
+\BOOKMARK [2][-]{subsection.2.4.2}{Techniques d'Ensemble Learning}{section.2.4}% 48
+\BOOKMARK [3][-]{subsubsection.2.4.2.1}{Bagging}{subsection.2.4.2}% 49
+\BOOKMARK [3][-]{subsubsection.2.4.2.2}{Boosting}{subsection.2.4.2}% 50
+\BOOKMARK [3][-]{subsubsection.2.4.2.3}{Stacking}{subsection.2.4.2}% 51
+\BOOKMARK [2][-]{subsection.2.4.3}{Applications de l'Ensemble Regression Learning}{section.2.4}% 52
+\BOOKMARK [2][-]{subsection.2.4.4}{Avantages et Limites de l'Ensemble Regression Learning}{section.2.4}% 53
+\BOOKMARK [1][-]{section.2.5}{Comparaison des Approches}{chapter.2}% 54
+\BOOKMARK [2][-]{subsection.2.5.1}{Machine Learning vs Deep Learning}{section.2.5}% 55
+\BOOKMARK [2][-]{subsection.2.5.2}{Machine Learning et Deep Learning vs Ensemble Learning}{section.2.5}% 56
+\BOOKMARK [1][-]{section.2.6}{\311tudes de Cas et Travaux Ant\351rieurs}{chapter.2}% 57
+\BOOKMARK [2][-]{subsection.2.6.1}{\311tudes sur le Chikungunya}{section.2.6}% 58
+\BOOKMARK [2][-]{subsection.2.6.2}{Applications Pratiques des Techniques d'Ensemble}{section.2.6}% 59
+\BOOKMARK [1][-]{section.2.7}{Conclusion}{chapter.2}% 60
+\BOOKMARK [2][-]{subsection.2.7.1}{Synth\350se des Connaissances Actuelles}{section.2.7}% 61
+\BOOKMARK [2][-]{subsection.2.7.2}{Orientations Futures et Opportunit\351s de Recherche}{section.2.7}% 62
+\BOOKMARK [0][-]{chapter.3}{Impl\351mentation des Mod\350les}{}% 63
+\BOOKMARK [1][-]{section.3.1}{Introduction}{chapter.3}% 64
+\BOOKMARK [1][-]{section.3.2}{Pr\351sentation des Outils Utilis\351s}{chapter.3}% 65
+\BOOKMARK [2][-]{subsection.3.2.1}{Langages et librairies \(e.g., Python, Scikit-learn, TensorFlow\)}{section.3.2}% 66
+\BOOKMARK [2][-]{subsection.3.2.2}{Infrastructure mat\351rielle \(e.g., GPU, serveurs\)}{section.3.2}% 67
+\BOOKMARK [1][-]{section.3.3}{M\351thodes de l'Apprentissage Automatique}{chapter.3}% 68
+\BOOKMARK [2][-]{subsection.3.3.1}{Le jeu de donn\351es}{section.3.3}% 69
+\BOOKMARK [2][-]{subsection.3.3.2}{Pr\351paration et nettoyage des donn\351es}{section.3.3}% 70
+\BOOKMARK [2][-]{subsection.3.3.3}{Impl\351mentation des mod\350les de machine learning}{section.3.3}% 71
+\BOOKMARK [1][-]{section.3.4}{M\351thodes de l'Apprentissage Profond}{chapter.3}% 72
+\BOOKMARK [2][-]{subsection.3.4.1}{Le jeu de donn\351es}{section.3.4}% 73
+\BOOKMARK [2][-]{subsection.3.4.2}{Pr\351paration des donn\351es pour le deep learning}{section.3.4}% 74
+\BOOKMARK [2][-]{subsection.3.4.3}{Impl\351mentation des mod\350les de deep learning}{section.3.4}% 75
+\BOOKMARK [0][-]{chapter*.19}{General Conclusion}{}% 76
+\BOOKMARK [0][-]{chapter*.20}{Bibliographie}{}% 77

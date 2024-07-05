@@ -32,6 +32,12 @@ Ganesan, V., Duan, B., Reid, S.: Chikungunya virus: Pathophysiology, mechanism,
 \newblock Viruses \textbf{9}(12), 368 (2017).
 \newblock \doi{10.3390/v9120368}
 
+\bibitem{Ensemble2020ACM}
+Moreira, J., Soares, C., Jorge, A., Sousa, J.: Ensemble approaches for
+  regression: A survey.
+\newblock ACM Computing Surveys \textbf{45}, 10:1--10:40 (2012).
+\newblock \doi{10.1145/2379776.2379786}
+
 \bibitem{JournalofVirology}
 Morrison, T.E.: Reemergence of chikungunya \textbf{88}(20), 11,644 -- 11,647.
 \newblock \doi{https://doi.org/10.1128/jvi.01432-14}
