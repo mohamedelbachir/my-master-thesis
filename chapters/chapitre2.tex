@@ -1,6 +1,5 @@
 \chapter{Revue de la Littérature et Concepts de Base}
 
-\section{Introduction}
 Dès \textbf{1997}, le potentiel du \textbf{data mining} pour améliorer les problèmes dans le domaine médical avait été identifié par l'Organisation mondiale de la santé (\textbf{OMS}) (Gulbinat, 1997). L'utilité de la détection de connaissances à partir des dépôts de données médicales a été soulignée par l'OMS, car elle bénéficie au diagnostic médical et à la prédiction. Le data mining est un processus de découverte de connaissances utiles à partir de bases de données pour construire une structure (c'est-à-dire un modèle ou un schéma) qui peut interpréter de manière significative les données. Le data mining est le processus de découverte de schémas et de connaissances intéressants à partir d'une grande quantité de données (Han et al., 2001). Le data mining utilise de nombreuses techniques d'apprentissage automatique pour découvrir des schémas cachés dans les données. Ces techniques peuvent être réparties en trois catégories principales : les techniques d'\textbf{apprentissage supervisé}, les techniques d'\textbf{apprentissage non supervisé} et les techniques d'\textbf{apprentissage semi-supervisé} (Huang al., 2014). Voir figure \ref{fig:machinelearningtype}. Les systèmes experts développés par des techniques d'apprentissage automatique peuvent être utilisés pour aider les médecins dans le \textbf{diagnostic} et la \textbf{prédiction des maladies} (Kononenko, 2001). En raison de l'importance du diagnostic des maladies pour l'humanité, plusieurs études ont été menées sur le développement de méthodes pour leur classification~\cite{Analytical2017Meh}.
 
 \section{Apprentissage Automatique}
@@ -8,7 +7,7 @@ Depuis leur évolution, les humains ont utilisé de nombreux types d'outils pour
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{images/machineLearningType}
-	\caption{}
+	\caption{Machine Learning Tree}
 	\label{fig:machinelearningtype}
 \end{figure}
 
@@ -46,34 +45,324 @@ Exemple d'apprentissage non supervisé :
 
 \subsubsection{Apprentissage Semi-Supervisé}
 L'\textbf{apprentissage semi-supervisé} est une combinaison des méthodes d'apprentissage \textit{supervisé} et \textit{non supervisé}. Il peut être fructueux dans ces domaines de l'apprentissage automatique et du data mining où les données non étiquetées sont déjà présentes et obtenir les données étiquetées est un processus fastidieux~\cite{Machine2020Batta}. 
-\subsubsection{Apprentissage par Ensemble}
-L'\textbf{apprentissage par ensemble} est le processus par lequel plusieurs \textbf{modèles}, sont générés et combinés stratégiquement pour résoudre un problème particulier d'intelligence computationnelle. L'apprentissage par ensemble est principalement utilisé pour améliorer les performances d'un modèle ou réduire la probabilité de sélectionner un modèle médiocre~\cite{Machine2020Batta}. 
 
-Exemple d'apprentissage par ensemble :
+\section{Introduction au Deep Learning}
+
+Le \textit{Deep Learning} est une branche de l'intelligence artificielle (IA) qui s'appuie sur des réseaux de neurones artificiels pour modéliser des relations complexes dans les données. Ce domaine a connu une croissance exponentielle grâce aux avancées technologiques en matière de calcul et aux grandes quantités de données disponibles. Ce cours explore les concepts fondamentaux du Deep Learning.
+
+\subsection{Les bases du Deep Learning}
+
+\subsubsection{Réseaux de neurones}
+
+	 Les \textit{neurones artificiels}, inspirés du fonctionnement des neurones biologiques, sont les unités de base des réseaux de neurones. Chaque neurone reçoit des entrées, les traite à l'aide d'une fonction d'activation, puis transmet une sortie.
+	 
+	 Parmi les caractéristiques nous avons : 
+	\begin{itemize}
+		\item \textbf{Couches et profondeur} : Les neurones sont organisés en couches (entrée, cachées, sortie). Un réseau est dit "profond" lorsqu'il possède plusieurs couches cachées, permettant ainsi de capturer des abstractions de plus en plus complexes des données d'entrée.
+		\item \textbf{Poids et apprentissage} : Chaque connexion entre deux neurones est associée à un poids, qui détermine l'influence de l'entrée sur la sortie. Ces poids sont ajustés lors de la phase d'apprentissage pour minimiser l'erreur du modèle.
+	\end{itemize}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.6\linewidth]{images/Artificial-Neural-Networks}
+		\caption[Neurone Biolique en Artificiel]{Neurone Biologique et Artificiel}
+		\label{fig:ann}
+	\end{figure}
+	
+\subsubsection{Fonctionnement du réseau}
+	Le Deep Learning repose souvent sur l'apprentissage supervisé, où le modèle est entraîné à partir d'un ensemble de données étiquetées.
+	\begin{itemize}
+		\item \textbf{Propagation avant} : Les données d'entrée sont transmises couche par couche, chaque neurone calculant une activation à partir de ses entrées pondérées.
+		\item \textbf{Rétropropagation} : L'algorithme de rétropropagation ajuste les poids en fonction de l'erreur commise par le modèle, en propagant cette erreur en sens inverse, de la sortie vers l'entrée.
+	\end{itemize}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.8\linewidth]{images/Backward-Propagation}
+		\caption[Foward-Backward-Propagation]{Fonctionnement réseau de neurone}
+		\label{fig:backward-propagation}
+	\end{figure}
+	
+\subsection{Fonctions d'activation}
+
+Les fonctions d'activation introduisent de la non-linéarité dans les réseaux de neurones, permettant de modéliser des relations complexes.
+
+\subsubsection*{Exemples de fonctions d'activation}
+
 \begin{itemize}
-	\item \textbf{Boosting} : Le terme "\textit{Boosting}" fait référence à une famille d'algorithmes qui convertit les apprenants faibles en apprenants forts. Le boosting est une technique d'apprentissage par ensemble utilisée pour réduire le biais et la variance.
-	\item \textbf{Bagging} : est appliqué lorsque la précision et la stabilité d'un algorithme d'apprentissage automatique doivent être augmentées. Il est applicable en classification et en régression. Le bagging réduit également la variance et aide à gérer le surapprentissage.
+	\item \textbf{ReLU (Rectified Linear Unit)} : 
+	\[
+	f(x) = \max(0, x)
+	\]
+	ReLU est couramment utilisée car elle permet un apprentissage efficace tout en réduisant les risques de \textit{vanishing gradient}\footnote{Le \textit{vanishing gradient} est un problème courant dans les réseaux de neurones profonds, où les gradients deviennent extrêmement petits, empêchant les poids des couches précédentes de se mettre à jour correctement, ce qui ralentit considérablement l'apprentissage.}.
+	\item \textbf{Sigmoid} : 
+	\[
+	f(x) = \frac{1}{1 + e^{-x}}
+	\]
+	La fonction Sigmoid est utilisée pour normaliser la sortie entre 0 et 1, particulièrement utile pour les tâches de classification binaire.
+	\item \textbf{Tanh (Tangente hyperbolique)} : 
+	\[
+	f(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}
+	\]
+	Tanh normalise la sortie entre -1 et 1, ce qui peut conduire à une convergence plus rapide que la Sigmoid dans certains cas.
 \end{itemize}
 
-\subsection{Applications de l'Apprentissage Automatique à l'Épidémiologie}
-\subsection{Avantages et Limites de l'Apprentissage Automatique}
+\subsection{Entraînement des modèles}
 
-\section{Deep Learning}
-\subsection{Définition et Concepts Fondamentaux}
-\subsection{Réseaux de Neurones Artificiels}
-\subsubsection{Perceptron Multicouche (MLP)}
-\subsubsection{Réseaux de Neurones Convolutifs (CNN)}
-\subsubsection{Réseaux de Neurones Récurrents (RNN)}
-\subsection{Applications du Deep Learning à l'Épidémiologie}
-\subsection{Avantages et Limites du Deep Learning}
+\subsubsection{Fonction de coût}
 
-\section{Ensemble Regression Learning}
-\subsection{Définition et Concepts Fondamentaux}
+\begin{itemize}
+	\item \textbf{Évaluation de l'erreur} : La fonction de coût mesure l'écart entre les prédictions du modèle et les vraies étiquettes, guidant ainsi l'ajustement des poids.
+	\item \textbf{Exemples de fonctions de coût} :
+	\begin{itemize}
+		\item \textbf{Erreur quadratique moyenne (MSE)} : 
+		\[
+		\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
+		\]
+		Utilisée pour les problèmes de régression.
+		\item \textbf{Erreur quadratique moyenne racine (RMSE)} : 
+		\[
+		\text{RMSE} = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}
+		\]
+		Le RMSE est une mesure courante de l'erreur moyenne entre les valeurs prédites et les valeurs réelles. Il est particulièrement utile pour comparer les performances de différents modèles, car il conserve les mêmes unités que les données.
+		\textbf{Valeurs possibles} : 
+		\begin{itemize}
+			\item \textbf{RMSE = 0} : Indique une prédiction parfaite, où les valeurs prédites sont exactement égales aux valeurs réelles.
+			\item \textbf{RMSE $>$ 0} : Plus le RMSE est élevé, plus l'erreur moyenne est grande. Un RMSE élevé suggère que le modèle a du mal à prédire les valeurs réelles avec précision.
+		\end{itemize}
+	on cherche à minimiser le RMSE pour améliorer la précision du modèle.
+		\item \textbf{R-carré (\( R^2 \))} : 
+		\[
+		R^2 = 1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2}
+		\]
+		Le \( R^2 \) score, également appelé coefficient de détermination, mesure la proportion de la variance des données qui est expliquée par le modèle. Un score proche de 1 indique que le modèle explique bien les données, tandis qu'un score proche de 0 indique le contraire.
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Optimisation}
+
+L'optimisation est une étape cruciale dans l'entraînement des réseaux de neurones, où l'objectif est de minimiser la fonction de coût en ajustant les poids du réseau. Cela se fait en utilisant des algorithmes d'optimisation qui guident le processus d'ajustement des poids pour réduire l'erreur entre les prédictions du modèle et les valeurs réelles.
+
+ \textbf{Descente de gradient} :
+	L'algorithme le plus couramment utilisé pour l'optimisation en Deep Learning est la descente de gradient. L'idée principale est de mettre à jour les poids du réseau dans la direction opposée au gradient de la fonction de coût par rapport aux poids. Ce processus est itératif et continue jusqu'à ce que la fonction de coût atteigne un minimum local ou global.
+	
+	\[
+	\theta_{t+1} = \theta_t - \eta \nabla_{\theta} J(\theta_t)
+	\]
+	
+	où :
+	\begin{itemize}
+		\item \( \theta_t \) représente les poids du réseau à l'itération \( t \),
+		\item \( \eta \) est le taux d'apprentissage (un hyperparamètre qui contrôle la taille des mises à jour des poids),
+		\item \( \nabla_{\theta} J(\theta_t) \) est le gradient de la fonction de coût \( J(\theta) \) par rapport aux poids \( \theta \).
+	\end{itemize}
+
+\subsection{Applications du Deep Learning}
+
+\subsubsection*{Vision par ordinateur}
+
+\begin{itemize}
+	\item \textbf{Tâches principales} : Classification d'images, détection d'objets, segmentation sémantique.
+	\item \textbf{Exemple d'architecture} : Les réseaux de neurones convolutifs (CNN) sont la norme pour les tâches de vision par ordinateur, offrant d'excellentes performances sur des tâches complexes comme la reconnaissance d'images.
+\end{itemize}
+
+\subsubsection*{Traitement du langage naturel (NLP)}
+
+\begin{itemize}
+	\item \textbf{Tâches principales} : Traduction automatique, résumé de texte, chatbots, analyse de sentiments.
+	\item \textbf{Exemple d'architecture} : Les réseaux récurrents (RNN) et les transformers (comme BERT) sont largement utilisés pour modéliser des séquences textuelles et capturer des dépendances à long terme.
+\end{itemize}
+
+\section{Ensemble Learning ou Apprentissage par Ensemble}
+Les \textit{systèmes à classificateurs multiples}, ou \textit{systèmes d'ensemble}, ont gagné en popularité au sein de la communauté de l'intelligence artificielle et de l'apprentissage automatique au cours des deux dernières décennies. Initialement développés pour réduire la variance et améliorer la précision des décisions automatisées, ces systèmes se sont avérés efficaces et polyvalents dans divers domaines. Ils sont utilisés pour résoudre des problèmes tels que la sélection de caractéristiques, l'estimation de la confiance, et la gestion de données déséquilibrées. Bien que la recherche sur les systèmes d'ensemble soit relativement récente, la prise de décision collective, semblable aux systèmes d'ensemble, fait partie de notre quotidien depuis longtemps, comme en témoignent la démocratie et le système judiciaire~\cite{polikar2012ensemble}.
+
+\subsection{Définition}
+L'\textbf{apprentissage par ensemble} est le processus par lequel plusieurs \textbf{modèles}, sont générés et combinés stratégiquement pour résoudre un problème particulier d'intelligence computationnelle. L'apprentissage par ensemble est principalement utilisé pour améliorer les performances d'un modèle ou réduire la probabilité de sélectionner un modèle médiocre~\cite{Machine2020Batta}. 
+
+\subsection{principes de fonctionnement}
+Les \textbf{systèmes d'ensemble} sont inspirés par notre pratique quotidienne de consulter divers \textit{experts} avant de prendre des décisions importantes, comme consulter plusieurs médecins avant une opération ou lire des avis avant un achat. Cette approche vise à augmenter notre confiance dans la décision finale en combinant différentes opinions.
+
+En apprentissage automatique, les systèmes d'ensemble améliorent la \textbf{précision} en abordant les deux composantes principales de l'erreur de classification : le \textbf{biais} et la \textbf{variance}. Le biais reflète la précision d'un classificateur, tandis que la variance mesure la précision lors de l'utilisation de différents ensembles de données d'apprentissage. Généralement, un faible biais est associé à une variance élevée, et vice versa. Les systèmes d'ensemble cherchent à créer plusieurs classificateurs avec un biais similaire et à combiner leurs résultats, par exemple par \textbf{moyenne}, pour \textbf{réduire la variance} \cite{polikar2012ensemble}.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{images/arr-ens}
+	\caption[Réduction de la variabilité à l'aide de systèmes d'ensemble]{Réduction de la variabilité à l'aide de systèmes d'ensemble}
+	\label{fig:arr-ens}
+\end{figure}
+
 \subsection{Techniques d'Ensemble Learning}
-\subsubsection{Bagging}
-\subsubsection{Boosting}
-\subsubsection{Stacking}
-\subsection{Applications de l'Ensemble Regression Learning}
-\subsection{Avantages et Limites de l'Ensemble Regression Learning}
 
-\section{Conclusion}
+Les premiers travaux sur les \textbf{systèmes d'ensemble} sont attribués à Dasarathy et Sheela (1979), qui ont exploré le \textbf{partitionnement de l'espace des caractéristiques} avec plusieurs \textbf{classificateurs} [\textit{dasarathy1979}]. Dix ans plus tard, Hansen et Salamon ont démontré que des ensembles de \textbf{réseaux neuronaux} pouvaient améliorer les performances de \textbf{classification} [\textit{hansen1990}]. Cependant, c'est Schapire qui a introduit le concept de \textbf{boosting}, montrant qu'un \textbf{classificateur puissant} pouvait être construit à partir de classificateurs ayant une erreur meilleure que celle d'une supposition aléatoire [\textit{schapire1990}]. La théorie du boosting a conduit à l'algorithme \textbf{AdaBoost}, largement utilisé pour des problèmes de \textbf{classes multiples} et de \textbf{régression} [\textit{freund1997}].
+
+Depuis ces travaux initiaux, la recherche sur les systèmes d'ensemble a explosé, avec divers algorithmes apparaissant sous différents noms : \textbf{bagging} [\textit{breiman1996}], \textit{forêts aléatoires}, \textbf{mélanges d'experts} (MoE) [\textit{jacobs1991}], \textbf{généralisation par empilement} [\textit{wolpert1992}], et d'autres. Ces algorithmes diffèrent par la \textbf{sélection des données d'apprentissage}, la \textbf{procédure de génération des membres de l'ensemble}, et la \textbf{règle de combinaison} pour la décision finale. Ces trois éléments sont les \textbf{piliers} des systèmes d'ensemble.
+
+Les systèmes d'ensemble sont principalement utilisés dans deux contextes : \textbf{sélection de classificateurs} et \textbf{fusion de classificateurs} [\textit{kuncheva2004}]. Dans la sélection, chaque classificateur est un expert local, et celui formé avec les données les plus proches est choisi pour la décision finale. En revanche, dans la fusion, tous les classificateurs sont combinés pour obtenir un classificateur composite avec une \textbf{variance} plus faible, réduisant ainsi l'erreur [\textit{breiman1996, freund1997}].
+\subsubsection*{Construction d'un système d'ensemble}
+Trois stratégies doivent être choisies pour construire un système d'ensemble
+efficace. Nous les avons précédemment désignées comme les trois piliers des
+systèmes d'ensemble : (1) \textbf{échantillonnage/sélection des données} ; (2) \textbf{formation des classificateurs membres} ; et (3) \textbf{combinaison des classificateurs}.
+
+\subsubsection{Échantillonnage et sélection des données : Diversité}
+Dans les \textbf{systèmes d'ensemble}, la diversité des erreurs entre les membres est cruciale. Si tous les membres fournissent les mêmes résultats, leur combinaison n'apporte aucun bénéfice. Il est donc essentiel que les membres commettent des erreurs différentes, idéalement avec des résultats indépendants ou négativement corrélés.
+
+La diversité peut être obtenue par diverses stratégies, comme l'utilisation de différents sous-ensembles des données d'apprentissage. Par exemple, le \textbf{bagging} utilise des répliques bootstrapées des données, tandis que le \textbf{boosting} se concentre sur les échantillons mal classés. D'autres méthodes incluent l'utilisation de sous-ensembles des \textbf{caractéristiques} disponibles ou différents \textbf{classificateurs} de base. Malgré l'importance reconnue de la diversité pour améliorer la performance des ensembles, aucune relation explicite entre la diversité et la précision de l'ensemble n'a été clairement établie ~\cite{polikar2012ensemble}.
+
+\subsubsection{Formation des classificateurs de membres}
+Au cœur de tout système basé sur un ensemble se trouve la stratégie utilisée pour former les membres individuels de l'ensemble. De nombreux algorithmes concurrents ont été développés pour former les classificateurs d'ensemble ; cependant, le \textit{bagging} (et les algorithmes apparentés arc-x4 et Random Forest), le \textit{boosting} (et ses nombreuses variations), la \textit{stack generalization} et le \textit{hierarchical MoE} restent les approches les plus couramment employées.
+
+\subsubsection{Combinaison des membres de l'ensemble}
+La dernière étape des \textbf{systèmes d'ensemble} est la \textbf{combinaison des classificateurs} individuels. La stratégie de combinaison dépend du type de classificateurs utilisés. Par exemple, certains classificateurs comme les \textbf{Support Vector Machines (SVM)} produisent des sorties discrètes, pour lesquelles les règles de combinaison les plus courantes sont le \textbf{majority voting} (simple ou pondéré) et le \textbf{Borda count}. D'autres classificateurs, tels que le \textbf{multilayer perceptron} ou le \textbf{naïve Bayes classifier}, fournissent des sorties continues indiquant le soutien pour chaque classe. Pour ces classificateurs, une gamme plus large d'options est disponible, telles que les \textbf{arithmetic combinators} (somme, produit, moyenne) ou des \textbf{decision models} plus sophistiqués. Certains de ces combinateurs peuvent être appliqués immédiatement après l'apprentissage, tandis que des méthodes plus complexes comme \textbf{stacking} ou \textbf{hierarchical MoE} peuvent nécessiter une étape d'apprentissage supplémentaire. Nous examinerons brièvement ces approches.
+\subsubsection*{Combining Class Labels (Combinaison des étiquettes de classe)}
+Cette sous-section se concentre sur les scénarios où les classifieurs produisent des étiquettes de classe discrètes.
+
+\begin{itemize}
+	\item \textbf{Majority Voting (Vote majoritaire)} : La classe avec le plus de votes gagne. L'ensemble choisit la classe $\omega_c$, si :
+	\[
+	\sum_{t=1}^{T} d_{t,c} = \max_{c} \sum_{t=1}^{T} d_{t,c}
+	\]
+	où $d_{t,c}$ est 1 si le classifieur $t$ choisit la classe $c$, et 0 sinon.
+	
+	\item \textbf{Weighted Majority Voting (Vote majoritaire pondéré)} : Similaire au vote majoritaire, mais le vote de chaque classifieur est pondéré en fonction de ses performances estimées. L'ensemble choisit la classe $c$, si :
+	\[
+	\sum_{t=1}^{T} w_t d_{t,c} = \max_{c} \sum_{t=1}^{T} w_t d_{t,c}
+	\]
+	où $w_t$ est le poids assigné au classifieur $t$.
+	
+	\item \textbf{Borda Count (Comptage Borda)} : Les classes sont classées par chaque classifieur, et la classe avec le score cumulé le plus élevé sur tous les classifieurs est sélectionnée.
+\end{itemize}
+
+\subsubsection*{Combining Continuous Outputs (Combinaison des sorties continues)}
+
+Cette sous-section traite des cas où les classifieurs produisent des sorties continues, souvent interprétées comme un support ou des probabilités pour chaque classe.
+
+\begin{itemize}
+	\item \textbf{Algebraic Combiners (Combinateurs algébriques)} : Les supports pour chaque classe de différents classifieurs sont combinés à l'aide de diverses fonctions mathématiques. Le support total pour la classe $\omega_c$ est représenté comme suit :
+	\[
+	\mu_c(x) = F [d_{1,c}(x), \ldots, d_{T,C}(x)]
+	\]
+	où $F[]$ peut être la moyenne, la moyenne pondérée, le minimum, le maximum, la médiane, le produit ou la moyenne généralisée.
+\end{itemize}
+Les méthodes suivantes et leurs formules correspondantes sont :
+
+\begin{itemize}
+	\item \textbf{Mean Rule (Règle de la moyenne)} : Le support pour une classe est la moyenne des supports de tous les classifieurs.
+	\[
+	\mu_c(x) = \frac{1}{T} \sum_{t=1}^{T} d_{t,c}(x)
+	\]
+	
+	\item \textbf{Weighted Average (Moyenne pondérée)} : Similaire à la règle de la moyenne, mais le support de chaque classifieur est pondéré.
+	\[
+	\mu_c(x) = \frac{1}{T} \sum_{t=1}^{T} w_t d_{t,c}(x)
+	\]
+	où $w_t$ est le poids du $t^{\text{ème}}$ classifieur.
+	
+	\item \textbf{Trimmed Mean (Moyenne tronquée)} : La moyenne est calculée après avoir éliminé un certain pourcentage des supports les plus élevés et les plus bas pour éviter l'influence des valeurs aberrantes.
+	
+	\item \textbf{Minimum/Maximum/Median Rule (Règle du minimum/maximum/médiane)} : Le support total est le minimum, le maximum ou la médiane des supports de tous les classifieurs.
+	
+	\item \textbf{Product Rule (Règle du produit)} : Le support total est le produit des supports de tous les classifieurs.
+	\[
+	\mu_c(x) = \frac{1}{T} \prod_{t=1}^{T} d_{t,c}(x)
+	\]
+	
+	\item \textbf{Generalized Mean (Moyenne généralisée)} : Une formule générale qui englobe plusieurs des règles ci-dessus comme cas particuliers, en fonction de la valeur du paramètre $\alpha$.
+	\[
+	\mu_c(x) = \left( \frac{1}{T} \sum_{t=1}^{T} (d_{t,c}(x))^\alpha \right)^{1/\alpha}
+	\]
+\end{itemize}
+Ces méthodes offrent une gamme d'options pour combiner les sorties de classifieurs individuels dans un ensemble, permettant la flexibilité et l'adaptabilité à différents scénarios de problèmes.
+
+\subsection{Algorithmes populaires basés sur l'ensemble learning}
+Une riche collection de classificateurs basés sur des ensembles a été développée au cours des dernières années. Toutefois, nombre d'entre eux sont des variantes des quelques algorithmes bien établis dont les capacités ont également été largement testées et rapportées. Dans cette section, nous présentons une vue d'ensemble de certains des algorithmes d'ensemble les plus importants
+\subsubsection{Bagging}
+L'algorithme de \textbf{bagging} (Bootstrap Aggregation) de Breiman est une méthode d'\textbf{ensemble learning} simple mais efficace. Il consiste à entraîner plusieurs classificateurs sur différents échantillons \textbf{bootstrapés} du jeu de données d'entraînement. La \textbf{diversité} dans l'ensemble est assurée par les variations dans ces échantillons et l'utilisation de \textbf{classificateurs faibles} comme les \textit{decision stumps} ou les \textit{SVM linéaires}. La décision finale est prise par un \textbf{vote majoritaire}. Le \textbf{bagging} est particulièrement utile pour les petits jeux de données d'entraînement, tandis qu'une variante appelée \textit{Pasting Small Votes} traite les grands jeux de données en les partitionnant en segments plus petits. L'algorithme de \textbf{Random Forest} est une extension notable du \textbf{bagging}, combinant des \textbf{arbres de décision} entraînés avec une sélection aléatoire des instances et des caractéristiques~\cite{polikar2012ensemble}.
+%\begin{algorithm}
+%	\caption{An algorithm with caption}\label{alg:cap}
+%	\begin{algorithmic}
+%		\Require $n \geq 0$
+%		\Ensure $y = x^n$
+%		\State $y \gets 1$
+%		\State $X \gets x$
+%		\State $N \gets n$
+%		\While{$N \neq 0$}
+%		\If{$N$ is even}
+%		\State $X \gets X \times X$
+%		\State $N \gets \frac{N}{2}$  \Comment{This is a comment}
+%		\ElsIf{$N$ is odd}
+%		\State $y \gets y \times X$
+%		\State $N \gets N - 1$
+%		\EndIf
+%		\EndWhile
+%	\end{algorithmic}
+%\end{algorithm}
+
+\begin{algorithm}
+	\caption{Bagging}
+	\textbf{Entrées :} Données d'entraînement $S$ ; algorithme d'apprentissage supervisé \textit{BaseClassifier} ; entier $T$ spécifiant la taille de l'ensemble ; pourcentage $R$ pour créer les données d'entraînement bootstrapées.
+	\begin{algorithmic}
+		\For{$t = 1, \dots, T$}
+		\State Prendre une réplique bootstrapée $S_t$ en sélectionnant aléatoirement $R\%$ de $S$.
+		\State Appeler \textit{BaseClassifier} avec $S_t$ et recevoir l'hypothèse (classifieur) $h_t$.
+		\State Ajouter $h_t$ à l'ensemble, $\mathcal{H} = \mathcal{H} \cup \{h_t\}$.
+		\EndFor
+		\textbf{Combinaison de l'ensemble : Vote majoritaire simple}\\
+		\State Étant donné une instance non étiquetée $x$ :
+		\For{$t = 1, \dots, T$}
+		\State Évaluer l'ensemble $\mathcal{H} = \{h_1, \dots, h_T\}$ sur $x$.
+		\State Laisser $v_{t,c} = 1$ si $h_t$ choisit la classe $\omega_c$, et 0 sinon.
+		\EndFor
+		\State Obtenir le total des votes reçus par chaque classe : $V_c = \sum_{t=1}^{T} v_{t,c}, \; c = 1, \dots, C$.
+		\State \textbf{Sortie :} Classe avec le plus grand $V_c$.
+	\end{algorithmic}
+\end{algorithm}
+
+
+\subsubsection{Boosting and AdaBoost}
+\textbf{Boosting}, introduit dans le travail \textit{séminal de Schapire} sur le renforcement de l'apprentissage faible, est une approche itérative pour générer un classifieur fort, capable d'atteindre une erreur d'apprentissage arbitrairement faible, à partir d'un ensemble de classifieurs faibles, chacun étant à peine meilleur qu'un choix aléatoire. Bien que le \textbf{Boosting} combine également un ensemble de classifieurs faibles en utilisant un \textbf{vote majoritaire simple}, il diffère du \textbf{Bagging} sur un point crucial. Dans le \textbf{Bagging}, les instances sélectionnées pour entraîner des classifieurs individuels sont des répliques bootstrapées des données d'entraînement, ce qui signifie que chaque instance a une chance égale d'être dans chaque ensemble de données d'entraînement. En revanche, dans le \textbf{Boosting}, l'ensemble de données d'entraînement pour chaque classifieur suivant se concentre de plus en plus sur les instances mal classées par les classifieurs générés précédemment.
+
+Le \textbf{Boosting}, conçu pour des problèmes de classification binaire, crée des ensembles de trois classifieurs faibles à la fois : le premier classifieur (ou hypothèse) $h_1$ est entraîné sur un sous-ensemble aléatoire des données d'entraînement disponibles, similaire au \textbf{Bagging}. Le deuxième classifieur, $h_2$, est entraîné sur un autre sous-ensemble des données d'origine, dont précisément la moitié est correctement identifiée par $h_1$ et l'autre moitié est mal classée. Un tel sous-ensemble d'entraînement est considéré comme le "plus informatif", étant donné la décision de $h_1$. Le troisième classifieur $h_3$ est ensuite entraîné avec les instances sur lesquelles $h_1$ et $h_2$ ne sont pas d'accord. Ces trois classifieurs sont ensuite combinés par un vote majoritaire à trois voies. Schapire a prouvé que l'erreur d'apprentissage de cet ensemble de trois classifieurs est bornée par $g(\epsilon) < 3\epsilon^2 - 2\epsilon^3$, où $\epsilon$ est l'erreur de chacun des trois classifieurs, à condition que chaque classifieur ait un taux d'erreur $\epsilon < 0.5$, ce qui est le minimum attendu d'un classifieur dans un problème de classification binaire.
+
+\textbf{AdaBoost} (pour \textit{Adaptive Boosting}) et ses nombreuses variations ont ensuite étendu l'algorithme original de \textbf{Boosting} à des problèmes de classification multiple (\textbf{AdaBoost.M1}, \textbf{AdaBoost.M2}), ainsi qu'à des problèmes de régression (\textbf{AdaBoost.R}). Ici, nous décrivons l'\textbf{AdaBoost.M1}, la version la plus populaire des algorithmes \textbf{AdaBoost}.
+
+L'\textbf{AdaBoost} présente deux différences fondamentales par rapport au \textbf{Boosting} : (1) les instances sont sélectionnées dans les ensembles de données successifs à partir d'une distribution d'échantillons itérativement mise à jour des données d'entraînement ; et (2) les classifieurs sont combinés par un \textbf{vote majoritaire pondéré}, où les poids des votes sont basés sur les erreurs d'entraînement des classifieurs, elles-mêmes pondérées selon la distribution d'échantillons. La distribution d'échantillons garantit que les échantillons plus difficiles, c'est-à-dire les instances mal classées par le classifieur précédent, sont plus susceptibles d'être inclus dans les données d'entraînement du classifieur suivant.
+
+Le pseudocode de l'\textbf{AdaBoost.M1} est fourni dans l'\textbf{Algorithme 2}. La distribution d'échantillons, $D_t(i)$, attribue essentiellement un poids à chaque instance d'entraînement $x_i$, $i = 1, \dots, N$, à partir de laquelle les sous-ensembles de données d'entraînement $S_t$ sont tirés pour chaque classifieur consécutif (hypothèse) $h_t$. La distribution est initialisée pour être uniforme ; ainsi, toutes les instances ont la même probabilité d'être incluses dans le premier ensemble de données d'entraînement. L'erreur d'entraînement $\epsilon_t$ du classifieur $h_t$ est ensuite calculée comme la somme des poids de distribution de ces instances mal classées par $h_t$. L'\textbf{AdaBoost.M1} exige que cette erreur soit inférieure à $1/2$, laquelle est ensuite normalisée pour obtenir $\beta_t$, tel que $0 < \beta_t < 1$ pour $0 < \epsilon_t < 1/2$~\cite{polikar2012ensemble}.
+\begin{algorithm}
+	\caption{AdaBoost.M1}
+	\textbf{Entrées :} Données d'apprentissage $\mathcal{D} = \{(x_i, y_i)\}$, $i = 1, \dots, N$, $y_i \in \{\omega_1, \dots, \omega_C\}$, apprenant supervisé \textit{BaseClassifier}; taille de l'ensemble $T$. \\
+	\textbf{Initialiser :} $D_1(i) = \frac{1}{N}, \forall i = 1, \dots, N$ \\
+	\textbf{Pour} $t = 1, 2, \dots, T$ \textbf{faire} : \\
+	\begin{algorithmic}[1]
+		\State Tirer un sous-ensemble d'apprentissage $S_t$ à partir de la distribution $D_t$.
+		\State Entraîner \textit{BaseClassifier} sur $S_t$, recevoir l'hypothèse $h_t: X \rightarrow Y$.
+		\State Calculer l'erreur de $h_t$ :
+		\[
+		\epsilon_t = \sum_{i=1}^{N} \mathbf{I}[h_t(x_i) \neq y_i] \cdot D_t(i)
+		\]
+		\If{$\epsilon_t > \frac{1}{2}$}
+		\State \textbf{abandonner}.
+		\EndIf
+		\State Définir 
+		\[
+		\beta_t = \frac{\epsilon_t}{1 - \epsilon_t}
+		\]
+		\State Mettre à jour la distribution d'échantillonnage :
+		\[
+		D_{t+1}(i) = \frac{D_t(i)}{Z_t} \times 
+		\begin{cases}
+			\beta_t, & \text{si } h_t(x_i) = y_i \\
+			1, & \text{sinon}
+		\end{cases}
+		\]
+		où $Z_t = \sum_{i=1}^{N} D_t(i)$ est une constante de normalisation pour garantir que $D_{t+1}$ est une fonction de distribution appropriée.
+		
+		\State \textbf{Vote majoritaire pondéré :} Étant donné une instance non étiquetée $z$, obtenir le total des votes reçus par chaque classe :
+		\[
+		V_c = \sum_{t: h_t(z)=\omega_c} \log \frac{1}{\beta_t}, \quad c = 1, \dots, C
+		\]
+		\textbf{Sortie :} Classe avec le plus grand $V_c$.
+	\end{algorithmic}
+\end{algorithm}
+\newline
+Parmi les travaux internationaux sur le chikungunya en utilisant l'ensemble learning nous avons : 
+
+ \textit{Data Science System of Predicting and Detecting the Chikungunya Virus using Ensemble Techniques} par \textbf{Bommireddy Vijay Kumar Reddy, Shail Patel, Anayna Singh } et \textbf{al} le \textit{29 Decembre 2022} : . L'objectif principal des auteurs est d'utiliser des techniques d'ensemble pour trouver une approche novatrice et comparer ces techniques d'ensemble.
