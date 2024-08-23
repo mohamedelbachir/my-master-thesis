@@ -142,7 +142,7 @@ Ainsi, lorsque nous associons les données épidémiologiques aux données clima
 L'analyse suivante explore la relation entre le nombre de cas de Chikungunya et les variables climatiques. 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.6\linewidth]{images/case_correlation}
+	\includegraphics[width=0.5\linewidth]{images/case_correlation}
 	\caption[Corrélation entre les variables climatiques et le nombre de cas]{Corrélation entre les variables climatiques et le nombre de cas}
 	\label{fig:casecorrelation}
 \end{figure}
@@ -154,30 +154,57 @@ L'exploration des données a également mis en évidence certaines anomalies, te
 Pour prédire les cas de chikungunya, nous avons choisi d'utiliser plusieurs modèles de régression supervisée. Cette approche nous permet de comparer les performances de différents algorithmes et d'obtenir des prévisions plus robustes grâce à un modèle d'ensemble. Les modèles choisis sont les suivants:
 
 \subsubsection{Random Forest Regressor}
+La \textbf{Random Forest Regression} en \textit{machine learning} est une technique d'\textbf{ensemble} capable d'exécuter des tâches de \textbf{régression} et de \textbf{classification} en utilisant plusieurs \textbf{arbres de décision} et une méthode appelée \textbf{Bootstrap and Aggregation}, communément connue sous le nom de \textit{bagging}. L'idée principale derrière cette approche est de combiner plusieurs arbres de décision pour déterminer le résultat final, plutôt que de se fier à un seul arbre de décision.
 
-Le Random Forest Regressor est un modèle d'ensemble qui construit plusieurs arbres de décision lors de l'entraînement et renvoie la moyenne des prédictions de chaque arbre pour produire un résultat plus précis et plus robuste. Ce modèle est particulièrement efficace pour gérer les données avec des relations non linéaires et des interactions complexes entre les variables.
+Dans une \textbf{Random Forest}, plusieurs arbres de décision servent de modèles d'apprentissage de base. On effectue un \textbf{échantillonnage aléatoire des lignes} (\textit{row sampling}) et des \textbf{caractéristiques} (\textit{feature sampling}) à partir du jeu de données, formant ainsi des sous-ensembles de données pour chaque modèle. Cette étape est appelée \textit{Bootstrap}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\linewidth]{images/schema_random_forest}
+	\caption[Random Forest Regression]{Random Forest Regression working}
+	\label{fig:schemarandomforest}
+\end{figure}
 
-\paragraph*{Hyperparamètres:}
-Les hyperparamètres du modèle ont été ajustés à l'aide de la recherche en grille (Grid Search) pour optimiser la performance. Les hyperparamètres optimisés incluent :
-\begin{itemize}
-	\item \textbf{Nombre d'arbres (n\_estimators)} : 100
-	\item \textbf{Profondeur maximale (max\_depth)} : 10
-	\item \textbf{Nombre minimal d'échantillons par feuille (min\_samples\_leaf)} : 2
-\end{itemize}
-
+\newpage
 \subsubsection{XGBoost Regressor with Grid Search}
 
-L'algorithme XGBoost (Extreme Gradient Boosting) est un modèle de boosting qui utilise des arbres de décision comme base. Ce modèle est reconnu pour sa haute performance, particulièrement lorsqu'il est combiné avec une recherche en grille pour optimiser les hyperparamètres.
+L'algorithme XGBoost  est un modèle de boosting qui utilise des arbres de décision comme base
+\textbf{XGBoost} (Extreme Gradient Boosting) est une technique puissante pour construire des modèles de régression supervisée. Son efficacité repose sur sa \textbf{fonction objective} et ses \textbf{apprenants de base}. La fonction objective de \textbf{XGBoost} comprend une \textbf{fonction de perte} et un \textbf{terme de régularisation}. La fonction de perte mesure la différence entre les valeurs réelles et les valeurs prédites, ce qui indique à quel point les prédictions du modèle sont proches des valeurs réelles. Pour les problèmes de régression, la fonction de perte la plus courante dans \textbf{XGBoost} est \texttt{reg:linear}, tandis que pour la classification binaire, il s'agit de \texttt{reg:logistic}.Ce modèle est reconnu pour sa haute performance, particulièrement lorsqu'il est combiné avec une recherche en grille pour optimiser les hyperparamètres.
+
 
 \paragraph*{Hyperparamètres:}
-Les paramètres suivants ont été optimisés :
-\begin{itemize}
-	\item \textbf{Learning rate} : 0,1
-	\item \textbf{Max\_depth} : 6
-	\item \textbf{Subsample} : 0,8
-	\item \textbf{Colsample\_bytree} : 0,8
-\end{itemize}
+Les hyperparamètres du modèle ont été ajustés à l'aide de la recherche en grille (\textbf{Grid Search}) pour optimiser la performance qui seront illustré dans le chapitre 4.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{images/schema_xgboost}
+	\caption{Architecture Générale XGboost}
+	\label{fig:schemaxgboost}
+\end{figure}
+
 
 \subsubsection{Ensemble Model (Voting Regressor)}
 
-Pour tirer parti des forces de chaque modèle, nous avons implémenté un modèle d'ensemble, le Voting Regressor, qui combine les prédictions du Random Forest, du XGBoost optimisé, et d'une régression linéaire. Ce modèle utilise une méthode de vote pondéré pour calculer la prédiction finale, offrant ainsi une plus grande stabilité et précision.
+Pour tirer parti des forces de chaque modèle, nous avons implémenté un modèle d'ensemble, le \textbf{Voting Regressor}, qui combine les prédictions du \textit{Random Forest}, du \textit{XGBoost optimisé}, et d'une \textit{régression linéaire}. Ce modèle utilise une méthode de vote pondéré pour calculer la prédiction finale, offrant ainsi une plus grande stabilité et précision.
+
+Un \textbf{Voting Regressor} peut être défini comme une méthode spéciale qui combine ou \textbf{ensemence} plusieurs modèles de régression et surpasse les modèles individuels qui le composent. Le concept mathématique du \textbf{Voting Regressor} est assez simple et très similaire à celui du \textbf{Voting Classifier}. Si l'on considère une foule de modèles de machine learning comme \(M_1, M_2,\dots , M_x\), alors chaque modèle \(M_n\) produira une prédiction \(P_n\) pour une donnée d'entrée \(I\). Maintenant, si nous passons ces prédictions à travers le \textbf{Voting Regressor}, la prédiction finale sera \(P_{\text{voting}}\). Nous pouvons alors choisir le mode de moyenne simple qui distribue uniformément le poids total à tous les modèles ou bien choisir des poids personnalisés pour chaque modèle, ce qu'on appelle la \textbf{moyenne pondérée}.
+
+\textbf{Pour la moyenne simple :} 
+\[
+P_{\text{voting}}=\frac{1}{x}\sum_{n=1}^x{P_n}       
+\]
+
+\textbf{Pour la moyenne pondérée :} 
+\[
+P_{\text{voting}}=\sum_{n=1}^x (\text{wt}_{n} \cdot P_n)
+\]
+où \(\text{wt}_n\) sont les poids personnalisés assignés pendant le processus d'entraînement.
+
+Mais l'expression ou le concept mathématique ne suffit pas à comprendre directement le \textbf{Voting Regressor}.
+
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/schema_ensemble}
+	\caption{Votting Regressor Architecture}
+	\label{fig:schemaensemble}
+\end{figure}
