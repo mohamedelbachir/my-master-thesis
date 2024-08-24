@@ -1,4 +1,51 @@
 \chapter{RÉSULTAT ET DISCUSSIONS}
-\section{Résultat}
-SDS
+Ce chapitre se concentre sur l’analyse des résultats de prédiction obtenus après l’application des méthodes de machine learning sur les données climatiques et les cas antérieurs de Chikungunya dans trois pays : le \textbf{Tchad}, le \textbf{Brésil} et le \textbf{Paraguay}. L’objectif est de présenter en détail les résultats, d’en fournir une discussion approfondie, et d’identifier les éventuelles lacunes ou limitations.
+
+\section{Méthode de validation croisée (Entrainement et Test)}
+L’ensemble de données, composé de (366 instances pour le \textbf{Tchad} et 1826 instances pour le \textbf{Brézil} et le \textbf{Paraguay}) comprenant des données climatiques et des informations sur les cas du chikungunya, est divisé en deux parties pour l’apprentissage. D’abord, les données sont mélangées, puis elles sont séparées en deux ensembles : 80 \% des données sont utilisées pour l’entraînement (ensemble d’entraînement) et 20 \% sont réservées pour les tests(ensemble de test).
+
+\section{Choix des hyperparamètres de notre modèle}
+Les hyperparamètres des modèles utilisés pour determiné leurs performances et auss sont détaillé ci-dessous :
+
+\subsection{Cas du Random Forest Regressor}
+Cette section détaillera les choix des hyperparamètres spécifiques pour le \textbf{Random Forest Regressor}.\\
+
+\begin{table}[!hbt]
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		& \multicolumn{2}{c|}{Hyperparamètres} \\
+		\hline
+		Pays & n\_estimators & random\_state \\
+		\hline
+		Tchad & 300 & 42 \\
+		\hline
+		Brésil & 300 & 42 \\
+		\hline
+		Paraguay & 300 & 42 \\
+		\hline
+	\end{tabular}
+	\caption{Description of Dataset Fields}
+\end{table}
+
+\subsection{Cas du XGBoost Regressor}
+Dans cette section, nous analyserons les hyperparamètres choisis pour le \textbf{XGBoost Regressor} et leur impact sur la précision des prédictions qui ajusté à l’aide de la méthode de \textbf{recherche en grille} (\textbf{Grid Search}) afin d’optimiser leurs performances
+
+\subsection{Cas du VotingRegressor}
+Enfin, cette section se concentrera sur l’utilisation du \textbf{VotingRegressor} notre modèle d'ensemble.les hyperparamètres sélectionnés ont été optimisé par la méthode \textbf{GridSearch}.
+
+\section{Résultats obtenus par nos modèles}
+Dans cette section, nous exposons nos résultats à travers un tableau, suivi d’une discussion approfondie. Par la suite, nous illustrons les diverses mesures de performance à l’aide de graphiques variés.
+\subsection{Tableau des performance de nos modèles}
+Ce tableau ci-dessus illustre les métriques d’évaluation des résultats de nos travaux.
+\subsection{Performance en RMSE et R2 Score}
+La figure ci-dessous montre en termes de RMSE et de coefficient de détermination R2, le niveau de performance de chacun des modèles.
+\subsection{Performance en MAE et R2 Score}
+En combinant uniquement le MAE (Mean Absolute Error) et le coefficient de détermination R2,  se voit toujours meilleure que les autres modèles.
+\subsection{Prédiction}
+\subsection{Validation sur les données de test avec LSTM}
+\subsection{Prédiction à court terme sur cinq(5) ans}
+La figure présente une série temporelle à court terme sur cinq(5) ans, combinant des données historiques et des prévisions futures.
+\subsection{Prédiction à long terme sur dix(10) ans}
+La courbe ci-dessus illustre une série temporelle à long terme sur dix(10) ans, comprenant des données historiques ainsi que des projections futures.
 \section{Discussion}
