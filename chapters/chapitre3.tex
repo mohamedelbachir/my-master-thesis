@@ -53,7 +53,13 @@ Les données utilisées dans cette étude proviennent de diverses sources fiable
 	\item Pour le \textbf{Paraguay} : les données ont été collectées via le site de la PAHO\footnote{\url{https://www3.paho.org/data/index.php/en/mnu-topics/chikv-en/550-chikv-weekly-en.html}} , qui rapporte les cas de Chikungunya en temps réel, avec des enregistrements hebdomadaires variant entre 2013 et 2017.
 \end{itemize}
 \subsubsection{Données climatiques}
-Les données climatiques pour ces trois pays ont été obtenues à partir du site weatherandclimate\footnote{\url{http://weatherandclimate.com/}}, correspondant aux mêmes intervalles temporels que les cas de Chikungunya dans chaque pays. Ces données comprennent des paramètres tels que l'humidité, la température et les précipitations, essentiels pour étudier l'impact des conditions météorologiques sur la propagation de la maladie.
+Les données climatiques pour ces trois pays ont été obtenues à partir du site weatherandclimate\footnote{\url{http://weatherandclimate.com/}}, correspondant aux mêmes intervalles temporels que les cas de Chikungunya dans chaque pays à savoir : 
+\begin{itemize}
+	\item Au \textbf{Tchad} : dans les villes de biltine,Abeche et Abdi oú il y'à eu l'epidemie.
+	\item Au \textbf{Brésil} : dans les villes Amapá,Bahia,Ceará,Espírito Santo,Distrito Federal,Goiás,Maranhão,Minas Gerais,Mato Grosso do Sul,Mato Grosso,Pará,Paraíba,Pernambuco,Piauí,Paraná,Rio de Janeiro,Rio Grande do Norte,Rondônia,Roraima,Rio Grande do Sul,Santa Catarina,Sergipe,São Paulo et Tocantins oú il y'à eu l'epidemie.
+	\item Au \textbf{Paraguay} : asuncion,central oú il y'à eu l'epidemie.
+\end{itemize}.
+Ces données comprennent des paramètres tels que l'humidité, la température et les précipitations, essentiels pour étudier l'impact des conditions météorologiques sur la propagation de la maladie.
 
 \subsection{Exploration et Préparation des Données}
 L'exploration des données a débuté par une analyse des features climatiques, incluant l'\textbf{humidité}, la \textbf{température} et les \textbf{précipitations}. Cette étape visait à comprendre la distribution des données climatiques et leur variation au fil du temps.
@@ -69,14 +75,31 @@ La préparation des données pour le \textbf{Tchad} et le \textbf{Paraguay} a pr
 Pour pallier ces lacunes, nous avons envisagé plusieurs méthodes de traitement des données manquantes. Les méthodes sélectionnées sont les suivantes :
 
 \begin{itemize}
-	\item \textbf{Forward Fill} : Cette méthode consiste à propager les valeurs disponibles vers les valeurs manquantes situées ultérieurement dans le temps.
 	\item \textbf{KNN Imputer} : Cette méthode utilise les k-plus proches voisins pour estimer les valeurs manquantes en se basant sur les données les plus proches.
+	\item \textbf{Data  augmentation} ou \textbf{Augmentation de données} : est une technique utilisée pour augmenter artificiellement la taille d'un jeu de données en générant de nouvelles données à partir des données existantes. Cette méthode est particulièrement utile lorsque l'on dispose d'un petit jeu de données, comme c'est souvent le cas en épidémiologie ou dans d'autres domaines où les données peuvent être rares ou coûteuses à obtenir.	
+	L'objectif principal du \textit{data augmentation} est de rendre les modèles d'apprentissage automatique plus robustes et performants en leur fournissant un plus grand nombre de cas variés. Dans le contexte des séries temporelles, cette technique peut inclure des méthodes telles que le \textbf{bruit gaussien}, le décalage de temps (\textit{time shifting}).
+	En appliquant le \textit{data augmentation}, nous enrichissons le modèle avec des scénarios supplémentaires qui permettent de mieux généraliser aux nouvelles données. Cela aide à éviter le surapprentissage (\textit{overfitting}) et améliore la capacité du modèle à faire des prédictions précises sur des données non vues.
 \end{itemize}
-
+\newpage
 \paragraph*{Feature Engineering}
 \begin{itemize}
 	\item[\space] Le \textit{feature engineering} est une technique qui consiste à créer de nouvelles variables (features) à partir des données brutes. Dans le cadre de notre étude, nous avons utilisé cette approche pour améliorer les données épidémiologiques du Brésil. En effet, lors de la collecte des données sur les cas de Chikungunya, nous avons rencontré un ensemble de données comprenant à la fois des patients testés positifs pour la dengue et pour le Chikungunya. Nous avons alors croisé les données des patients testés positifs pour le Chikungunya avec les dates de détection de leur maladie. Cela nous a permis de créer une nouvelle variable (feature) associant chaque cas à une date spécifique, ce qui a enrichi notre base de données épidémiologiques.
 \end{itemize}
+\subparagraph{Utilisation de Shifting et Rolling}
+
+L'ingénierie des caractéristiques (\textit{feature engineering}) est une étape cruciale dans l'analyse des séries temporelles, permettant de capturer les patterns temporels et d'améliorer la performance des modèles prédictifs. Parmi les techniques couramment utilisées, le \textit{shifting} et le \textit{rolling} se distinguent par leur capacité à extraire des informations pertinentes à partir des données temporelles.
+
+\subsubsection*{Shifting}
+
+Le \textit{shifting}, ou décalage, consiste à introduire un retard dans les séries temporelles, créant ainsi des variables dites \textit{lagged} qui représentent les valeurs passées de la série. Cette technique est particulièrement utile pour capturer les dépendances temporelles, car elle permet au modèle d'intégrer l'influence des valeurs passées sur les valeurs futures. Par exemple, en décalant une série temporelle\footnote{Une \textbf{série temporelle} est une séquence de données collectées ou observées à des intervalles de temps successifs. Ces données sont souvent corrélées dans le temps, ce qui signifie que les valeurs passées peuvent influencer les valeurs futures.} de $t$ périodes, nous pouvons créer une nouvelle caractéristique qui représente la valeur de la série à l'instant $t-1$. Cette approche est essentielle dans les modèles de prévision tels que les modèles \textbf{ARIMA} (AutoRegressive Integrated Moving Average) et les modèles d'apprentissage automatique, qui s'appuient sur l'information temporelle passée pour prédire les valeurs futures.
+
+\subsubsection*{Rolling}
+
+Le \textit{rolling}, ou calcul de moyennes mobiles, est une autre technique qui consiste à appliquer une fonction de glissement (comme la moyenne, la somme, etc.) sur une fenêtre de temps fixe. Cette méthode permet de lisser les fluctuations à court terme et de mettre en évidence les tendances ou cycles à plus long terme dans les données. Par exemple, une moyenne mobile sur 7 jours calculera la moyenne des valeurs des 7 jours précédents pour chaque point de la série, offrant ainsi une vue plus lissée de l'évolution des données. Cette technique est particulièrement utile pour réduire le bruit dans les séries temporelles et pour créer des caractéristiques qui reflètent les tendances sous-jacentes des données.
+
+\subparagraph{Justification de l'utilisation}
+
+L'utilisation de \textit{shifting} et de \textit{rolling} dans le \textit{feature engineering} est justifiée par leur capacité à enrichir le jeu de données avec des informations temporelles cruciales. En créant des variables \textit{lagged} à partir de \textit{shifting}, nous permettons au modèle de capturer l'effet des valeurs passées, ce qui est fondamental pour les prévisions à court et moyen terme. Le \textit{rolling}, quant à lui, permet de capturer les tendances et de lisser les variations erratiques des séries, rendant les prédictions plus robustes face aux fluctuations à court terme. Ainsi, ces techniques d'ingénierie des caractéristiques sont indispensables pour améliorer la précision et la fiabilité des modèles prédictifs appliqués aux séries temporelles.
 
 \subsubsection{Exploration des Données}
 Dans cette section, nous allons explorer nos données de manière détaillée. Nous commencerons par présenter les entêtes des différents jeux de données, puis nous analyserons l'évolution du Chikungunya au fil du temps dans les pays étudiés. Enfin, nous mettrons en évidence les corrélations entre les features, en particulier les données climatiques et épidémiologiques.
@@ -86,7 +109,7 @@ Dans cette section, nous allons explorer nos données de manière détaillée. N
 	\item \textbf{Entêtes des données climatiques} : La figure ci-dessous illustre les principales variables disponibles dans les jeux de données climatiques, qui incluent la date, la température, l'humidité et les précipitations.
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.5\linewidth]{images/climate_dataset_sample}
+		\includegraphics[width=0.7\linewidth]{images/climate_dataset_sample}
 		\caption[Exemple d'entêtes des données climatiques]{Exemple d'entêtes des données climatiques}
 		\label{fig:climatedatasetsample}
 	\end{figure}
@@ -159,13 +182,13 @@ La \textbf{Random Forest Regression} en \textit{machine learning} est une techni
 Dans une \textbf{Random Forest}, plusieurs arbres de décision servent de modèles d'apprentissage de base. On effectue un \textbf{échantillonnage aléatoire des lignes} (\textit{row sampling}) et des \textbf{caractéristiques} (\textit{feature sampling}) à partir du jeu de données, formant ainsi des sous-ensembles de données pour chaque modèle. Cette étape est appelée \textit{Bootstrap}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.4\linewidth]{images/schema_random_forest}
+	\includegraphics[width=0.7\linewidth]{images/schema_random_forest}
 	\caption[Random Forest Regression]{Random Forest Regression working}
 	\label{fig:schemarandomforest}
 \end{figure}
 
 \newpage
-\subsubsection{XGBoost Regressor with Grid Search}
+\subsubsection{XGBoost Regressor avec Grid Search}
 
 L'algorithme XGBoost  est un modèle de boosting qui utilise des arbres de décision comme base
 \textbf{XGBoost} (Extreme Gradient Boosting) est une technique puissante pour construire des modèles de régression supervisée. Son efficacité repose sur sa \textbf{fonction objective} et ses \textbf{apprenants de base}. La fonction objective de \textbf{XGBoost} comprend une \textbf{fonction de perte} et un \textbf{terme de régularisation}. La fonction de perte mesure la différence entre les valeurs réelles et les valeurs prédites, ce qui indique à quel point les prédictions du modèle sont proches des valeurs réelles. Pour les problèmes de régression, la fonction de perte la plus courante dans \textbf{XGBoost} est \texttt{reg:linear}, tandis que pour la classification binaire, il s'agit de \texttt{reg:logistic}.Ce modèle est reconnu pour sa haute performance, particulièrement lorsqu'il est combiné avec une recherche en grille pour optimiser les hyperparamètres.
@@ -176,7 +199,7 @@ Les hyperparamètres du modèle ont été ajustés à l'aide de la recherche en 
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.5\linewidth]{images/schema_xgboost}
+	\includegraphics[width=0.7\linewidth]{images/schema_xgboost}
 	\caption{Architecture Générale XGboost}
 	\label{fig:schemaxgboost}
 \end{figure}
@@ -204,7 +227,7 @@ Mais l'expression ou le concept mathématique ne suffit pas à comprendre direct
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.7\linewidth]{images/schema_ensemble}
+	\includegraphics[width=0.8\linewidth]{images/schema_ensemble}
 	\caption{Votting Regressor Architecture}
 	\label{fig:schemaensemble}
 \end{figure}

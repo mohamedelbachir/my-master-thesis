@@ -1,51 +1,163 @@
 \chapter{RÉSULTAT ET DISCUSSIONS}
-Ce chapitre se concentre sur l’analyse des résultats de prédiction obtenus après l’application des méthodes de machine learning sur les données climatiques et les cas antérieurs de Chikungunya dans trois pays : le \textbf{Tchad}, le \textbf{Brésil} et le \textbf{Paraguay}. L’objectif est de présenter en détail les résultats, d’en fournir une discussion approfondie, et d’identifier les éventuelles lacunes ou limitations.
+Ce chapitre se concentre sur l’analyse des résultats de prédiction obtenus après l’application des méthodes de machine learning aux données climatiques et aux cas antérieurs de Chikungunya dans trois pays : le \textbf{Tchad}, le \textbf{Brésil} et le \textbf{Paraguay}. L’objectif est de présenter en détail les résultats, de proposer une discussion approfondie, et d’identifier les éventuelles lacunes ou limitations.
 
-\section{Méthode de validation croisée (Entrainement et Test)}
-L’ensemble de données, composé de (366 instances pour le \textbf{Tchad} et 1826 instances pour le \textbf{Brézil} et le \textbf{Paraguay}) comprenant des données climatiques et des informations sur les cas du chikungunya, est divisé en deux parties pour l’apprentissage. D’abord, les données sont mélangées, puis elles sont séparées en deux ensembles : 80 \% des données sont utilisées pour l’entraînement (ensemble d’entraînement) et 20 \% sont réservées pour les tests(ensemble de test).
+\section{Méthode de Validation Croisée (Entraînement et Test)}
+L'ensemble de données, composé de 366 instances pour le \textbf{Tchad} et de 1826 instances pour le \textbf{Brésil} et le \textbf{Paraguay}, comprenant des données climatiques et des informations sur les cas de Chikungunya, a été divisé en deux parties pour l’apprentissage. Tout d’abord, les données ont été mélangées, puis elles ont été séparées en deux ensembles : 80 \% des données ont été utilisées pour l’entraînement (ensemble d’apprentissage) et 20 \% ont été réservées pour les tests (ensemble de test).
 
-\section{Choix des hyperparamètres de notre modèle}
-Les hyperparamètres des modèles utilisés pour determiné leurs performances et auss sont détaillé ci-dessous :
+\section{Choix des Hyperparamètres des Modèles d'Ensemble}
+Les hyperparamètres des modèles utilisés pour déterminer leurs performances sont détaillés ci-dessous.
 
 \subsection{Cas du Random Forest Regressor}
-Cette section détaillera les choix des hyperparamètres spécifiques pour le \textbf{Random Forest Regressor}.\\
+Cette section détaille les choix des hyperparamètres spécifiques pour le \textbf{Random Forest Regressor} et leur impact sur la précision des prédictions. Ces hyperparamètres ont été ajustés à l’aide de la méthode de \textbf{recherche en grille} (\textbf{Grid Search}) afin d’optimiser les performances du modèle.
 
 \begin{table}[!hbt]
 	\centering
-	\begin{tabular}{|c|c|c|}
+	\caption{Description des hyperparamètres optimisés pour le Random Forest Regressor avec GridSearch}
+	\begin{tabular}{|c|c|c|c|c|}
 		\hline
-		& \multicolumn{2}{c|}{Hyperparamètres} \\
+		& \multicolumn{4}{c|}{Hyperparamètres} \\
 		\hline
-		Pays & n\_estimators & random\_state \\
+		Pays & \textsf{n\_estimators} & \textsf{max\_depth} & \textsf{min\_samples\_leaf} & \textsf{min\_samples\_split} \\
 		\hline
-		Tchad & 300 & 42 \\
+		Tchad & 200 & 10 & 2 & 2 \\
 		\hline
-		Brésil & 300 & 42 \\
+		Brésil & 200 & 20 & 2 & 2 \\
 		\hline
-		Paraguay & 300 & 42 \\
+		Paraguay & 200 & None & 1 & 5 \\
 		\hline
 	\end{tabular}
-	\caption{Description of Dataset Fields}
 \end{table}
 
-\subsection{Cas du XGBoost Regressor}
-Dans cette section, nous analyserons les hyperparamètres choisis pour le \textbf{XGBoost Regressor} et leur impact sur la précision des prédictions qui ajusté à l’aide de la méthode de \textbf{recherche en grille} (\textbf{Grid Search}) afin d’optimiser leurs performances
+Les hyperparamètres utilisés pour le \textbf{Random Forest Regressor} sont les suivants :
+\begin{itemize}
+	\item \textbf{n\_estimators} : Le nombre d'arbres dans la forêt. Un nombre plus élevé d'arbres peut améliorer la performance, mais augmente aussi le temps de calcul.
+	\item \textbf{max\_depth} : La profondeur maximale des arbres. Une profondeur plus grande permet au modèle de capturer plus de complexité, mais risque de surapprendre (overfitting).
+	\item \textbf{min\_samples\_leaf} : Le nombre minimum d'échantillons requis pour être dans une feuille. Un nombre plus élevé peut entraîner un modèle plus simple et réduire le surapprentissage.
+	\item \textbf{min\_samples\_split} : Le nombre minimum d'échantillons requis pour diviser un nœud interne. Un nombre plus élevé peut rendre le modèle moins sensible au bruit.
+\end{itemize}
 
-\subsection{Cas du VotingRegressor}
-Enfin, cette section se concentrera sur l’utilisation du \textbf{VotingRegressor} notre modèle d'ensemble.les hyperparamètres sélectionnés ont été optimisé par la méthode \textbf{GridSearch}.
+\subsection{Cas du XGBoost Regressor}
+Cette section présente les hyperparamètres choisis pour le \textbf{XGBoost Regressor} et leur impact sur la précision des prédictions. Ces hyperparamètres ont également été ajustés à l’aide de la méthode de \textbf{recherche en grille} (\textbf{Grid Search}) afin d’optimiser les performances du modèle.
+
+\begin{table}[!hbt]
+	\centering
+	\caption{Description des hyperparamètres optimisés pour le XGBoost Regressor avec GridSearch}
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		& \multicolumn{4}{c|}{Hyperparamètres} \\
+		\hline
+		Pays & \textsf{n\_estimators} & \textsf{max\_depth} & \textsf{subsample} & \textsf{learning\_rate} \\
+		\hline
+		Tchad & 300 & 5 & 0.8 & 0.2 \\
+		\hline
+		Brésil & 100 & 5 & 1.0 & 0.2 \\
+		\hline
+		Paraguay & 100 & 7 & 0.1 & 0.2 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+Les hyperparamètres utilisés pour le \textbf{XGBoost Regressor} sont les suivants :
+\begin{itemize}
+	\item \textbf{n\_estimators} : Le nombre de modèles boostés à entraîner. Un plus grand nombre peut améliorer la performance mais au prix d'un temps de calcul plus long.
+	\item \textbf{max\_depth} : La profondeur maximale des arbres. Comme pour le Random Forest, une plus grande profondeur peut capturer plus de complexité, mais risque de surapprentissage.
+	\item \textbf{subsample} : La proportion d'échantillons utilisés pour entraîner chaque arbre. Une valeur inférieure à 1.0 réduit le surapprentissage en introduisant plus de diversité dans les arbres.
+	\item \textsf{learning\_rate} : Le taux d'apprentissage, qui contrôle la contribution de chaque modèle supplémentaire. Un taux plus bas nécessite plus d'estimators pour converger, mais peut conduire à une meilleure généralisation.
+\end{itemize}
 
 \section{Résultats obtenus par nos modèles}
-Dans cette section, nous exposons nos résultats à travers un tableau, suivi d’une discussion approfondie. Par la suite, nous illustrons les diverses mesures de performance à l’aide de graphiques variés.
+Cette section, nous exposons nos résultats à travers un tableau, suivi d’une discussion approfondie. Par la suite, nous illustrons les diverses mesures de performance à l’aide de graphiques variés.
 \subsection{Tableau des performance de nos modèles}
-Ce tableau ci-dessus illustre les métriques d’évaluation des résultats de nos travaux.
+Le tableau~\ref{tab:performance} ci-dessous illustre les métriques d’évaluation des résultats de nos travaux.
+
+Les résultats obtenus montrent que le \textit{modèle d'ensemble}, en particulier le \textbf{Voting Regressor}, a globalement surpassé les autres modèles en termes de précision. Il a permis de réduire les erreurs (\textbf{MAE} et \textbf{RMSE}) et d'augmenter le score R\textsuperscript{2}, indiquant une meilleure explication de la variance des données.
+
+Pour le \textbf{Paraguay}, le \textbf{Voting Regressor} a obtenu un RMSE le plus faible (\textbf{68.1025}) et le meilleur score R\textsuperscript{2} (\textbf{0.5957}), surpassant les modèles RandomForestRegressor et XGBoostRegressor.
+
+Au \textbf{Brésil}, bien que le modèle RandomForestRegressor ait montré de très bonnes performances (RMSE de\textbf{ 281.1369} et R\textsuperscript{2} de \textbf{0.9111}), le \textbf{Voting Regressor} a réussi à obtenir des résultats comparables avec un RMSE particulièrement bas de \textbf{163.0350}.
+
+Pour le \textbf{Tchad}, les performances des modèles étaient globalement plus faibles, mais le \textbf{Voting Regressor} a tout de même montré une légère amélioration par rapport aux autres modèles, bien que le score R\textsuperscript{2} reste faible (\textbf{0.3434}).
+
+En conclusion, les modèles d'ensemble, et particulièrement le \textbf{Voting Regressor}, a révélés être les plus performants pour prédire les cas de Chikungunya dans les trois pays étudiés.Toutefois, avec des prédictions plus fiables pour le \textbf{Brésil} et le \textbf{Paraguay} que pour le Tchad, ce qui est dû à la quantité des données disponibles pour ce pays là.
+
+\begin{table}[!hbt]
+	\centering
+	\caption{Tableau de comparaison des différents modèles}
+	\label{tab:performance}
+	\begin{tabular}{|c|c|c|c|c|}	
+		
+		\hline
+		Pays & Modèle & MAE & RMSE & R\textsuperscript{2} score \\
+		\hline
+		\multirow{4}{*}{Paraguay} & LinearRegressor & 65.4165 & 85.5322 & 0.3623 \\
+		\cline{2-5}
+		& RandomForestRegressor & 38.4501 & 69.9400 & 0.5736 \\
+		\cline{2-5}
+		& XGBoostRegressor & 40.4713 & 72.3494 & 0.5437 \\
+		\cline{2-5}
+		& \textbf{VotingRegressor} & \textbf{43.0001} & \textbf{68.1025} & \textbf{0.5957} \\
+		\hline
+		\multirow{4}{*}{Brésil} & LinearRegressor & 299.0416 & 396.7418 & 0.8229 \\
+		\cline{2-5}
+		& RandomForestRegressor & 141.0863 & 281.1369 & 0.9111 \\
+		\cline{2-5}
+		& XGBoostRegressor & 154.3493 & 288.9261 & 0.9061\\
+		\cline{2-5}
+		& \textbf{VotingRegressor} & \textbf{163.0350}  & \textbf{163.0350} & \textbf{0.9108} \\
+		\hline
+		\multirow{4}{*}{Tchad} & LinearRegressor & 51.5692 & 90.1886 & 0.1344 \\
+		\cline{2-5}
+		& RandomForestRegressor & 49.2575 & 79.7674 & 0.3229 \\
+		\cline{2-5}
+		& XGBoostRegressor & 51.1603 & 80.1259 & 0.3168 \\
+		\cline{2-5}
+		& \textbf{VotingRegressor} & \textbf{47.6738} & \textbf{78.5506} & \textbf{0.3434} \\
+		\hline
+	\end{tabular}
+\end{table}
+
 \subsection{Performance en RMSE et R2 Score}
 La figure ci-dessous montre en termes de RMSE et de coefficient de détermination R2, le niveau de performance de chacun des modèles.
-\subsection{Performance en MAE et R2 Score}
-En combinant uniquement le MAE (Mean Absolute Error) et le coefficient de détermination R2,  se voit toujours meilleure que les autres modèles.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.9\linewidth]{images/metric_comparaison}
+	\caption{Comparaison performance}
+	\label{fig:metriccomparaison}
+\end{figure}
+\newpage
 \subsection{Prédiction}
-\subsection{Validation sur les données de test avec LSTM}
-\subsection{Prédiction à court terme sur cinq(5) ans}
-La figure présente une série temporelle à court terme sur cinq(5) ans, combinant des données historiques et des prévisions futures.
-\subsection{Prédiction à long terme sur dix(10) ans}
-La courbe ci-dessus illustre une série temporelle à long terme sur dix(10) ans, comprenant des données historiques ainsi que des projections futures.
+Ci-dessous les prédiction des test dans chaque pour le modèle d'ensemble (\textbf{VotingRegressor})
+\subsubsection{Pour le Brésil}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.9\linewidth]{images/prediction_bresil}
+	\caption{Prédiction Brésil}
+	\label{fig:predictionbresil}
+\end{figure}
+
+\subsubsection{Pour le Tchad}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.9\linewidth]{images/prediction_chad}
+	\caption{Prédiction Tchad}
+	\label{fig:predictionchad}
+\end{figure}
+\subsubsection{Pour le Paraguay}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.9\linewidth]{images/prediction_paraguay}
+	\caption{Prédiction Paraguay}
+	\label{fig:predictionparaguay}
+\end{figure}
+\newpage
 \section{Discussion}
+
+Les résultats obtenus dans notre étude montrent une performance compétitive des modèles de régression appliqués aux données climatiques et épidémiologiques de la Chikungunya. En particulier, notre modèle d'ensemble \textit{Voting Regressor}, qui combine les prédictions des modèles \textit{Linear Regressor}, \textit{RandomForest Regressor}, et \textit{XGBoost Regressor}, a affiché des performances globalement supérieures aux autres modèles individuels, avec un \textbf{MAE} minimal et un \textbf{RMSE} relativement bas.
+
+Dans le cas du \textbf{Paraguay}, le \textit{Voting Regressor} a atteint un \textbf{MAE} de \textbf{43.00}, soit une amélioration par rapport au \textit{RandomForestRegressor} et au \textit{XGBoostRegressor} qui affichent des \textbf{MAE} respectifs de \textbf{38.45} et \textbf{40.47}. Le RMSE du \textit{Voting Regressor} est de 68.10, indiquant une bonne capacité de prédiction malgré la complexité des données épidémiologiques et climatiques. Le score R² de \textbf{0.5957 }montre que ce modèle explique environ 60 \% de la variance des données pour cette région.
+
+Pour le \textbf{Brésil}, le \textit{Voting Regressor} a montré une robustesse similaire avec un score R² de \textbf{0.9108}, ce qui est légèrement inférieur à celui du \textit{RandomForestRegressor} mais supérieur au \textit{XGBoostRegressor}. Cela suggère que le \textit{Voting Regressor} parvient à combiner les forces de chaque modèle pour fournir des prédictions plus équilibrées, même dans des contextes de données plus hétérogènes.
+
+Au \textbf{Tchad}, bien que les performances générales des modèles soient moins élevées, le \textit{Voting Regressor} reste le modèle le plus performant avec un \textbf{MAE} de \textbf{47.67} et un RMSE de \textbf{78.55}. Le score R² de \textbf{0.3434} est le plus élevé parmi les modèles testés pour cette région, indiquant que ce modèle capture mieux la variance des données malgré des difficultés apparentes liées à la la quantité des données disponibles pour cette région, bien évidement que les techniques de \textbf{data augmentation} et du \textbf{KNNimputer} ont été d'une importance crucial sur ces résultats.
+
+Dans notre contexte, l'imprécision observée dans certaines régions, comme au Tchad, pourrait être due à un manque de prédicteurs ou de variables explicatives dans le modèle, ce qui suggère qu'une exploration plus approfondie des facteurs climatiques et épidémiologiques est nécessaire. De plus, l'impact des variables climatiques telles que la \textbf{température} et l'\textbf{humidité} mérite une attention particulière. Il a été observé, par exemple, qu'une augmentation de la température pourrait être associée à une diminution des cas de Chikungunya, tandis que l'\textbf{humidité} semble accroître ces cas. Ce genre de corrélations, bien que contre-intuitives, pourrait fournir des pistes intéressantes pour affiner les modèles prédictifs.
