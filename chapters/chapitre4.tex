@@ -8,11 +8,12 @@ L'ensemble de données, composé de 366 instances pour le \textbf{Tchad} et de 1
 Les hyperparamètres des modèles utilisés pour déterminer leurs performances sont détaillés ci-dessous.
 
 \subsection{Cas du Random Forest Regressor}
-Cette section détaille les choix des hyperparamètres spécifiques pour le \textbf{Random Forest Regressor} et leur impact sur la précision des prédictions. Ces hyperparamètres ont été ajustés à l’aide de la méthode de \textbf{recherche en grille} (\textbf{Grid Search}) afin d’optimiser les performances du modèle.
+Cette section détaille les choix des hyperparamètres spécifiques pour le \textbf{Random Forest Regressor} et leur impact sur la précision des prédictions. Ces hyperparamètres ont été ajustés à l’aide de la méthode de \textbf{recherche en grille} (\textbf{Grid Search}) afin d’optimiser les performances du modèle illustré dans le tableau \ref{tab:grid-search-rf}.
 
 \begin{table}[!hbt]
 	\centering
 	\caption{Description des hyperparamètres optimisés pour le Random Forest Regressor avec GridSearch}
+	\label{tab:grid-search-rf}
 	\begin{tabular}{|c|c|c|c|c|}
 		\hline
 		& \multicolumn{4}{c|}{Hyperparamètres} \\
@@ -37,11 +38,12 @@ Les hyperparamètres utilisés pour le \textbf{Random Forest Regressor} sont les
 \end{itemize}
 
 \subsection{Cas du XGBoost Regressor}
-Cette section présente les hyperparamètres choisis pour le \textbf{XGBoost Regressor} et leur impact sur la précision des prédictions. Ces hyperparamètres ont également été ajustés à l’aide de la méthode de \textbf{recherche en grille} (\textbf{Grid Search}) afin d’optimiser les performances du modèle.
+Cette section présente les hyperparamètres choisis pour le \textbf{XGBoost Regressor} et leur impact sur la précision des prédictions. Ces hyperparamètres ont également été ajustés à l’aide de la méthode de \textbf{recherche en grille} (\textbf{Grid Search}) afin d’optimiser les performances du modèle illustré dans le tableau \ref{tab:grid-search-xb}.
 
 \begin{table}[!hbt]
 	\centering
 	\caption{Description des hyperparamètres optimisés pour le XGBoost Regressor avec GridSearch}
+	\label{tab:grid-search-xb}
 	\begin{tabular}{|c|c|c|c|c|}
 		\hline
 		& \multicolumn{4}{c|}{Hyperparamètres} \\
@@ -59,7 +61,7 @@ Cette section présente les hyperparamètres choisis pour le \textbf{XGBoost Reg
 
 Les hyperparamètres utilisés pour le \textbf{XGBoost Regressor} sont les suivants :
 \begin{itemize}
-	\item \textbf{n\_estimators} : Le nombre de modèles boostés à entraîner. Un plus grand nombre peut améliorer la performance mais au prix d'un temps de calcul plus long.
+	\item \textbf{n\_estimators} : Le nombre d'arbres dans la forêt.
 	\item \textbf{max\_depth} : La profondeur maximale des arbres. Comme pour le Random Forest, une plus grande profondeur peut capturer plus de complexité, mais risque de surapprentissage.
 	\item \textbf{subsample} : La proportion d'échantillons utilisés pour entraîner chaque arbre. Une valeur inférieure à 1.0 réduit le surapprentissage en introduisant plus de diversité dans les arbres.
 	\item \textsf{learning\_rate} : Le taux d'apprentissage, qui contrôle la contribution de chaque modèle supplémentaire. Un taux plus bas nécessite plus d'estimators pour converger, mais peut conduire à une meilleure généralisation.
@@ -117,35 +119,38 @@ En conclusion, les modèles d'ensemble, et particulièrement le \textbf{Voting R
 \end{table}
 
 \subsection{Performance en RMSE et R2 Score}
-La figure ci-dessous montre en termes de RMSE et de coefficient de détermination R2, le niveau de performance de chacun des modèles.
+La figure \ref{fig:metriccomparaison} montre en termes de RMSE et de coefficient de détermination R2, le niveau de performance de chacun des modèles.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.9\linewidth]{images/metric_comparaison}
+	\includegraphics[width=0.8\linewidth]{images/metric_comparaison}
 	\caption{Comparaison performance}
 	\label{fig:metriccomparaison}
 \end{figure}
 \newpage
 \subsection{Prédiction}
-Ci-dessous les prédiction des test dans chaque pour le modèle d'ensemble (\textbf{VotingRegressor})
+Ci-dessous les prédiction des test dans chaque pays pour le modèle d'ensemble (\textbf{VotingRegressor})
 \subsubsection{Pour le Brésil}
+La figure \ref{fig:predictionbresil} illustre la phase de prédiction du chikungunya au brésil. 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.9\linewidth]{images/prediction_bresil}
+	\includegraphics[width=1\linewidth]{images/prediction_bresil}
 	\caption{Prédiction Brésil}
 	\label{fig:predictionbresil}
 \end{figure}
 
 \subsubsection{Pour le Tchad}
+La figure \ref{fig:predictionchad} illustre la phase de prédiction du chikungunya au Tchad. 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.9\linewidth]{images/prediction_chad}
+	\includegraphics[width=0.85\linewidth]{images/prediction_chad}
 	\caption{Prédiction Tchad}
 	\label{fig:predictionchad}
 \end{figure}
 \subsubsection{Pour le Paraguay}
+La figure \ref{fig:predictionparaguay} illustre la phase de prédiction du chikungunya au paraguay. 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.9\linewidth]{images/prediction_paraguay}
+	\includegraphics[width=0.85\linewidth]{images/prediction_paraguay}
 	\caption{Prédiction Paraguay}
 	\label{fig:predictionparaguay}
 \end{figure}

@@ -16,28 +16,107 @@ Les analyses et traitements de données réalisés dans le cadre de cette étude
 Ces caractéristiques matérielles, bien que modestes, ont suffi pour la gestion et l'analyse des données de cette étude. Cependant, le processus d'entraînement des modèles a nécessité une gestion efficace des ressources, notamment en optimisant le code pour éviter des surcharges de mémoire.
 
 \subsection{Outil Logiciel}
-Les logiciels et outils de programmation utilisés dans cette étude sont les suivants :
+Les logiciels et outils de programmation utilisés dans cette étude sont les suivants :\\
+%	\begin{itemize}
+%		\item Visual Studio Code (VSCode) : Utilisé pour l'édition du code et l'exécution de scripts Python.
+%		\item Jupyter Notebook : Principalement utilisé pour le prototypage rapide et l'exploration des données.
+%		\item Google Colab : Employé pour l'exécution de modèles sur des datasets volumineux grâce aux ressources cloud.
+%	\end{itemize}
+%	\item \textbf{Bibliothèques Python :}
+%	\begin{itemize}
+%		\item \textbf{Pandas :} Manipulation des données, notamment pour le nettoyage, la transformation, et l'agrégation des datasets.
+%		\item \textbf{BeautifulSoup :} Scraping des données climatiques depuis des sources en ligne, permettant de compléter les datasets de cas de Chikungunya avec des données météorologiques pertinentes.
+%		\item \textbf{NumPy :} Réalisation des calculs numériques, en particulier pour les opérations de vecteurisation et de manipulation de matrices, essentiels dans le prétraitement des données et les calculs statistiques.
+%		\item \textbf{Scikit-learn :} Développement et validation des modèles de machine learning, tels que la régression linéaire, les arbres de décision, et les modèles d'ensemble. Cette bibliothèque a été cruciale pour la mise en œuvre des modèles prédictifs.
+%		\item \textbf{Matplotlib et Seaborn :} Visualisation des données, permettant de créer des graphiques explicatifs pour mieux comprendre la distribution des données et les performances des modèles.
+%	\end{itemize}
+%	\item \textbf{Système de gestion de versions :}
+%	\begin{itemize}
+%		\item \textbf{Git :} Utilisé pour le contrôle des versions et la gestion collaborative du code. Chaque modification a été suivie et documentée, facilitant ainsi le travail en équipe et l'historisation des changements.
+%	\end{itemize}
 
-\begin{itemize}
-	\item \textbf{Éditeurs de texte et environnements de développement :}
-	\begin{itemize}
-		\item Visual Studio Code (VSCode) : Utilisé pour l'édition du code et l'exécution de scripts Python.
-		\item Jupyter Notebook : Principalement utilisé pour le prototypage rapide et l'exploration des données.
-		\item Google Colab : Employé pour l'exécution de modèles sur des datasets volumineux grâce aux ressources cloud.
-	\end{itemize}
-	\item \textbf{Bibliothèques Python :}
-	\begin{itemize}
-		\item \textbf{Pandas :} Manipulation des données, notamment pour le nettoyage, la transformation, et l'agrégation des datasets.
-		\item \textbf{BeautifulSoup :} Scraping des données climatiques depuis des sources en ligne, permettant de compléter les datasets de cas de Chikungunya avec des données météorologiques pertinentes.
-		\item \textbf{NumPy :} Réalisation des calculs numériques, en particulier pour les opérations de vecteurisation et de manipulation de matrices, essentiels dans le prétraitement des données et les calculs statistiques.
-		\item \textbf{Scikit-learn :} Développement et validation des modèles de machine learning, tels que la régression linéaire, les arbres de décision, et les modèles d'ensemble. Cette bibliothèque a été cruciale pour la mise en œuvre des modèles prédictifs.
-		\item \textbf{Matplotlib et Seaborn :} Visualisation des données, permettant de créer des graphiques explicatifs pour mieux comprendre la distribution des données et les performances des modèles.
-	\end{itemize}
-	\item \textbf{Système de gestion de versions :}
-	\begin{itemize}
-		\item \textbf{Git :} Utilisé pour le contrôle des versions et la gestion collaborative du code. Chaque modification a été suivie et documentée, facilitant ainsi le travail en équipe et l'historisation des changements.
-	\end{itemize}
-\end{itemize}
+\begin{minipage}[t]{0.46\textwidth}
+	\begin{center}
+		\textbf{Visual Studio Code (VSCode)}
+		\includegraphics[width=0.35\textwidth]{images/logoVSCODE}\\
+	\end{center} 
+	 % Remplacez par le chemin de votre logo
+	\textbf{Description} : Visual Studio Code est un éditeur de code source léger mais puissant. Utilisé pour l'écriture, l'édition, et l'exécution de scripts Python.
+	% VSCode offre des fonctionnalités avancées telles que le débogage intégré, la gestion des versions avec Git, et un large éventail d'extensions pour divers langages de programmation.
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.46\textwidth}
+	 
+	\begin{center}
+		\textbf{Jupyter Notebook}
+		\includegraphics[width=0.6\textwidth]{images/logoJupyter}\\
+	\end{center} % Remplacez par le chemin de votre logo
+    \textbf{Description} : Jupyter Notebook est un environnement interactif qui permet la création et le partage de documents contenant du code exécutable, des visualisations et des textes. %Principalement utilisé pour le prototypage rapide, l'exploration des données, et la présentation des résultats sous forme de notebooks interactifs.
+\end{minipage}
+\vspace{8em}
+
+\begin{minipage}[t]{0.46\textwidth}
+	\begin{center}
+		\textbf{Google Colab} \\
+		\includegraphics[width=0.5\textwidth]{images/logoColabs}\\ % Remplacez par le chemin de votre logo
+	\end{center}
+	\textbf{Description} : Google Colab est un service en ligne qui permet d'exécuter des notebooks Jupyter dans le cloud. Il est utilisé pour exécuter des modèles sur des datasets volumineux en tirant parti des ressources de calcul de Google, telles que les GPU et les TPU, pour accélérer les processus de calcul.
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.46\textwidth}
+	\begin{center}
+		\textbf{Pandas} \\
+		\includegraphics[width=0.6\textwidth]{images/logoPandas} % Remplacez par le chemin de votre logo
+	\end{center}
+    \textbf{Description} : Pandas est une bibliothèque essentielle pour la manipulation et l'analyse des données. Elle fournit des structures de données flexibles pour le nettoyage, la transformation, et l'agrégation des datasets, et est largement utilisée pour le prétraitement des données avant l'analyse ou la modélisation.
+\end{minipage}
+
+\vspace{1em}
+\begin{minipage}[t]{0.46\textwidth}
+	\begin{center}
+		\textbf{BeautifulSoup} \\
+		\includegraphics[width=0.6\textwidth]{images/logobeautifulsoup} % Remplacez par le chemin de votre logo
+	\end{center}
+	\textbf{Description} : BeautifulSoup est une bibliothèque pour le scraping web, permettant d'extraire des données de pages HTML et XML. Elle est utile pour obtenir des données climatiques et d'autres informations pertinentes depuis des sources en ligne, complétant ainsi les datasets de Chikungunya.
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.46\textwidth}
+	\begin{center}
+		\textbf{Numpy} \\
+		\includegraphics[width=0.6\linewidth]{images/logoNumpy}
+	\end{center}
+	\textbf{Description} : NumPy est une bibliothèque fondamentale pour le calcul scientifique en Python. Elle fournit des structures de données comme les tableaux multidimensionnels et des fonctions pour des opérations mathématiques rapides, essentielles pour le prétraitement des données et les calculs numériques.
+\end{minipage}
+
+\vspace{1em}
+
+\begin{minipage}[t]{0.46\textwidth}
+	\begin{center}
+		\textbf{Scikit-learn}\\
+		\includegraphics[width=0.6\linewidth]{images/logoSckitlearn}\\
+	\end{center}
+	\textbf{Description} : Scikit-learn est une bibliothèque de machine learning qui fournit des outils pour le développement et la validation de modèles prédictifs. Elle inclut des algorithmes tels que la régression, les arbres de décision, et les méthodes d'ensemble.
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.46\textwidth}
+	\begin{center}
+		\textbf{Matplotlib et Seaborn} \\
+		\includegraphics[width=0.7\linewidth]{images/logoMatplotlib&seaborn}
+	\end{center}
+	%\includegraphics[width=0.6\textwidth]{logo_matplotlib.png} % Remplacez par le chemin de votre logo
+	\textbf{Description} : Matplotlib et Seaborn sont des bibliothèques pour la visualisation des données. Matplotlib permet de créer des graphiques statiques, tandis que Seaborn facilite la création de visualisations plus informatives et esthétiques.
+\end{minipage}
+
+\vspace{3em}
+
+\begin{minipage}[t]{1\textwidth}
+	\begin{center}
+		\includegraphics[width=0.23\linewidth]{images/logoGit}
+	\end{center}
+	%\includegraphics[width=0.6\textwidth]{logo_git.png} % Remplacez par le chemin de votre logo
+	\textbf{Description} : Git est un système de contrôle des versions décentralisé qui permet de suivre les modifications du code source au fil du temps. Il est utilisé pour gérer les versions du code, faciliter la collaboration entre développeurs, et maintenir un historique détaillé des changements, ce qui est essentiel pour une gestion efficace du code source.
+\end{minipage}
+
 
 %\textit{vanishing gradient}\footnote{Le \textit{vanishing gradient}
 
@@ -99,63 +178,64 @@ Le \textit{rolling}, ou calcul de moyennes mobiles, est une autre technique qui 
 
 \subparagraph{Justification de l'utilisation}
 
-L'utilisation de \textit{shifting} et de \textit{rolling} dans le \textit{feature engineering} est justifiée par leur capacité à enrichir le jeu de données avec des informations temporelles cruciales. En créant des variables \textit{lagged} à partir de \textit{shifting}, nous permettons au modèle de capturer l'effet des valeurs passées, ce qui est fondamental pour les prévisions à court et moyen terme. Le \textit{rolling}, quant à lui, permet de capturer les tendances et de lisser les variations erratiques des séries, rendant les prédictions plus robustes face aux fluctuations à court terme. Ainsi, ces techniques d'ingénierie des caractéristiques sont indispensables pour améliorer la précision et la fiabilité des modèles prédictifs appliqués aux séries temporelles.
+L'utilisation de \textit{shifting} et de \textit{rolling} dans le \textit{feature engineering} est justifiée par leur capacité à enrichir le jeu de données avec des informations temporelles cruciales. En créant des variables \textit{lagged}\footnote{Une variable \textit{lagged} désigne une variable dont les valeurs sont décalées dans le temps, permettant ainsi d'incorporer l'effet des observations passées dans un modèle prédictif. Cette technique est particulièrement utile pour modéliser les séries temporelles et capturer les dépendances temporelles.} à partir de \textit{shifting}, nous permettons au modèle de capturer l'effet des valeurs passées, ce qui est fondamental pour les prévisions à court et moyen terme. Le \textit{rolling}, quant à lui, permet de capturer les tendances et de lisser les variations erratiques des séries, rendant les prédictions plus robustes face aux fluctuations à court terme. Ainsi, ces techniques d'ingénierie des caractéristiques sont indispensables pour améliorer la précision et la fiabilité des modèles prédictifs appliqués aux séries temporelles.
+
 
 \subsubsection{Exploration des Données}
 Dans cette section, nous allons explorer nos données de manière détaillée. Nous commencerons par présenter les entêtes des différents jeux de données, puis nous analyserons l'évolution du Chikungunya au fil du temps dans les pays étudiés. Enfin, nous mettrons en évidence les corrélations entre les features, en particulier les données climatiques et épidémiologiques.
 
 \subsubsection*{Les Entêtes des Données}
 \begin{itemize}
-	\item \textbf{Entêtes des données climatiques} : La figure ci-dessous illustre les principales variables disponibles dans les jeux de données climatiques, qui incluent la date, la température, l'humidité et les précipitations.
+	\item \textbf{Entêtes des données climatiques} : La figure \ref{fig:climatedatasetsample} illustre les principales variables disponibles dans les jeux de données climatiques, qui incluent la date, la température, l'humidité et les précipitations.
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.7\linewidth]{images/climate_dataset_sample}
-		\caption[Exemple d'entêtes des données climatiques]{Exemple d'entêtes des données climatiques}
+		\includegraphics[width=0.8\linewidth]{images/climate_dataset_sample}
+		\caption[Exemple d'entêtes des données climatiques]{Exemple d'entêtes des données climatiques (Cas du brésil)}
 		\label{fig:climatedatasetsample}
 	\end{figure}
 	
-	\item \textbf{Entêtes des données épidémiologiques} : La figure suivante montre les principales variables présentes dans les jeux de données épidémiologiques, couvrant les cas de Chikungunya au fil du temps.
+	\item \textbf{Entêtes des données épidémiologiques} : La figure \ref{fig:casesdatasetsample} montre les principales variables présentes dans les jeux de données épidémiologiques, couvrant les cas de Chikungunya au fil du temps.
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.5\linewidth]{images/cases_dataset_sample}
-		\caption[Exemple d'entêtes des données épidémiologiques]{Exemple d'entêtes des données épidémiologiques}
+		\includegraphics[width=0.7\linewidth]{images/cases_dataset_sample}
+		\caption[Exemple d'entêtes des données épidémiologiques]{Exemple d'entêtes des données épidémiologiques (Cas du Brésil)}
 		\label{fig:casesdatasetsample}
 	\end{figure}
 \end{itemize}
 
-Ainsi, lorsque nous associons les données épidémiologiques aux données climatiques, l'entête du jeu de données résultant est illustrée dans la figure ci-dessous :
+Ainsi, lorsque nous associons les données épidémiologiques aux données climatiques, l'entête du jeu de données résultant est illustrée dans la figure \ref{fig:datasetsample} :
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.7\linewidth]{images/dataset_sample}
-	\caption{Exemple du dataset final combinant les données climatiques et épidémiologiques}
+	\includegraphics[width=0.8\linewidth]{images/dataset_sample}
+	\caption{Exemple du dataset final combinant les données climatiques et épidémiologiques(Cas du Brésil)}
 	\label{fig:datasetsample}
 \end{figure}
 
 \subsubsection*{Illustration de l'Évolution du Chikungunya}
 \begin{itemize}
 	\item \textbf{Cas du Tchad}\\
-	L'émergence du virus au Tchad a été observée entre le \textbf{14 août 2020} et le \textbf{1er octobre 2020}.
+	L'émergence du virus au Tchad a été observée entre le \textbf{14 août 2020} et le \textbf{1er octobre 2020} illustré sur la figure \ref{fig:casechad}.
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.6\linewidth]{images/case_chad}
+		\includegraphics[width=0.9\linewidth]{images/case_chad}
 		\caption[Évolution du Chikungunya au Tchad]{Évolution du Chikungunya au Tchad}
 		\label{fig:casechad}
 	\end{figure}
 	
 	\item \textbf{Cas du Brésil}\\
-	L'épidémie au Brésil s'est étendue du \textbf{1er janvier 2013} au \textbf{31 décembre 2017}.
+	L'épidémie au Brésil s'est étendue du \textbf{1er janvier 2013} au \textbf{31 décembre 2017} illustré sur la figure \ref{fig:casebrazil}.
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.6\linewidth]{images/case_brazil}
+		\includegraphics[width=0.9\linewidth]{images/case_brazil}
 		\caption[Évolution du Chikungunya au Brésil]{Évolution du Chikungunya au Brésil}
 		\label{fig:casebrazil}
 	\end{figure}
 	
 	\item \textbf{Cas du Paraguay}\\
-	L'épidémie au Paraguay a également été observée entre le \textbf{1er janvier 2013} et le \textbf{31 décembre 2017}.
+	L'épidémie au Paraguay a également été observée entre le \textbf{1er janvier 2013} et le \textbf{31 décembre 2017} Voir figure \ref{fig:caseparaguay}.
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.6\linewidth]{images/case_paraguay}
+		\includegraphics[width=0.9\linewidth]{images/case_paraguay}
 		\caption[Évolution du Chikungunya au Paraguay]{Évolution du Chikungunya au Paraguay}
 		\label{fig:caseparaguay}
 	\end{figure}
@@ -179,11 +259,15 @@ Pour prédire les cas de chikungunya, nous avons choisi d'utiliser plusieurs mod
 \subsubsection{Random Forest Regressor}
 La \textbf{Random Forest Regression} en \textit{machine learning} est une technique d'\textbf{ensemble} capable d'exécuter des tâches de \textbf{régression} et de \textbf{classification} en utilisant plusieurs \textbf{arbres de décision} et une méthode appelée \textbf{Bootstrap and Aggregation}, communément connue sous le nom de \textit{bagging}. L'idée principale derrière cette approche est de combiner plusieurs arbres de décision pour déterminer le résultat final, plutôt que de se fier à un seul arbre de décision.
 
-Dans une \textbf{Random Forest}, plusieurs arbres de décision servent de modèles d'apprentissage de base. On effectue un \textbf{échantillonnage aléatoire des lignes} (\textit{row sampling}) et des \textbf{caractéristiques} (\textit{feature sampling}) à partir du jeu de données, formant ainsi des sous-ensembles de données pour chaque modèle. Cette étape est appelée \textit{Bootstrap}.
+Dans une \textbf{Random Forest}, plusieurs arbres de décision servent de modèles d'apprentissage de base (Voir la figure \ref{fig:schemarandomforest}). On effectue un \textbf{échantillonnage aléatoire des lignes} (\textit{row sampling}) et des \textbf{caractéristiques} (\textit{feature sampling}) à partir du jeu de données, formant ainsi des sous-ensembles de données pour chaque modèle. Cette étape est appelée \textit{Bootstrap}.
+
+\paragraph*{Hyperparamètres:}
+Les hyperparamètres du modèle ont été ajustés à l'aide de la recherche en grille (\textbf{Grid Search}) pour optimiser la performance qui seront illustré dans le chapitre 4.
+
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.7\linewidth]{images/schema_random_forest}
-	\caption[Random Forest Regression]{Random Forest Regression working}
+	\includegraphics[width=0.8\linewidth]{images/schema_random_forest}
+	\caption{fonctionnement Random Forest Regression~\cite{randomforestref}}
 	\label{fig:schemarandomforest}
 \end{figure}
 
@@ -191,7 +275,7 @@ Dans une \textbf{Random Forest}, plusieurs arbres de décision servent de modèl
 \subsubsection{XGBoost Regressor avec Grid Search}
 
 L'algorithme XGBoost  est un modèle de boosting qui utilise des arbres de décision comme base
-\textbf{XGBoost} (Extreme Gradient Boosting) est une technique puissante pour construire des modèles de régression supervisée. Son efficacité repose sur sa \textbf{fonction objective} et ses \textbf{apprenants de base}. La fonction objective de \textbf{XGBoost} comprend une \textbf{fonction de perte} et un \textbf{terme de régularisation}. La fonction de perte mesure la différence entre les valeurs réelles et les valeurs prédites, ce qui indique à quel point les prédictions du modèle sont proches des valeurs réelles. Pour les problèmes de régression, la fonction de perte la plus courante dans \textbf{XGBoost} est \texttt{reg:linear}, tandis que pour la classification binaire, il s'agit de \texttt{reg:logistic}.Ce modèle est reconnu pour sa haute performance, particulièrement lorsqu'il est combiné avec une recherche en grille pour optimiser les hyperparamètres.
+\textbf{XGBoost} (Extreme Gradient Boosting) est une technique puissante pour construire des modèles de régression supervisée. Son efficacité repose sur sa \textbf{fonction objective} et ses \textbf{apprenants de base}. La fonction objective de \textbf{XGBoost} comprend une \textbf{fonction de perte} et un \textbf{terme de régularisation} (Voir la figure \ref{fig:schemaxgboost}). La fonction de perte mesure la différence entre les valeurs réelles et les valeurs prédites, ce qui indique à quel point les prédictions du modèle sont proches des valeurs réelles. Pour les problèmes de régression, la fonction de perte la plus courante dans \textbf{XGBoost} est \texttt{reg:linear}, tandis que pour la classification binaire, il s'agit de \texttt{reg:logistic}.Ce modèle est reconnu pour sa haute performance, particulièrement lorsqu'il est combiné avec une recherche en grille pour optimiser les hyperparamètres.
 
 
 \paragraph*{Hyperparamètres:}
@@ -199,26 +283,26 @@ Les hyperparamètres du modèle ont été ajustés à l'aide de la recherche en 
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.7\linewidth]{images/schema_xgboost}
-	\caption{Architecture Générale XGboost}
+	\includegraphics[width=0.8\linewidth]{images/schema_xgboost}
+	\caption{Architecture Générale XGboost~\cite{xgboostref}}
 	\label{fig:schemaxgboost}
 \end{figure}
 
 
 \subsubsection{Ensemble Model (Voting Regressor)}
 
-Pour tirer parti des forces de chaque modèle, nous avons implémenté un modèle d'ensemble, le \textbf{Voting Regressor}, qui combine les prédictions du \textit{Random Forest}, du \textit{XGBoost optimisé}, et d'une \textit{régression linéaire}. Ce modèle utilise une méthode de vote pondéré pour calculer la prédiction finale, offrant ainsi une plus grande stabilité et précision.
+Pour tirer parti des forces de chaque modèle, nous avons implémenté un modèle d'ensemble, le \textbf{Voting Regressor}, qui combine les prédictions du \textit{Random Forest}, du \textit{XGBoost optimisé}, et d'une \textit{régression linéaire}. Ce modèle utilise une méthode de vote pondéré pour calculer la prédiction finale, offrant ainsi une plus grande stabilité et précision (Voir la figure \ref{fig:schemaensemble}).
 
 Un \textbf{Voting Regressor} peut être défini comme une méthode spéciale qui combine ou \textbf{ensemence} plusieurs modèles de régression et surpasse les modèles individuels qui le composent. Le concept mathématique du \textbf{Voting Regressor} est assez simple et très similaire à celui du \textbf{Voting Classifier}. Si l'on considère une foule de modèles de machine learning comme \(M_1, M_2,\dots , M_x\), alors chaque modèle \(M_n\) produira une prédiction \(P_n\) pour une donnée d'entrée \(I\). Maintenant, si nous passons ces prédictions à travers le \textbf{Voting Regressor}, la prédiction finale sera \(P_{\text{voting}}\). Nous pouvons alors choisir le mode de moyenne simple qui distribue uniformément le poids total à tous les modèles ou bien choisir des poids personnalisés pour chaque modèle, ce qu'on appelle la \textbf{moyenne pondérée}.
 
 \textbf{Pour la moyenne simple :} 
 \[
-P_{\text{voting}}=\frac{1}{x}\sum_{n=1}^x{P_n}       
+P_{\text{voting}}=\frac{1}{x}\sum_{n=1}^x{P_n}  ,     
 \]
 
 \textbf{Pour la moyenne pondérée :} 
 \[
-P_{\text{voting}}=\sum_{n=1}^x (\text{wt}_{n} \cdot P_n)
+P_{\text{voting}}=\sum_{n=1}^x (\text{wt}_{n} \cdot P_n) ,
 \]
 où \(\text{wt}_n\) sont les poids personnalisés assignés pendant le processus d'entraînement.
 
@@ -227,7 +311,7 @@ Mais l'expression ou le concept mathématique ne suffit pas à comprendre direct
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.8\linewidth]{images/schema_ensemble}
-	\caption{Votting Regressor Architecture}
+	\includegraphics[width=0.9\linewidth]{images/Architecture}
+	\caption{Architecture Votting Regressor}
 	\label{fig:schemaensemble}
 \end{figure}

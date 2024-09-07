@@ -1,4 +1,4 @@
-\documentclass[a4paper]{report}
+\documentclass[a4paper,12pt]{report}
 
 %====================== PACKAGES ======================
 \usepackage{multirow}
@@ -79,7 +79,9 @@ hidelinks}                              % désactive les cadres autour des liens
 
 \input{./chapters/remerciement.tex}
 
+\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
 \tableofcontents
+\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
 %\thispagestyle{empty}
 %\setcounter{page}{0}
 % ne pas numéroter le sommaire
@@ -106,7 +108,7 @@ hidelinks}                              % désactive les cadres autour des liens
 \thispagestyle{empty}
 % recommencer la numérotation des pages à "1"
 \pagenumbering{arabic} % ndam njoya 
-\setcounter{page}{0}
+\setcounter{page}{1}
 \newpage
 
 \input{./chapters/intro-generale.tex}
