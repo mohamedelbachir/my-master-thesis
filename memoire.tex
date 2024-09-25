@@ -1,14 +1,14 @@
-\documentclass[a4paper,12pt]{report}
+\documentclass[a4paper,12pt,french]{report}
 
 %====================== PACKAGES ======================
 \usepackage{multirow}
-\usepackage[french]{babel}
+%\usepackage[french]{babel}
 \usepackage[utf8x]{inputenc}
 %pour gérer les positionnement d'images
 \usepackage{float}
 \usepackage{amsmath}
 \usepackage{graphicx}
-\usepackage[colorinlistoftodos]{todonotes}
+%\usepackage[colorinlistoftodos]{todonotes}
 \usepackage{url}
 %pour les informations sur un document compilé en PDF et les liens externes / internes
 \usepackage{hyperref}
@@ -33,13 +33,14 @@
 \usepackage{algorithm}
 \usepackage{algpseudocode}
 \usepackage{longtable}
-\usepackage{babel}
-
-
+\usepackage[Glenn]{fncychap}
+\ChNameUpperCase
+\ChNumVar{\fontsize{40}{42}\usefont{OT1}{ptm}{m}{n}\selectfont}
+\ChTitleVar{\Large}
 %pour l'ajout de la table des matières dans la table des matières ndam njoya
 \usepackage{tocbibind} 
-
-
+\usepackage{color}
+\usepackage[french]{babel}
 %====================== INFORMATION ET REGLES ======================
 
 %rajouter les numérotation pour les \paragraphe et \subparagraphe
@@ -138,7 +139,7 @@ hidelinks}                              % désactive les cadres autour des liens
 \bibliography{bibliographie}
 % voir wiki pour plus d'information sur la syntaxe des entrées d'une bibliographie
 
-%\input{./chapters/annexes.tex}
+\input{./chapters/annexes.tex}
 
 \newpage
 \end{spacing}{}

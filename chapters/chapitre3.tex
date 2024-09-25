@@ -35,91 +35,83 @@ Les logiciels et outils de programmation utilisés dans cette étude sont les su
 %		\item \textbf{Git :} Utilisé pour le contrôle des versions et la gestion collaborative du code. Chaque modification a été suivie et documentée, facilitant ainsi le travail en équipe et l'historisation des changements.
 %	\end{itemize}
 
-\begin{minipage}[t]{0.46\textwidth}
-	\begin{center}
-		\textbf{Visual Studio Code (VSCode)}
-		\includegraphics[width=0.35\textwidth]{images/logoVSCODE}\\
-	\end{center} 
-	 % Remplacez par le chemin de votre logo
-	\textbf{Description} : Visual Studio Code est un éditeur de code source léger mais puissant. Utilisé pour l'écriture, l'édition, et l'exécution de scripts Python.
-	% VSCode offre des fonctionnalités avancées telles que le débogage intégré, la gestion des versions avec Git, et un large éventail d'extensions pour divers langages de programmation.
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.46\textwidth}
-	 
-	\begin{center}
-		\textbf{Jupyter Notebook}
-		\includegraphics[width=0.6\textwidth]{images/logoJupyter}\\
-	\end{center} % Remplacez par le chemin de votre logo
-    \textbf{Description} : Jupyter Notebook est un environnement interactif qui permet la création et le partage de documents contenant du code exécutable, des visualisations et des textes. %Principalement utilisé pour le prototypage rapide, l'exploration des données, et la présentation des résultats sous forme de notebooks interactifs.
-\end{minipage}
-\vspace{8em}
-
-\begin{minipage}[t]{0.46\textwidth}
-	\begin{center}
-		\textbf{Google Colab} \\
-		\includegraphics[width=0.5\textwidth]{images/logoColabs}\\ % Remplacez par le chemin de votre logo
-	\end{center}
-	\textbf{Description} : Google Colab est un service en ligne qui permet d'exécuter des notebooks Jupyter dans le cloud. Il est utilisé pour exécuter des modèles sur des datasets volumineux en tirant parti des ressources de calcul de Google, telles que les GPU et les TPU, pour accélérer les processus de calcul.
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.46\textwidth}
-	\begin{center}
-		\textbf{Pandas} \\
-		\includegraphics[width=0.6\textwidth]{images/logoPandas} % Remplacez par le chemin de votre logo
-	\end{center}
-    \textbf{Description} : Pandas est une bibliothèque essentielle pour la manipulation et l'analyse des données. Elle fournit des structures de données flexibles pour le nettoyage, la transformation, et l'agrégation des datasets, et est largement utilisée pour le prétraitement des données avant l'analyse ou la modélisation.
-\end{minipage}
-
-\vspace{1em}
-\begin{minipage}[t]{0.46\textwidth}
-	\begin{center}
-		\textbf{BeautifulSoup} \\
-		\includegraphics[width=0.6\textwidth]{images/logobeautifulsoup} % Remplacez par le chemin de votre logo
-	\end{center}
-	\textbf{Description} : BeautifulSoup est une bibliothèque pour le scraping web, permettant d'extraire des données de pages HTML et XML. Elle est utile pour obtenir des données climatiques et d'autres informations pertinentes depuis des sources en ligne, complétant ainsi les datasets de Chikungunya.
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.46\textwidth}
-	\begin{center}
-		\textbf{Numpy} \\
-		\includegraphics[width=0.6\linewidth]{images/logoNumpy}
-	\end{center}
-	\textbf{Description} : NumPy est une bibliothèque fondamentale pour le calcul scientifique en Python. Elle fournit des structures de données comme les tableaux multidimensionnels et des fonctions pour des opérations mathématiques rapides, essentielles pour le prétraitement des données et les calculs numériques.
-\end{minipage}
+\begin{figure}[h!]
+	\centering
+	\begin{minipage}[t]{0.46\textwidth}
+		\centering
+		\includegraphics[width=0.4\textwidth]{images/logoVSCODE} \\ % Adjust width as needed
+		\caption[Logo VSCODE]{Visual Studio Code (VSCode): Visual Studio Code est un éditeur de code source léger mais puissant. Utilisé pour l'écriture, l'édition, et l'exécution de scripts Python. VSCode offre des fonctionnalités avancées telles que le débogage intégré, la gestion des versions avec Git, et un large éventail d'extensions pour divers langages de programmation.}
+		\label{fig:vscode}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.46\textwidth}
+		\centering
+		\includegraphics[width=0.8\textwidth]{images/logoJupyter} \\ % Adjust width as needed
+		\caption[Logo Jupyter Notebook]{Jupyter Notebook: Jupyter Notebook est un environnement interactif qui permet la création et le partage de documents contenant du code exécutable, des visualisations et des textes. Principalement utilisé pour le prototypage rapide, l'exploration des données, et la présentation des résultats sous forme de notebooks interactifs.}
+		\label{fig:jupyter}
+	\end{minipage}
+\end{figure}
 
 \vspace{1em}
 
-\begin{minipage}[t]{0.46\textwidth}
-	\begin{center}
-		\textbf{Scikit-learn}\\
-		\includegraphics[width=0.6\linewidth]{images/logoSckitlearn}\\
-	\end{center}
-	\textbf{Description} : Scikit-learn est une bibliothèque de machine learning qui fournit des outils pour le développement et la validation de modèles prédictifs. Elle inclut des algorithmes tels que la régression, les arbres de décision, et les méthodes d'ensemble.
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.46\textwidth}
-	\begin{center}
-		\textbf{Matplotlib et Seaborn} \\
-		\includegraphics[width=0.7\linewidth]{images/logoMatplotlib&seaborn}
-	\end{center}
-	%\includegraphics[width=0.6\textwidth]{logo_matplotlib.png} % Remplacez par le chemin de votre logo
-	\textbf{Description} : Matplotlib et Seaborn sont des bibliothèques pour la visualisation des données. Matplotlib permet de créer des graphiques statiques, tandis que Seaborn facilite la création de visualisations plus informatives et esthétiques.
-\end{minipage}
+\begin{figure}[h!]
+	\centering
+	\begin{minipage}[t]{0.46\textwidth}
+		\centering
+		\includegraphics[width=0.6\textwidth]{images/logoColabs} \\ % Adjust width as needed
+		\caption[Logo Google Colab]{Google Colab: Google Colab est un service en ligne qui permet d'exécuter des notebooks Jupyter dans le cloud. Il est utilisé pour exécuter des modèles sur des datasets volumineux en tirant parti des ressources de calcul de Google, telles que les GPU et les TPU, pour accélérer les processus de calcul.}
+		\label{fig:colab}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.46\textwidth}
+		\centering
+		\includegraphics[width=0.8\textwidth]{images/logoPandas} \\ % Adjust width as needed
+		\caption[Logo Pandas]{Pandas: Pandas est une bibliothèque essentielle pour la manipulation et l'analyse des données. Elle fournit des structures de données flexibles pour le nettoyage, la transformation, et l'agrégation des datasets, et est largement utilisée pour le prétraitement des données avant l'analyse ou la modélisation.}
+		\label{fig:pandas}
+	\end{minipage}
+\end{figure}
 
-\vspace{3em}
+\vspace{1em}
 
-\begin{minipage}[t]{1\textwidth}
-	\begin{center}
-		\includegraphics[width=0.23\linewidth]{images/logoGit}
-	\end{center}
-	%\includegraphics[width=0.6\textwidth]{logo_git.png} % Remplacez par le chemin de votre logo
-	\textbf{Description} : Git est un système de contrôle des versions décentralisé qui permet de suivre les modifications du code source au fil du temps. Il est utilisé pour gérer les versions du code, faciliter la collaboration entre développeurs, et maintenir un historique détaillé des changements, ce qui est essentiel pour une gestion efficace du code source.
-\end{minipage}
+\begin{figure}[h!]
+	\centering
+	\begin{minipage}[t]{0.46\textwidth}
+		\centering
+		\includegraphics[width=0.8\textwidth]{images/logobeautifulsoup} \\ % Adjust width as needed
+		\caption[Logo BeautifulSoup]{BeautifulSoup: BeautifulSoup est une bibliothèque pour le scraping web, permettant d'extraire des données de pages HTML et XML. Elle est utile pour obtenir des données climatiques et d'autres informations pertinentes depuis des sources en ligne, complétant ainsi les datasets de Chikungunya.}
+		\label{fig:beautifulsoup}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.46\textwidth}
+		\centering
+		\includegraphics[width=0.8\textwidth]{images/logoNumpy} \\ % Adjust width as needed
+		\caption[Logo Numpy]{NumPy: NumPy est une bibliothèque fondamentale pour le calcul scientifique en Python. Elle fournit des structures de données comme les tableaux multidimensionnels et des fonctions pour des opérations mathématiques rapides, essentielles pour le prétraitement des données et les calculs numériques.}
+		\label{fig:numpy}
+	\end{minipage}
+\end{figure}
+
+\vspace{1em}
+
+\begin{figure}[h!]
+	\centering
+	\begin{minipage}[t]{0.46\textwidth}
+		\centering
+		\includegraphics[width=0.8\textwidth]{images/logoSckitlearn} \\ % Adjust width as needed
+		\caption[Logo Scikit-learn]{Scikit-learn: Scikit-learn est une bibliothèque de machine learning qui fournit des outils pour le développement et la validation de modèles prédictifs. Elle inclut des algorithmes tels que la régression, les arbres de décision, et les méthodes d'ensemble.}
+		\label{fig:sckitlearn}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.46\textwidth}
+		\centering
+		\includegraphics[width=0.8\textwidth]{images/logoMatplotlib&seaborn} \\ % Adjust width as needed
+		\caption[Logo Matplotlib et Seaborn]{Matplotlib et Seaborn: Matplotlib et Seaborn sont des bibliothèques pour la visualisation des données. Matplotlib permet de créer des graphiques statiques, tandis que Seaborn facilite la création de visualisations plus informatives et esthétiques.}
+		\label{fig:matplotlib_seaborn}
+	\end{minipage}
+\end{figure}
 
 
 %\textit{vanishing gradient}\footnote{Le \textit{vanishing gradient}
-
+\newpage
 \section{Méthodes}
 Cette section décrit les méthodes que nous avons utilisées.
 
@@ -128,14 +120,14 @@ Les données utilisées dans cette étude proviennent de diverses sources fiable
 \subsubsection{Données épidémiologiques}
 \begin{itemize}
 	\item Pour le \textbf{Tchad} : les données épidémiologiques ont été extraites d'un rapport~\cite{rapport2020oms} de l'Organisation Mondiale de la Santé (OMS) lors de l'émergence du Chikungunya en \textbf{2020}. Ce dataset couvre la période allant du \textit{12 août 2020} au \textit{10 novembre 2020}
-	\item Concernant le \textbf{Brésil} : les données ont été recueillies à partir du site de mendeley\footnote{\url{https://data.mendeley.com/datasets/2d3kr8zynf/2}} . Cet ensemble de données présente des informations cliniques, \textbf{sociodémographiques} et de laboratoire relatives aux patients confirmés atteints de \textit{dengue} et de \textit{chikungunya}. Il couvre la période de \textbf{2013} à \textbf{2020}, mais pour cette thèse, nous avons restreint notre analyse à l'intervalle de \textbf{2013} à \textbf{2017}.
+	\item Concernant le \textbf{Brésil} : les données ont été recueillies à partir du site de mendeley\footnote{\url{https://data.mendeley.com/datasets/2d3kr8zynf/2}}~\cite{Oliveira2021}. Cet ensemble de données présente des informations cliniques, \textbf{sociodémographiques} et de laboratoire relatives aux patients confirmés atteints de \textit{dengue} et de \textit{chikungunya}. Il couvre la période de \textbf{2013} à \textbf{2020}, mais pour cette thèse, nous avons restreint notre analyse à l'intervalle de \textbf{2013} à \textbf{2017}.
 	\item Pour le \textbf{Paraguay} : les données ont été collectées via le site de la PAHO\footnote{\url{https://www3.paho.org/data/index.php/en/mnu-topics/chikv-en/550-chikv-weekly-en.html}} , qui rapporte les cas de Chikungunya en temps réel, avec des enregistrements hebdomadaires variant entre 2013 et 2017.
 \end{itemize}
 \subsubsection{Données climatiques}
 Les données climatiques pour ces trois pays ont été obtenues à partir du site weatherandclimate\footnote{\url{http://weatherandclimate.com/}}, correspondant aux mêmes intervalles temporels que les cas de Chikungunya dans chaque pays à savoir : 
 \begin{itemize}
 	\item Au \textbf{Tchad} : dans les villes de biltine,Abeche et Abdi oú il y'à eu l'epidemie.
-	\item Au \textbf{Brésil} : dans les villes Amapá,Bahia,Ceará,Espírito Santo,Distrito Federal,Goiás,Maranhão,Minas Gerais,Mato Grosso do Sul,Mato Grosso,Pará,Paraíba,Pernambuco,Piauí,Paraná,Rio de Janeiro,Rio Grande do Norte,Rondônia,Roraima,Rio Grande do Sul,Santa Catarina,Sergipe,São Paulo et Tocantins oú il y'à eu l'epidemie.
+	\item Au \textbf{Brésil} : dans les villes Amapá,Bahia,Ceará,Espírito Santo,Distrito Federal,Goiás,Maranhão,\\Minas Gerais,Mato Grosso do Sul,Mato Grosso,Pará,Paraíba,Pernambuco,Piauí,Paraná,Rio de Janeiro,Rio Grande do Norte,Rondônia,Roraima,Rio Grande do Sul,Santa Catarina,Sergipe,\\São Paulo et Tocantins oú il y'à eu l'epidemie.
 	\item Au \textbf{Paraguay} : asuncion,central oú il y'à eu l'epidemie.
 \end{itemize}.
 Ces données comprennent des paramètres tels que l'humidité, la température et les précipitations, essentiels pour étudier l'impact des conditions météorologiques sur la propagation de la maladie.

@@ -190,12 +190,12 @@ Le \textit{systèmes d'ensemble}, ont gagné en popularité au sein de la commun
 
 \subsection{Définition}
 
-L'\textbf{apprentissage par ensemble} est une méthode dans laquelle plusieurs \textbf{modèles} sont créés et combinés de manière stratégique pour améliorer la performance et la robustesse dans la résolution d'un problème spécifique d'intelligence computationnelle\footnote{L'intelligence computationnelle est un domaine qui s'inspire de mécanismes biologiques et cognitifs pour concevoir des systèmes capables de résoudre des problèmes complexes.}. L'apprentissage par ensemble est principalement utilisé pour améliorer les performances d'un modèle ou réduire la probabilité de sélectionner un modèle médiocre~\cite{Machine2020Batta}. 
+L'\textbf{apprentissage par ensemble} est une méthode dans laquelle plusieurs \textbf{modèles} sont créés et combinés de manière stratégique pour améliorer la performance et la robustesse dans la résolution d'un problème spécifique d'intelligence computationnelle\footnote{L'intelligence computationnelle est un domaine qui s'inspire de mécanismes biologiques et cognitifs pour concevoir des systèmes capables de résoudre des problèmes complexes.}, il peut être utilisé dans problèmes de \textbf{régression} ou de \textbf{Classification} . L'apprentissage par ensemble est principalement utilisé pour améliorer les performances d'un modèle ou réduire la probabilité de sélectionner un modèle médiocre~\cite{Machine2020Batta}. 
 
 \subsection{principes de fonctionnement}
 Les \textbf{systèmes d'ensemble} sont inspirés par notre pratique quotidienne de consulter divers \textit{experts} avant de prendre des décisions importantes, comme consulter plusieurs médecins avant une opération ou lire des avis avant un achat. Cette approche vise à augmenter notre confiance dans la décision finale en combinant différentes opinions.
 
-En apprentissage automatique, les systèmes d'ensemble améliorent la \textbf{précision} en abordant les deux composantes principales de l'erreur de classification : le \textbf{biais} et la \textbf{variance} (Voir la figure \ref{fig:arr-ens}). Le biais reflète la précision d'un classificateur\footnote{Un classificateur est un modèle d'apprentissage automatique qui affecte une entrée à une catégorie ou classe spécifique en fonction des caractéristiques observées.}, tandis que la variance mesure la précision lors de l'utilisation de différents ensembles de données d'apprentissage. Généralement, un faible biais est associé à une variance élevée, et vice versa. Les systèmes d'ensemble cherchent à créer plusieurs classificateurs avec un biais similaire et à combiner leurs résultats, par exemple par \textbf{moyenne}, pour \textbf{réduire la variance} \cite{polikar2012ensemble}.
+En apprentissage automatique, les systèmes d'ensemble améliorent la \textbf{précision} en abordant les deux composantes principales de l'erreur de classification : le \textbf{biais} et la \textbf{variance} (Voir la figure \ref{fig:arr-ens}).Le \textbf{biais} mesure la différence moyenne entre les valeurs prédites et les valeurs réelles, tandis que la \textbf{variance} mesure la précision lors de l'utilisation de différents ensembles de données d'apprentissage. Généralement, un faible biais est associé à une variance élevée, et vice versa. Les systèmes d'ensemble cherchent à créer plusieurs modèle avec un biais similaire et à combiner leurs résultats, par exemple par \textbf{moyenne}, pour \textbf{réduire la variance} \cite{polikar2012ensemble}.
 
 \begin{figure}[h!]
 	\centering
@@ -204,6 +204,19 @@ En apprentissage automatique, les systèmes d'ensemble améliorent la \textbf{pr
 	\label{fig:arr-ens}
 \end{figure}
 \newpage
+\subsection{Type d'ensemble learning}
+La littérature classe largement les méthodes d'apprentissage d'ensemble dans l'apprentissage automatique en deux groupes : parallèles et séquentielles (voir figure \ref{fig:typeens}).
+\begin{itemize}
+	\item Les~\textbf{méthodes parallèles} : entraînent chaque apprenant de base indépendamment des autres.
+	\item Les \textbf{méthodes séquentielles} : forment un nouvel apprenant de base de manière à ce qu'il minimise les erreurs commises par le modèle précédent formé à l'étape précédente. En d'autres termes, les méthodes séquentielles construisent des modèles de base de manière séquentielle par étapes.
+\end{itemize}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.9\linewidth]{images/typeEns}
+	\caption{type ensemble learning}
+	\label{fig:typeens}
+\end{figure}
+
 \subsection{Techniques d'Ensemble Learning}
 
 Les premiers travaux sur les \textbf{systèmes d'ensemble} sont attribués à Dasarathy et Sheela (1979), qui ont exploré le \textbf{partitionnement de l'espace des caractéristiques} en utilisant plusieurs \textbf{classificateurs}\footnote{Un classificateur est un algorithme d'apprentissage automatique qui attribue une étiquette ou une classe à des données en fonction de leurs caractéristiques observées.}~\cite{dasarathy1979}. Dix ans plus tard, Hansen et Salamon ont démontré que l'utilisation d'un \textbf{système d'ensemble} pouvait améliorer les performances de \textbf{classification}~\cite{hansen1990}. Cependant, c'est Schapire qui a marqué un tournant en introduisant le concept de \textbf{boosting}, montrant qu'un \textbf{classificateur puissant} pouvait être construit à partir de classificateurs ayant une performance légèrement supérieure à celle d'une simple supposition aléatoire~\cite{schapire1990}. Cette théorie a abouti à l'algorithme \textbf{AdaBoost}, largement utilisé pour les problèmes de \textbf{classification multi-classes} et de \textbf{régression}~\cite{freund1997}.
@@ -212,20 +225,23 @@ Depuis ces travaux fondateurs, la recherche sur les systèmes d'ensemble s'est i
 
 Ces systèmes sont principalement appliqués dans deux contextes : \textbf{la sélection de classificateurs} et \textbf{la fusion de classificateurs}~\cite{kuncheva2004}. Dans le cadre de la sélection, chaque classificateur est spécialisé dans une région spécifique de l'espace des données, et celui qui correspond le mieux aux données en question est sélectionné pour prendre la décision finale. En revanche, dans la fusion, tous les classificateurs contribuent à la décision, ce qui permet de créer un classificateur composite avec une \textbf{variance} plus faible, réduisant ainsi l'erreur globale~\cite{breiman1996, freund1997}.
 
-\subsubsection*{Construction d'un système d'ensemble}
+\subsubsection{Construction d'un système d'ensemble}
 Trois stratégies doivent être choisies pour construire un système d'ensemble efficace : (1) \textbf{échantillonnage/sélection des données} ; (2) \textbf{formation des classificateurs membres} ; et (3) \textbf{combinaison des classificateurs}.
 
-\subsubsection{Échantillonnage et sélection des données : Diversité}
-Dans les \textbf{systèmes d'ensemble}, la diversité des erreurs entre les membres est cruciale. Si tous les membres fournissent les mêmes résultats, leur combinaison n'apporte aucun bénéfice. Il est donc essentiel que les membres commettent des erreurs différentes, idéalement avec des résultats indépendants ou négativement corrélés.
+\begin{enumerate}
+	\item \textbf{Échantillonnage et sélection des données : Diversité}
+	\qquad Dans les \textbf{systèmes d'ensemble}, la diversité des erreurs entre les membres est cruciale. Si tous les membres fournissent les mêmes résultats, leur combinaison n'apporte aucun bénéfice. Il est donc essentiel que les membres commettent des erreurs différentes, idéalement avec des résultats indépendants ou négativement corrélés.
+	
+	La diversité peut être obtenue par diverses stratégies, comme l'utilisation de différents sous-ensembles des données d'apprentissage. Par exemple, le \textbf{bagging} utilise des répliques bootstrapées des données, tandis que le \textbf{boosting} se concentre sur les échantillons mal classés. D'autres méthodes incluent l'utilisation de sous-ensembles des \textbf{caractéristiques} disponibles ou différents \textbf{classificateurs} de base. Malgré l'importance reconnue de la diversité pour améliorer la performance des ensembles, aucune relation explicite entre la diversité et la précision de l'ensemble n'a été clairement établie ~\cite{polikar2012ensemble}.
+	
+	\item \textbf{Formation des classificateurs de membres}
+	\qquad Au cœur de tout système basé sur un ensemble se trouve la stratégie utilisée pour former les membres individuels de l'ensemble. De nombreux algorithmes concurrents ont été développés pour former les classificateurs d'ensemble ; cependant, le \textit{bagging} (et les algorithmes apparentés arc-x4 et Random Forest), le \textit{boosting} (et ses nombreuses variations), la \textit{stack generalization} et le \textit{hierarchical MoE} restent les approches les plus couramment employées.
+	
+	\item \textbf{Combinaison des membres de l'ensemble} : 
+	\qquad La dernière étape des \textbf{systèmes d'ensemble} est la \textbf{combinaison des classificateurs} individuels. La stratégie de combinaison dépend du type de classificateurs utilisés. Par exemple, certains classificateurs comme les \textbf{Support Vector Machines (SVM)} produisent des sorties discrètes, pour lesquelles les règles de combinaison les plus courantes sont le \textbf{majority voting} (simple ou pondéré) et le \textbf{Borda count}. D'autres classificateurs, tels que le \textbf{multilayer perceptron} ou le \textbf{naïve Bayes classifier}, fournissent des sorties continues indiquant le soutien pour chaque classe. Pour ces classificateurs, une gamme plus large d'options est disponible, telles que les \textbf{arithmetic combinators} (somme, produit, moyenne) ou des \textbf{decision models} plus sophistiqués. Certains de ces combinateurs peuvent être appliqués immédiatement après l'apprentissage, tandis que des méthodes plus complexes comme \textbf{stacking} ou \textbf{hierarchical MoE} peuvent nécessiter une étape d'apprentissage supplémentaire. Nous examinerons brièvement ces approches.
+\end{enumerate}
 
-La diversité peut être obtenue par diverses stratégies, comme l'utilisation de différents sous-ensembles des données d'apprentissage. Par exemple, le \textbf{bagging} utilise des répliques bootstrapées des données, tandis que le \textbf{boosting} se concentre sur les échantillons mal classés. D'autres méthodes incluent l'utilisation de sous-ensembles des \textbf{caractéristiques} disponibles ou différents \textbf{classificateurs} de base. Malgré l'importance reconnue de la diversité pour améliorer la performance des ensembles, aucune relation explicite entre la diversité et la précision de l'ensemble n'a été clairement établie ~\cite{polikar2012ensemble}.
-
-\subsubsection{Formation des classificateurs de membres}
-Au cœur de tout système basé sur un ensemble se trouve la stratégie utilisée pour former les membres individuels de l'ensemble. De nombreux algorithmes concurrents ont été développés pour former les classificateurs d'ensemble ; cependant, le \textit{bagging} (et les algorithmes apparentés arc-x4 et Random Forest), le \textit{boosting} (et ses nombreuses variations), la \textit{stack generalization} et le \textit{hierarchical MoE} restent les approches les plus couramment employées.
-
-\subsubsection{Combinaison des membres de l'ensemble}
-La dernière étape des \textbf{systèmes d'ensemble} est la \textbf{combinaison des classificateurs} individuels. La stratégie de combinaison dépend du type de classificateurs utilisés. Par exemple, certains classificateurs comme les \textbf{Support Vector Machines (SVM)} produisent des sorties discrètes, pour lesquelles les règles de combinaison les plus courantes sont le \textbf{majority voting} (simple ou pondéré) et le \textbf{Borda count}. D'autres classificateurs, tels que le \textbf{multilayer perceptron} ou le \textbf{naïve Bayes classifier}, fournissent des sorties continues indiquant le soutien pour chaque classe. Pour ces classificateurs, une gamme plus large d'options est disponible, telles que les \textbf{arithmetic combinators} (somme, produit, moyenne) ou des \textbf{decision models} plus sophistiqués. Certains de ces combinateurs peuvent être appliqués immédiatement après l'apprentissage, tandis que des méthodes plus complexes comme \textbf{stacking} ou \textbf{hierarchical MoE} peuvent nécessiter une étape d'apprentissage supplémentaire. Nous examinerons brièvement ces approches.
-\subsubsection*{Combining Class Labels (Combinaison des étiquettes de classe)}
+\subsubsection*{Combinaison des étiquettes de classe}
 Cette sous-section se concentre sur les scénarios où les classifieurs produisent des étiquettes de classe discrètes.
 
 \begin{itemize}
@@ -244,7 +260,7 @@ Cette sous-section se concentre sur les scénarios où les classifieurs produise
 	\item \textbf{Borda Count (Comptage Borda)} : Les classes sont classées par chaque classifieur, et la classe avec le score cumulé le plus élevé sur tous les classifieurs est sélectionnée.
 \end{itemize}
 
-\subsubsection*{Combining Continuous Outputs (Combinaison des sorties continues)}
+\subsubsection*{Combinaison des sorties continues}
 
 Cette sous-section traite des cas où les classifieurs produisent des sorties continues, souvent interprétées comme un support ou des probabilités pour chaque classe.
 
@@ -297,9 +313,20 @@ Les méthodes suivantes et leurs formules correspondantes sont :
 Ces méthodes offrent une gamme d'options pour combiner les sorties de classifieurs individuels dans un ensemble, permettant la flexibilité et l'adaptabilité à différents scénarios de problèmes.
 
 \subsection{Algorithmes populaires basés sur l'ensemble learning}
-Une riche collection de classificateurs basés sur des ensembles a été développée au cours des dernières années. Toutefois, nombre d'entre eux sont des variantes des quelques algorithmes bien établis dont les capacités ont également été largement testées et rapportées. Dans cette section, nous présentons une vue d'ensemble de certains des algorithmes d'ensemble les plus importants
+Une riche collection de classificateurs basés sur des ensembles a été développée au cours des dernières années. Toutefois, nombre d'entre eux sont des variantes des quelques algorithmes bien établis dont les capacités ont également été largement testées et rapportées. Dans cette section, nous présentons une vue d'ensemble de certains des algorithmes d'ensemble les plus importants.
 \subsubsection{Bagging}
 L'algorithme de \textbf{bagging} (Bootstrap Aggregation) de Breiman est une méthode d'\textbf{ensemble learning} simple mais efficace. Il consiste à entraîner plusieurs classificateurs sur différents échantillons \textbf{bootstrapés} du jeu de données d'entraînement. La \textbf{diversité} dans l'ensemble est assurée par les variations dans ces échantillons et l'utilisation de \textbf{classificateurs faibles} comme les \textit{decision stumps} ou les \textit{SVM linéaires}. La décision finale est prise par un \textbf{vote majoritaire}. Le \textbf{bagging} est particulièrement utile pour les petits jeux de données d'entraînement, tandis qu'une variante appelée \textit{Pasting Small Votes} traite les grands jeux de données en les partitionnant en segments plus petits. L'algorithme de \textbf{Random Forest} est une extension notable du \textbf{bagging}, combinant des \textbf{arbres de décision} entraînés avec une sélection aléatoire des instances et des caractéristiques~\cite{polikar2012ensemble}.
+
+Plus précisément, le bagging utilise une technique appelée bootstrap resampling pour dériver plusieurs nouveaux ensembles de données à partir d'un ensemble de données de formation initial afin de former plusieurs apprenants de base. Comment cela fonctionne-t-il ?\newpage
+\subsubsection*{Principe de fonctionnement}
+Supposons qu'un ensemble de données de formation contienne n exemples de formation. Le rééchantillonnage bootstrap copie n instances de données de cet ensemble dans un nouveau sous-ensemble de données, certaines instances initiales apparaissant plus d'une fois et d'autres étant entièrement exclues. Il s'agit d'échantillons bootstrap. En répétant ce processus x fois, on obtient x itérations de l'ensemble de données original, chacune contenant n échantillons de l'ensemble initial. Chaque itération de l'ensemble initial est ensuite utilisée pour former un apprenant de base distinct avec le même algorithme d'apprentissage, voir la figure \ref{fig:bagging}.
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.9\linewidth]{images/bagging}
+	\caption{Fonctionnement du bagging~\cite{ensIBM}}
+	\label{fig:bagging}
+\end{figure}
+
 %\begin{algorithm}
 %	\caption{An algorithm with caption}\label{alg:cap}
 %	\begin{algorithmic}
@@ -320,39 +347,19 @@ L'algorithme de \textbf{bagging} (Bootstrap Aggregation) de Breiman est une mét
 %	\end{algorithmic}
 %\end{algorithm}
 
-\begin{algorithm}
-	\caption{Bagging~\cite{polikar2012ensemble}}
-	\textbf{Entrées :} Données d'entraînement $S$ ; algorithme d'apprentissage supervisé \textit{BaseClassifier} ; entier $T$ spécifiant la taille de l'ensemble ; pourcentage $R$ pour créer les données d'entraînement bootstrapées.
-	\begin{algorithmic}
-		\For{$t = 1, \dots, T$}
-		\State Prendre une réplique bootstrapée $S_t$ en sélectionnant aléatoirement $R\%$ de $S$.
-		\State Appeler \textit{BaseClassifier} avec $S_t$ et recevoir l'hypothèse (classifieur) $h_t$.
-		\State Ajouter $h_t$ à l'ensemble, $\mathcal{H} = \mathcal{H} \cup \{h_t\}$.
-		\EndFor\\\\
-		\textbf{Combinaison de l'ensemble : Vote majoritaire simple}\\
-		\State Étant donné une instance non étiquetée $x$ :
-		\For{$t = 1, \dots, T$}
-		\State Évaluer l'ensemble $\mathcal{H} = \{h_1, \dots, h_T\}$ sur $x$.
-		\State Laisser $v_{t,c} = 1$ si $h_t$ choisit la classe $\omega_c$, et 0 sinon.
-		\EndFor
-		\State Obtenir le total des votes reçus par chaque classe : $V_c = \sum_{t=1}^{T} v_{t,c}, \; c = 1, \dots, C$.
-		\State \textbf{Sortie :} Classe avec le plus grand $V_c$.
-	\end{algorithmic}
-\end{algorithm}
 
+\subsubsection{Boosting}
+\textbf{Boosting}, introduit dans le travail \textit{séminal de Schapire} sur le renforcement de l'apprentissage faible, est une approche itérative pour générer un classifieur fort, capable d'atteindre une erreur d'apprentissage arbitrairement faible, à partir d'un ensemble de classifieurs faibles, chacun étant à peine meilleur qu'un choix aléatoire. Bien que le \textbf{Boosting} combine également un ensemble de classifieurs faibles en utilisant un \textbf{vote majoritaire simple}, il diffère du \textbf{Bagging} sur un point crucial. Dans le \textbf{Bagging}, les instances sélectionnées pour entraîner des classifieurs individuels sont des répliques bootstrapées des données d'entraînement, ce qui signifie que chaque instance a une chance égale d'être dans chaque ensemble de données d'entraînement. En revanche, dans le \textbf{Boosting}, l'ensemble de données d'entraînement pour chaque classifieur suivant se concentre de plus en plus sur les instances mal classées par les classifieurs générés précédemment.~\cite{polikar2012ensemble}.
+\subsection*{Principe de fonctionnement}
+Les algorithmes de \textbf{Boosting} sont une méthode \textbf{d'ensemble séquentielle}. Il existe de nombreuses variantes de cette méthode, mais elles suivent toutes la même procédure générale. Le boosting entraîne un apprenant sur un ensemble de données initial, d. L'apprenant qui en résulte est généralement faible et classe mal de nombreux échantillons de l'ensemble de données. À l'instar du bagging, le boosting échantillonne ensuite des instances de l'ensemble de données initial pour créer un nouvel ensemble de données (d2). Toutefois, contrairement au bagging, le boosting donne la priorité aux instances de données mal classées du premier modèle ou apprenant. Un nouvel apprenant est formé sur ce nouvel ensemble de données d2. Un troisième ensemble de données (d3) est ensuite compilé à partir de d1 et d2, en donnant la priorité aux échantillons mal classés du deuxième apprenant et aux cas pour lesquels d1 et d2 ne sont pas d'accord. Le processus se répète n fois pour produire n apprenants. L'optimisation combine et pondère ensuite tous les apprenants pour produire les prédictions finales (Voir la figure \ref{fig:boosting}).
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.9\linewidth]{images/boosting}
+	\caption{Fonctionnement du Boosting~\cite{ensIBM}}
+	\label{fig:boosting}
+\end{figure}
 
-\subsubsection{Boosting et AdaBoost}
-\textbf{Boosting}, introduit dans le travail \textit{séminal de Schapire} sur le renforcement de l'apprentissage faible, est une approche itérative pour générer un classifieur fort, capable d'atteindre une erreur d'apprentissage arbitrairement faible, à partir d'un ensemble de classifieurs faibles, chacun étant à peine meilleur qu'un choix aléatoire. Bien que le \textbf{Boosting} combine également un ensemble de classifieurs faibles en utilisant un \textbf{vote majoritaire simple}, il diffère du \textbf{Bagging} sur un point crucial. Dans le \textbf{Bagging}, les instances sélectionnées pour entraîner des classifieurs individuels sont des répliques bootstrapées des données d'entraînement, ce qui signifie que chaque instance a une chance égale d'être dans chaque ensemble de données d'entraînement. En revanche, dans le \textbf{Boosting}, l'ensemble de données d'entraînement pour chaque classifieur suivant se concentre de plus en plus sur les instances mal classées par les classifieurs générés précédemment.
-
-Le \textbf{Boosting}, conçu pour des problèmes de classification binaire, crée des ensembles de trois classifieurs faibles à la fois : le premier classifieur (ou hypothèse) $h_1$ est entraîné sur un sous-ensemble aléatoire des données d'entraînement disponibles, similaire au \textbf{Bagging}. Le deuxième classifieur, $h_2$, est entraîné sur un autre sous-ensemble des données d'origine, dont précisément la moitié est correctement identifiée par $h_1$ et l'autre moitié est mal classée. Un tel sous-ensemble d'entraînement est considéré comme le "plus informatif", étant donné la décision de $h_1$. Le troisième classifieur $h_3$ est ensuite entraîné avec les instances sur lesquelles $h_1$ et $h_2$ ne sont pas d'accord. Ces trois classifieurs sont ensuite combinés par un vote majoritaire à trois voies. Schapire a prouvé que l'erreur d'apprentissage de cet ensemble de trois classifieurs est bornée par $g(\epsilon) < 3\epsilon^2 - 2\epsilon^3$, où $\epsilon$ est l'erreur de chacun des trois classifieurs, à condition que chaque classifieur ait un taux d'erreur $\epsilon < 0.5$, ce qui est le minimum attendu d'un classifieur dans un problème de classification binaire.
-
-\textbf{AdaBoost} (pour \textit{Adaptive Boosting}) et ses nombreuses variations ont ensuite étendu l'algorithme original de \textbf{Boosting} à des problèmes de classification multiple (\textbf{AdaBoost.M1}, \textbf{AdaBoost.M2}), ainsi qu'à des problèmes de régression (\textbf{AdaBoost.R}). Ici, nous décrivons l'\textbf{AdaBoost.M1}, la version la plus populaire des algorithmes \textbf{AdaBoost}.
-
-L'\textbf{AdaBoost} présente deux différences fondamentales par rapport au \textbf{Boosting} : (1) les instances sont sélectionnées dans les ensembles de données successifs à partir d'une distribution d'échantillons itérativement mise à jour des données d'entraînement ; et (2) les classifieurs sont combinés par un \textbf{vote majoritaire pondéré}, où les poids des votes sont basés sur les erreurs d'entraînement des classifieurs, elles-mêmes pondérées selon la distribution d'échantillons. La distribution d'échantillons garantit que les échantillons plus difficiles, c'est-à-dire les instances mal classées par le classifieur précédent, sont plus susceptibles d'être inclus dans les données d'entraînement du classifieur suivant.
-
-Dans le pseudocode de l'\textbf{AdaBoost.M1} . La distribution d'échantillons, $D_t(i)$, attribue essentiellement un poids à chaque instance d'entraînement $x_i$, $i = 1, \dots, N$, à partir de laquelle les sous-ensembles de données d'entraînement $S_t$ sont tirés pour chaque classifieur consécutif (hypothèse) $h_t$. La distribution est initialisée pour être uniforme ; ainsi, toutes les instances ont la même probabilité d'être incluses dans le premier ensemble de données d'entraînement. L'erreur d'entraînement $\epsilon_t$ du classifieur $h_t$ est ensuite calculée comme la somme des poids de distribution de ces instances mal classées par $h_t$. L'\textbf{AdaBoost.M1} exige que cette erreur soit inférieure à $1/2$, laquelle est ensuite normalisée pour obtenir $\beta_t$, tel que $0 < \beta_t < 1$ pour $0 < \epsilon_t < 1/2$~\cite{polikar2012ensemble}.
-\subsection*{Exemples de Modèles Utilisant Boosting ou AdaBoost}
-
+\subsubsection*{Exemples de Modèles Utilisant Boosting }
 \begin{itemize}
 	\item \textbf{AdaBoost (Adaptive Boosting)} : 
 	AdaBoost est l'un des premiers algorithmes de boosting. Il combine plusieurs classificateurs faibles, souvent des arbres de décision simples appelés ``stumps'', pour former un classificateur fort.
@@ -368,42 +375,6 @@ Dans le pseudocode de l'\textbf{AdaBoost.M1} . La distribution d'échantillons, 
 	\item \textbf{CatBoost} : 
 	CatBoost est un algorithme de boosting développé par Yandex, qui est particulièrement efficace pour traiter automatiquement les variables catégorielles. Il est utilisé dans divers contextes de classification et de régression.
 \end{itemize}
-\begin{algorithm}
-	\caption{AdaBoost.M1~\cite{polikar2012ensemble}}
-	\textbf{Entrées :} Données d'apprentissage $\mathcal{D} = \{(x_i, y_i)\}$, $i = 1, \dots, N$, $y_i \in \{\omega_1, \dots, \omega_C\}$, apprenant supervisé \textit{BaseClassifier}; taille de l'ensemble $T$. \\
-	\textbf{Initialiser :} $D_1(i) = \frac{1}{N}, \forall i = 1, \dots, N$ \\
-	\textbf{Pour} $t = 1, 2, \dots, T$ \textbf{faire} : \\
-	\begin{algorithmic}[1]
-		\State Tirer un sous-ensemble d'apprentissage $S_t$ à partir de la distribution $D_t$.
-		\State Entraîner \textit{BaseClassifier} sur $S_t$, recevoir l'hypothèse $h_t: X \rightarrow Y$.
-		\State Calculer l'erreur de $h_t$ :
-		\[
-		\epsilon_t = \sum_{i=1}^{N} \mathbf{I}[h_t(x_i) \neq y_i] \cdot D_t(i)
-		\]
-		\If{$\epsilon_t > \frac{1}{2}$}
-		\State \textbf{abandonner}.
-		\EndIf
-		\State Définir 
-		\[
-		\beta_t = \frac{\epsilon_t}{1 - \epsilon_t}
-		\]
-		\State Mettre à jour la distribution d'échantillonnage :
-		\[
-		D_{t+1}(i) = \frac{D_t(i)}{Z_t} \times 
-		\begin{cases}
-			\beta_t, & \text{si } h_t(x_i) = y_i \\
-			1, & \text{sinon}
-		\end{cases}
-		\]
-		où $Z_t = \sum_{i=1}^{N} D_t(i)$ est une constante de normalisation pour garantir que $D_{t+1}$ est une fonction de distribution appropriée.
-		
-		\State \textbf{Vote majoritaire pondéré :} Étant donné une instance non étiquetée $z$, obtenir le total des votes reçus par chaque classe :
-		\[
-		V_c = \sum_{t: h_t(z)=\omega_c} \log \frac{1}{\beta_t}, \quad c = 1, \dots, C
-		\]
-		\textbf{Sortie :} Classe avec le plus grand $V_c$.
-	\end{algorithmic}
-\end{algorithm}
 \newpage
 \subsection{Tableau comparative entre le Bagging et le Boosting}
 Le tableau \ref{tab:bagging_vs_boosting} fait une comparaison sur certains critères entre le Bagging et Boosting
