@@ -74,51 +74,42 @@ Le tableau~\ref{tab:performance} ci-dessous illustre les métriques d’évaluat
 
 Les résultats obtenus montrent que le \textit{modèle d'ensemble}, en particulier le \textbf{Voting Regressor}, a globalement surpassé les autres modèles en termes de précision. Il a permis de réduire les erreurs (\textbf{MAE} et \textbf{RMSE}) et d'augmenter le score R\textsuperscript{2}, indiquant une meilleure explication de la variance des données.
 
-Pour le \textbf{Paraguay}, le \textbf{Voting Regressor} a obtenu un RMSE le plus faible (\textbf{68.1025}) et le meilleur score R\textsuperscript{2} (\textbf{0.5957}), surpassant les modèles RandomForestRegressor et XGBoostRegressor.
+Pour le \textbf{Paraguay}, le \textbf{Voting Regressor} a obtenu un RMSE  faible (\textbf{62.25}) et le meilleur score R\textsuperscript{2} (\textbf{0.5957}), surpassant les modèles LinearRegressor et XGBoostRegressor.
 
-Au \textbf{Brésil}, bien que le modèle RandomForestRegressor ait montré de très bonnes performances (RMSE de\textbf{ 281.1369} et R\textsuperscript{2} de \textbf{0.9111}), le \textbf{Voting Regressor} a réussi à obtenir des résultats comparables avec un RMSE particulièrement bas de \textbf{163.0350}.
+Au \textbf{Brésil}, bien que le modèle XgboostRegressor ait montré de très bonnes performances (RMSE de\textbf{1459.15} et R\textsuperscript{2} de \textbf{0.65}), le \textbf{Voting Regressor} a réussi à obtenir des résultats comparables avec un RMSE particulièrement bas de \textbf{1387.23}.
 
-Pour le \textbf{Tchad}, les performances des modèles étaient globalement plus faibles, mais le \textbf{Voting Regressor} a tout de même montré une légère amélioration par rapport aux autres modèles, bien que le score R\textsuperscript{2} reste faible (\textbf{0.3434}).
+Pour le \textbf{Tchad}, les performances des modèles étaient globalement plus faibles, mais le \textbf{Voting Regressor} a tout de même montré une légère amélioration par rapport aux autres modèles, bien que le score R\textsuperscript{2} reste faible (\textbf{0.282}).
 
 En conclusion, les modèles d'ensemble, et particulièrement le \textbf{Voting Regressor}, a révélés être les plus performants pour prédire les cas de Chikungunya dans les trois pays étudiés.Toutefois, avec des prédictions plus fiables pour le \textbf{Brésil} et le \textbf{Paraguay} que pour le Tchad, ce qui est dû à la quantité des données disponibles pour ce pays là.
 
-\begin{table}[!hbt]
+\begin{table}[h!]
 	\centering
-	\caption{Tableau de comparaison des différents modèles}
-	\label{tab:performance}
-	\begin{tabular}{|c|c|c|c|c|}	
+	\caption{Métriques de performance des modèles (MAE, RMSE, R² Score) pour le Brésil, le Tchad et le Paraguay}
+	\begin{tabular}{|c|c|c|c|c|}
 		
 		\hline
-		Pays & Modèle & MAE & RMSE & R\textsuperscript{2} score \\
+		\textbf{Pays} & \textbf{Modèle} & \textbf{MAE} & \textbf{RMSE} & \textbf{R² Score} \\ 
 		\hline
-		\multirow{4}{*}{Paraguay} & LinearRegressor & 65.4165 & 85.5322 & 0.3623 \\
-		\cline{2-5}
-		& RandomForestRegressor & 38.4501 & 69.9400 & 0.5736 \\
-		\cline{2-5}
-		& XGBoostRegressor & 40.4713 & 72.3494 & 0.5437 \\
-		\cline{2-5}
-		& \textbf{VotingRegressor} & \textbf{43.0001} & \textbf{68.1025} & \textbf{0.5957} \\
+		\multirow{4}{*}{Brésil} & Linear Regression & 1178.99 & 1591.25 & 0.447 \\ 
+		& Random Forest Regressor & 897.17  & 1477.20 & 0.523 \\ 
+		& XGBoost Regressor & 827.16  & 1459.15 & 0.535 \\ 
+		& \textbf{Voting Regressor} & \textbf{840.14}  & \textbf{1387.23} & \textbf{0.65} \\ 
 		\hline
-		\multirow{4}{*}{Brésil} & LinearRegressor & 299.0416 & 396.7418 & 0.8229 \\
-		\cline{2-5}
-		& RandomForestRegressor & 141.0863 & 281.1369 & 0.9111 \\
-		\cline{2-5}
-		& XGBoostRegressor & 154.3493 & 288.9261 & 0.9061\\
-		\cline{2-5}
-		& \textbf{VotingRegressor} & \textbf{163.0350}  & \textbf{163.0350} & \textbf{0.9108} \\
+		\multirow{4}{*}{Tchad}  & Linear Regression & 56.06   & 98.34   & 0.198 \\ 
+		& Random Forest Regressor & 47.81   & 80.90   & 0.457 \\ 
+		& XGBoost Regressor & 55.17   & 101.13  & 0.152 \\ 
+		& \textbf{Voting Regressor} & \textbf{50.52}   & \textbf{93.02}   & \textbf{0.282} \\ 
 		\hline
-		\multirow{4}{*}{Tchad} & LinearRegressor & 51.5692 & 90.1886 & 0.1344 \\
-		\cline{2-5}
-		& RandomForestRegressor & 49.2575 & 79.7674 & 0.3229 \\
-		\cline{2-5}
-		& XGBoostRegressor & 51.1603 & 80.1259 & 0.3168 \\
-		\cline{2-5}
-		& \textbf{VotingRegressor} & \textbf{47.6738} & \textbf{78.5506} & \textbf{0.3434} \\
+		\multirow{4}{*}{Paraguay} & Linear Regression & 67.15   & 84.68   & 0.332 \\ 
+		& Random Forest Regressor & 35.31   & 61.28   & 0.650 \\ 
+		& XGBoost Regressor & 40.32   & 71.95   & 0.517 \\ 
+		& \textbf{Voting Regressor} & \textbf{40.37}   & \textbf{62.25}   & \textbf{0.59,97} \\ 
 		\hline
 	\end{tabular}
+	
 \end{table}
 
-\subsection{Performance en RMSE et R2 Score}
+\subsection{Performance en RMSE , R2 Score et MAE}
 La figure \ref{fig:metriccomparaison} montre en termes de RMSE et de coefficient de détermination R2, le niveau de performance de chacun des modèles.
 \begin{figure}[h!]
 	\centering
@@ -154,15 +145,23 @@ La figure \ref{fig:predictionparaguay} illustre la phase de prédiction du chiku
 	\caption{Prédiction Paraguay}
 	\label{fig:predictionparaguay}
 \end{figure}
+\subsection{\textquotedblleft Forecasting\textquotedblright de la maladie au Brésil (3 ans)}
+La figure \ref{fig:prediction} illustre la phase de prédiction du chikungunya au brésil. 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.85\linewidth]{images/pred_chikv}
+	\caption{Prédiction Brésil}
+	\label{fig:prediction}
+\end{figure}
 \newpage
 \section{Discussion}
 
 Les résultats obtenus dans notre étude montrent une performance compétitive des modèles de régression appliqués aux données climatiques et épidémiologiques de la Chikungunya. En particulier, notre modèle d'ensemble \textit{Voting Regressor}, qui combine les prédictions des modèles \textit{Linear Regressor}, \textit{RandomForest Regressor}, et \textit{XGBoost Regressor}, a affiché des performances globalement supérieures aux autres modèles individuels, avec un \textbf{MAE} minimal et un \textbf{RMSE} relativement bas.
 
-Dans le cas du \textbf{Paraguay}, le \textit{Voting Regressor} a atteint un \textbf{MAE} de \textbf{43.00}, soit une amélioration par rapport au \textit{RandomForestRegressor} et au \textit{XGBoostRegressor} qui affichent des \textbf{MAE} respectifs de \textbf{38.45} et \textbf{40.47}. Le RMSE du \textit{Voting Regressor} est de 68.10, indiquant une bonne capacité de prédiction malgré la complexité des données épidémiologiques et climatiques. Le score R² de \textbf{0.5957 } montre que ce modèle explique environ 60 \% de la variance des données pour cette région, bien évidement que les techniques de \textbf{data augmentation} et du \textbf{KNNimputer} ont été d'une importance crucial sur ces résultats.
+Dans le cas du \textbf{Paraguay}, le \textit{Voting Regressor} a atteint un \textbf{MAE} de \textbf{40.37}, soit une amélioration par rapport au \textit{LinearRegressor}  qui affichent des \textbf{MAE} de \textbf{67.15} . Le RMSE du \textit{Voting Regressor} est de 62.25, indiquant une bonne capacité de prédiction malgré la complexité des données épidémiologiques et climatiques. Le score R² de \textbf{0.59 } montre que ce modèle explique environ 60 \% de la variance des données pour cette région, bien évidement que les techniques de \textbf{data augmentation} et du \textbf{KNNimputer} ont été d'une importance crucial sur ces résultats.
 
-Pour le \textbf{Brésil}, le \textit{Voting Regressor} a montré une robustesse similaire avec un score R² de \textbf{0.9108}, ce qui est légèrement inférieur à celui du \textit{RandomForestRegressor} mais supérieur au \textit{XGBoostRegressor} et un \textbf{RMSE} minimale (163.035) comparé aux autres modèles. Cela suggère que le \textit{Voting Regressor} parvient à combiner les forces de chaque modèle pour fournir des prédictions plus équilibrées.
+Pour le \textbf{Brésil}, le \textit{Voting Regressor} a montré une robustesse similaire avec un score R² de \textbf{0.65}, ce qui est supérieur à celui du \textit{RandomForestRegressor} et du \textit{XGBoostRegressor} et un \textbf{RMSE} minimale (1387.23) comparé aux autres modèles. Cela suggère que le \textit{Voting Regressor} parvient à combiner les forces de chaque modèle pour fournir des prédictions plus équilibrées.
 
-Au \textbf{Tchad}, bien que les performances générales des modèles soient moins élevées, le \textit{Voting Regressor} reste le modèle le plus performant avec un \textbf{MAE} de \textbf{47.67} et un RMSE de \textbf{78.55}. Le score R² de \textbf{0.3434} est le plus élevé parmi les modèles testés pour cette région, indiquant que ce modèle capture mieux la variance des données malgré des difficultés apparentes liées à la la quantité des données disponibles pour cette région, bien évidement que les techniques de \textbf{data augmentation} et du \textbf{KNNimputer} ont été d'une importance crucial sur ces résultats.
+Au \textbf{Tchad}, bien que les performances générales des modèles soient moins élevées, le \textit{Voting Regressor} reste le modèle le plus performant avec un \textbf{MAE} de \textbf{50.52} et un RMSE de \textbf{93.02}. Le score R² de \textbf{0.282} est le plus élevé parmi les modèles testés pour cette région, indiquant que ce modèle capture mieux la variance des données malgré des difficultés apparentes liées à la la quantité des données disponibles pour cette région, bien évidement que les techniques de \textbf{data augmentation} et du \textbf{KNNimputer} ont été d'une importance crucial sur ces résultats.
 
 Dans notre contexte, l'imprécision observée dans certaines régions, comme au Tchad, pourrait être due à un manque de prédicteurs ou de variables explicatives dans le modèle, ce qui suggère qu'une exploration plus approfondie des facteurs climatiques et épidémiologiques est nécessaire. De plus, l'impact des variables climatiques telles que la \textbf{température} et l'\textbf{humidité} mérite une attention particulière. Il a été observé, par exemple, qu'une augmentation de la température pourrait être associée à une diminution des cas de Chikungunya, tandis que l'\textbf{humidité} semble accroître ces cas. Ce genre de corrélations, bien que contre-intuitives, pourrait fournir des pistes intéressantes pour affiner les modèles prédictifs.

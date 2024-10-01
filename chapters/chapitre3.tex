@@ -124,7 +124,8 @@ Les données utilisées dans cette étude proviennent de diverses sources fiable
 	\item Pour le \textbf{Paraguay} : les données ont été collectées via le site de la PAHO\footnote{\url{https://www3.paho.org/data/index.php/en/mnu-topics/chikv-en/550-chikv-weekly-en.html}} , qui rapporte les cas de Chikungunya en temps réel, avec des enregistrements hebdomadaires variant entre 2013 et 2017.
 \end{itemize}
 \subsubsection{Données climatiques}
-Les données climatiques pour ces trois pays ont été obtenues à partir du site weatherandclimate\footnote{\url{http://weatherandclimate.com/}}, correspondant aux mêmes intervalles temporels que les cas de Chikungunya dans chaque pays à savoir : 
+Les données climatiques pour le Paraguay et le Tchad ont été obtenues à partir du site weatherandclimate\footnote{\url{http://weatherandclimate.com/}}, tandisque pour le Brésil ont été télécharger sur \textbf{Kaggle}\footnote{\url{https://www.kaggle.com/datasets/gregoryoliveira/brazil-weather-information-by-inmet}} récolté par \textbf{INMET} (Institut
+national de météorologie du Brésil) , correspondant aux mêmes intervalles temporels que les cas de Chikungunya dans chaque pays à savoir : 
 \begin{itemize}
 	\item Au \textbf{Tchad} : dans les villes de biltine,Abeche et Abdi oú il y'à eu l'epidemie.
 	\item Au \textbf{Brésil} : dans les villes Amapá,Bahia,Ceará,Espírito Santo,Distrito Federal,Goiás,Maranhão,\\Minas Gerais,Mato Grosso do Sul,Mato Grosso,Pará,Paraíba,Pernambuco,Piauí,Paraná,Rio de Janeiro,Rio Grande do Norte,Rondônia,Roraima,Rio Grande do Sul,Santa Catarina,Sergipe,\\São Paulo et Tocantins oú il y'à eu l'epidemie.
@@ -171,6 +172,14 @@ Le \textit{rolling}, ou calcul de moyennes mobiles, est une autre technique qui 
 \subparagraph{Justification de l'utilisation}
 
 L'utilisation de \textit{shifting} et de \textit{rolling} dans le \textit{feature engineering} est justifiée par leur capacité à enrichir le jeu de données avec des informations temporelles cruciales. En créant des variables \textit{lagged}\footnote{Une variable \textit{lagged} désigne une variable dont les valeurs sont décalées dans le temps, permettant ainsi d'incorporer l'effet des observations passées dans un modèle prédictif. Cette technique est particulièrement utile pour modéliser les séries temporelles et capturer les dépendances temporelles.} à partir de \textit{shifting}, nous permettons au modèle de capturer l'effet des valeurs passées, ce qui est fondamental pour les prévisions à court et moyen terme. Le \textit{rolling}, quant à lui, permet de capturer les tendances et de lisser les variations erratiques des séries, rendant les prédictions plus robustes face aux fluctuations à court terme. Ainsi, ces techniques d'ingénierie des caractéristiques sont indispensables pour améliorer la précision et la fiabilité des modèles prédictifs appliqués aux séries temporelles.
+La figure \ref{fig:perf_feat} illustre l'importance de ces technique dans la performance des modèles
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\linewidth]{images/img_perf}
+\vskip-1em
+\caption{Feature performant}
+\label{fig:perf_feat}
+\end{figure}
 
 
 \subsubsection{Exploration des Données}
@@ -215,10 +224,10 @@ Ainsi, lorsque nous associons les données épidémiologiques aux données clima
 	\end{figure}
 	
 	\item \textbf{Cas du Brésil}\\
-	L'épidémie au Brésil s'est étendue du \textbf{1er janvier 2013} au \textbf{31 décembre 2017} illustré sur la figure \ref{fig:casebrazil}.
+	L'épidémie au Brésil s'est étendue du \textbf{1er janvier 2013} au \textbf{31 décembre 2020} illustré sur la figure \ref{fig:casebrazil}.
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.9\linewidth]{images/case_brazil}
+		\includegraphics[width=0.9\linewidth]{images/cas_bresil}
 		\caption[Évolution du Chikungunya au Brésil]{Évolution du Chikungunya au Brésil}
 		\label{fig:casebrazil}
 	\end{figure}
@@ -304,6 +313,6 @@ Mais l'expression ou le concept mathématique ne suffit pas à comprendre direct
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.9\linewidth]{images/Architecture}
-	\caption{Architecture Votting Regressor}
+	\caption{Architecture modèle d'ensemble}
 	\label{fig:schemaensemble}
 \end{figure}

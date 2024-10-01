@@ -393,8 +393,6 @@ Le tableau \ref{tab:bagging_vs_boosting} fait une comparaison sur certains crit�
 		\hline
 		\textbf{Indépendance des Modèles} & Chaque modèle est construit indépendamment. & Les nouveaux modèles sont influencés par la performance des modèles précédents. \\
 		\hline
-		\textbf{Sélection des Données} & Différents sous-ensembles de données d'entraînement sont sélectionnés par échantillonnage aléatoire avec remplacement et méthodes d'échantillonnage aléatoire à partir de l'ensemble des données d'entraînement. & Les modèles sont entraînés de manière itérative, chaque nouveau modèle se concentrant sur la correction des erreurs (mauvais classifications ou résidus élevés) des modèles précédents. \\
-		\hline
 		\textbf{Problèmes Abordés} & Bagging essaie de résoudre le problème du surajustement (overfitting). & Boosting essaie de réduire le biais. \\
 		\hline
 		\textbf{Classification des Modèles} & Dans Bagging, les classificateurs de base sont entraînés en parallèle. & Dans Boosting, les classificateurs de base sont entraînés de manière séquentielle. \\
@@ -404,8 +402,16 @@ Le tableau \ref{tab:bagging_vs_boosting} fait une comparaison sur certains crit�
 	\end{tabular}
 	\label{tab:bagging_vs_boosting}
 \end{table}
+\subsection*{Les travaux sur l'apprentissage automatique dans l'epidéomologie}
+Dans [Roster K et \textit{Al} , 2022], prévision de la dengue dans les villes brésiliennes basée sur l'apprentissage automatique à l'aide de variables épidémiologiques et météorologiques
+\begin{itemize}
+	\item \textbf{Méthode} :
+	\begin{itemize}
+		\item algorithme de machine learning (random forests, naive model, gradient boosting regression, a feed-forward neural network ou support vector regression)
+		\item méthode du feature selection
+	\end{itemize}
+	\item \textbf{Résultat} : le modèle \textbf{random forests} était le plus performant
+	\item \textbf{Limites} : elle est basée sur les cas de Dengue
+\end{itemize}
 
-Parmi les travaux internationaux sur le chikungunya en utilisant l'ensemble learning nous avons : 
-
- \textit{Data Science System of Predicting and Detecting the Chikungunya Virus using Ensemble Techniques} par \textbf{Bommireddy Vijay Kumar Reddy, Shail Patel, Anayna Singh } et \textbf{al} le \textit{29 Decembre 2022} : . L'objectif principal des auteurs est d'utiliser des techniques d'ensemble pour trouver une approche novatrice et comparer ces techniques d'ensemble.
- 
+Dans [Rekha Gangula et \textit{Al} , 2023], prédiction de la maladie de la dengue basée sur l'apprentissage automatique d'ensemble avec des modèles d'élévation de la performance et de la précision, la \textbf{limite} est que la prediction était basé  uniquement sur des caractéristiques.
